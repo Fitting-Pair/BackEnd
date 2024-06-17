@@ -21,7 +21,6 @@ ex) “Fix: UserController의 로그인 기능 수정”
 | remove | 파일을 삭제만 한 경우  <br/>                           |
 
 ## 👾 Stack
-* * *
 ### Java 17
 ### Spring boot
 ### Mysql
