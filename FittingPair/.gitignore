@@ -40,3 +40,8 @@ out/
 ._.DS_Store
 **/.DS_Store
 **/._.DS_Store
+
+## properties ##
+.properties
+## yml ##
+.yml
