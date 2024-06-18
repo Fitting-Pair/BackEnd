@@ -18,5 +18,5 @@ public class Clothes {
     private Long id;
     private String clothesName;
     private String brand;
-//    private String clothesCategory;
+//    private String clothesCategory!!;
 }
