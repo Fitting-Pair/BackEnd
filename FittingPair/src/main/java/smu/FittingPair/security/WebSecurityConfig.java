@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -27,26 +28,20 @@ public class WebSecurityConfig {
     }
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        return http
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(
-                                new AntPathRequestMatcher("/login"),
-                                new AntPathRequestMatcher("/signup"),
-                                new AntPathRequestMatcher("/user")
-                                ).permitAll() //인증된 사용자 아니더라도 접근 허용
-                        .anyRequest().authenticated()
-//                .formLogin((formLogin -> formLogin
-////                        .loginPage("/login")
-////                        .defaultSuccessUrl("/articles")
-//                )
-//                        .logout(logout -> logout
-//                                .logoutSuccessUrl("/login")
-//                                .invaildateHttpSession(true)
-//
-//                        )
-                )
-                        .csrf(AbstractHttpConfigurer::disable)
-                        .build();
+        http
+                .formLogin(AbstractHttpConfigurer::disable)
+                .httpBasic(AbstractHttpConfigurer::disable)
+                .csrf(AbstractHttpConfigurer::disable);
+        http
+                .authorizeHttpRequests(
+                        (auth) -> auth
+                                .requestMatchers("/users/login","/","/users/logout","/users/signup").permitAll()
+                                .anyRequest().authenticated() //외에 다른 요청은 인증된 사용자만 가능
+                );
+        http
+                .sessionManagement((session) -> session //세션 비활성화
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+        return http.build();
 
     }
 
