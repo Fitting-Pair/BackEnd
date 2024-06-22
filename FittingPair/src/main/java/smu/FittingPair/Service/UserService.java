@@ -25,12 +25,13 @@ public class UserService {
         }
         return true;
     }
-    @Transactional(readOnly = true)
+    @Transactional
     public void signUp(SignUpRequestDto signUpRequestDto){
        if(checkDuplicatePhoneNum(signUpRequestDto)){
            usersRepository.save(signUpRequestDto.toEntity());
        }
     }
+
 
 
 
