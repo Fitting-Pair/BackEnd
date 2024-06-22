@@ -16,5 +16,5 @@ spring:
         format_sql: true
 #JWT
 jwt:
-  issuer:codingbear
-  secret_key:
+  issuer: codingbear
+  secret-key: smucodingbearsmucodingbearsmucodingbear
