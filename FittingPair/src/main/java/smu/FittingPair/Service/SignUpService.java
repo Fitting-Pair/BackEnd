@@ -9,16 +9,13 @@ import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.DuplicateKeyException;
 import smu.FittingPair.dto.SignUpRequestDto;
 import smu.FittingPair.error.exception.NotFoundException;
-import smu.FittingPair.model.CustomUserDetails;
 import smu.FittingPair.model.Users;
 
 import java.util.Optional;
 
-import static smu.FittingPair.dto.UserInfoResponseDto.to;
-
 @RequiredArgsConstructor
 @Service
-public class UserService {
+public class SignUpService {
     private final UsersRepository usersRepository;
 
     //중복된 전화번호 검사
