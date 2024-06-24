@@ -4,12 +4,17 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import smu.FittingPair.Repository.UsersRepository;
+import smu.FittingPair.dto.UserInfoResponseDto;
 import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.DuplicateKeyException;
 import smu.FittingPair.dto.SignUpRequestDto;
+import smu.FittingPair.error.exception.NotFoundException;
+import smu.FittingPair.model.CustomUserDetails;
 import smu.FittingPair.model.Users;
 
 import java.util.Optional;
+
+import static smu.FittingPair.dto.UserInfoResponseDto.to;
 
 @RequiredArgsConstructor
 @Service
@@ -30,6 +35,12 @@ public class UserService {
        if(checkDuplicatePhoneNum(signUpRequestDto)){
            usersRepository.save(signUpRequestDto.toEntity());
        }
+    }
+
+    public UserInfoResponseDto getUserInfo(Long id){
+        Optional<Users> OptionalUser = usersRepository.findById(id);
+        Users users = OptionalUser.orElseThrow(()-> new NotFoundException(ErrorCode.NOT_FOUND));
+        return UserInfoResponseDto.to(users);
     }
 
 
