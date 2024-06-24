@@ -19,7 +19,7 @@ public class UserController {
         return BaseResponse.ok();
     }
     @GetMapping("/users/{id}")
-    public BaseResponse<?> signup(@PathVariable Long id){
+    public BaseResponse<?> getUserInfo(@PathVariable Long id){
         return BaseResponse.ok(userService.getUserInfo(id));
     }
 
