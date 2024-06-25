@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter @Setter @Entity
 public class UserImg {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private Users users;

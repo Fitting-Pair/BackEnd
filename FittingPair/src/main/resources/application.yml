@@ -15,4 +15,7 @@ spring:
       hibernate:
         format_sql: true
     generate-ddl: true
-#JWT
+#  #JWT
+#  jwt:
+#    issuer:codingbear
+#    secret_key:

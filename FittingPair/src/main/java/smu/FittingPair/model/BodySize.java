@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Entity @Getter @Setter @RequiredArgsConstructor
 public class BodySize {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bodysize_id")
     private Long bodysize_id;
 

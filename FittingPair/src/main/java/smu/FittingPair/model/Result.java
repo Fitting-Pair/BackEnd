@@ -7,6 +7,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.apache.logging.log4j.util.Lazy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RequiredArgsConstructor
 @Entity @Getter @Setter
 public class Result {
@@ -21,6 +24,4 @@ public class Result {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mypage_id")
     private MyPage mypage;
-
-
 }
