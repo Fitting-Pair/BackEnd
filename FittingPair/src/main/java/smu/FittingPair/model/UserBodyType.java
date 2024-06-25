@@ -8,11 +8,11 @@ import lombok.Setter;
 @Getter @Setter @Entity
 @RequiredArgsConstructor
 public class UserBodyType {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userbodytype_id")
     private Long userbodytype_id;
 
-    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "user_idg")
+    @ManyToOne(fetch = FetchType.LAZY) @JoinColumn(name = "user_id")
     private Users users;
 
 }

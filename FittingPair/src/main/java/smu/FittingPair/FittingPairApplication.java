@@ -9,6 +9,7 @@ public class FittingPairApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(FittingPairApplication.class, args);
+
 	}
 
 }

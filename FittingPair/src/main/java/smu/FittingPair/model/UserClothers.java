@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity @Getter @Setter @RequiredArgsConstructor
 public class UserClothers {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userclothes_id")
     private Long userclothes_id;
 
