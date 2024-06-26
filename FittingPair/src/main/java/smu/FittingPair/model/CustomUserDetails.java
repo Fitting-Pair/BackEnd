@@ -1,8 +1,10 @@
 package smu.FittingPair.model;
 
+import jakarta.persistence.Entity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
@@ -14,7 +16,9 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Collection<GrantedAuthority> authorities = new ArrayList<>();
+        users.getRoles().forEach(e -> authorities.add(() -> String.valueOf(e)));
+        return authorities;
     }
 
     @Override
@@ -23,7 +27,5 @@ public class CustomUserDetails implements UserDetails {
     }
 
     @Override
-    public String getUsername() {
-        return users.getUserName();
-    }
+    public String getUsername() { return Long.toString(users.getId());}
 }
