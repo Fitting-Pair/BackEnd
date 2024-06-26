@@ -18,10 +18,12 @@ import java.util.List;
 public class Users {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String userName;
+    private String userName; //닉네임
     @Column(name="phone_number",nullable = false, unique = true)
     private String phoneNumber;
     private String gender;
     private Long height; //키
+    private String refreshToken;
+    private List<Role> roles;
 
 }
