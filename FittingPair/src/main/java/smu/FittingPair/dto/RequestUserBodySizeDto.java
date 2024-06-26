@@ -3,7 +3,7 @@ package smu.FittingPair.dto;
 import lombok.Data;
 
 @Data
-public class RequestUserBodySizeDTO {
+public class RequestUserBodySizeDto {
 
     private Long userID;
     private Long chest_size;

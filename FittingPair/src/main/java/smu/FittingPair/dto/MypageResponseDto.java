@@ -10,7 +10,7 @@ import java.util.List;
 
 @Getter
 @NoArgsConstructor
-public class MypageResponseDTO {
+public class MypageResponseDto {
     private List<String> UploadDate;
 
 

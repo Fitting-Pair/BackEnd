@@ -6,13 +6,13 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class ClothesDTO {
+public class ClothesDto {
     private String imgUrl;
     private String clothesName;
     private String clothesBrand;
 
     @Builder
-    public ClothesDTO(String imgUrl, String clothesName, String clothesBrand) {
+    public ClothesDto(String imgUrl, String clothesName, String clothesBrand) {
         this.imgUrl = imgUrl;
         this.clothesName = clothesName;
         this.clothesBrand = clothesBrand;
