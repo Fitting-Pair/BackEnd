@@ -1,4 +1,4 @@
-package smu.FittingPair.DTO;
+package smu.FittingPair.dto;
 
 import lombok.Builder;
 import smu.FittingPair.model.Users;
@@ -14,7 +14,7 @@ public class UserInfoResponseDTO {
     public static UserInfoResponseDTO to(Users users){
         return UserInfoResponseDTO.builder()
                 .id(users.getId())
-                .userName(users.getUsername())
+                .userName(users.getUserName())
                 .phoneNumber(users.getPhoneNumber())
                 .height(users.getHeight())
                 .gender(users.getGender())

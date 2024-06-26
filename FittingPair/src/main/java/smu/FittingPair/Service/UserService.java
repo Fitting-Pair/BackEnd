@@ -2,7 +2,7 @@ package smu.FittingPair.Service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import smu.FittingPair.DTO.RequestUserBodySizeDTO;
+import smu.FittingPair.dto.RequestUserBodySizeDTO;
 import smu.FittingPair.Repository.UserImgRepository;
 import smu.FittingPair.Repository.UsersRepository;
 import smu.FittingPair.model.UserImg;

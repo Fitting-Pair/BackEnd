@@ -1,4 +1,4 @@
-package smu.FittingPair.DTO;
+package smu.FittingPair.dto;
 
 import lombok.Builder;
 import lombok.Getter;
