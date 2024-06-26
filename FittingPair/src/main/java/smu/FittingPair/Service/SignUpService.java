@@ -9,8 +9,10 @@ import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.DuplicateKeyException;
 import smu.FittingPair.dto.SignUpRequestDto;
 import smu.FittingPair.error.exception.NotFoundException;
+import smu.FittingPair.model.Role;
 import smu.FittingPair.model.Users;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -30,7 +32,9 @@ public class SignUpService {
     @Transactional
     public void signUp(SignUpRequestDto signUpRequestDto){
        if(checkDuplicatePhoneNum(signUpRequestDto)){
-           usersRepository.save(signUpRequestDto.toEntity());
+           Users user = signUpRequestDto.toEntity();
+           usersRepository.save(user);
+           user.setRoles(List.of(Role.ROLE_USER));
        }
     }
 
