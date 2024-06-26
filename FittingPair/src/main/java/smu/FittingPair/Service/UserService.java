@@ -2,7 +2,7 @@ package smu.FittingPair.Service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import smu.FittingPair.dto.RequestUserBodySizeDTO;
+import smu.FittingPair.dto.RequestUserBodySizeDto;
 import smu.FittingPair.Repository.UserImgRepository;
 import smu.FittingPair.Repository.UsersRepository;
 import smu.FittingPair.model.UserImg;
@@ -16,7 +16,7 @@ public class UserService {
     private final UsersRepository usersRepository;
     private final UserImgRepository userImgRepository;
 
-    public void addUserBodySize(RequestUserBodySizeDTO requestUserBodySizeDTO) {
+    public void addUserBodySize(RequestUserBodySizeDto requestUserBodySizeDTO) {
         Optional<Users> byId = usersRepository.findById(requestUserBodySizeDTO.getUserID());
     }
 

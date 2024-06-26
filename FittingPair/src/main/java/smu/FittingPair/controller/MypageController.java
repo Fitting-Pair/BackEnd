@@ -2,7 +2,7 @@ package smu.FittingPair.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import smu.FittingPair.dto.UserNewResultDTO;
+import smu.FittingPair.dto.UserNewResultDto;
 import smu.FittingPair.Service.UserService;
 import smu.FittingPair.config.response.BaseResponse;
 
@@ -11,7 +11,7 @@ import smu.FittingPair.config.response.BaseResponse;
 public class MypageController {
     private final UserService userService;
     @PostMapping("/users/mypage")
-    public void addResult(@RequestBody UserNewResultDTO userNewResultDto) {
+    public void addResult(@RequestBody UserNewResultDto userNewResultDto) {
        // userService.addResult(userNewResultDto);
     }
 

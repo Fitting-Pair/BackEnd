@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import smu.FittingPair.dto.SignUpRequestDto;
 import smu.FittingPair.Repository.UsersRepository;
-import smu.FittingPair.dto.UserInfoResponseDTO;
+import smu.FittingPair.dto.UserInfoResponseDto;
 import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.DuplicateKeyException;
 import smu.FittingPair.error.exception.NotFoundException;
@@ -13,7 +13,6 @@ import smu.FittingPair.model.MyPage;
 import smu.FittingPair.model.Role;
 
 import smu.FittingPair.model.Users;
-import smu.FittingPair.utill.mapToEntity;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,10 +43,10 @@ public class SignUpService {
        }
     }
 
-    public UserInfoResponseDTO getUserInfo(Long id){
+    public UserInfoResponseDto getUserInfo(Long id){
         Optional<Users> OptionalUser = usersRepository.findById(id);
         Users users = OptionalUser.orElseThrow(()-> new NotFoundException(ErrorCode.NOT_FOUND));
-        return UserInfoResponseDTO.to(users);
+        return UserInfoResponseDto.to(users);
     }
 
 

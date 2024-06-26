@@ -10,25 +10,25 @@ import java.util.List;
 
 
 @Data @NoArgsConstructor
-public class UserNewResultDTO {
+public class UserNewResultDto {
 
     private Long userID;
     private String uploadDate;
     private String bodytypeFeatures;
     private String bodytypeCareful;
     private String imgUrl;
-    private List<ClothesDTO> outwear;
-    private List<ClothesDTO> top;
-    private List<ClothesDTO> bottom;
+    private List<ClothesDto> outwear;
+    private List<ClothesDto> top;
+    private List<ClothesDto> bottom;
 
     @Builder
-    public UserNewResultDTO(String uploadDate, String bodytypeFeatures, String bodytypeCareful, String imgUrl, List<ClothesDTO> clothesDTOList) {
+    public UserNewResultDto(String uploadDate, String bodytypeFeatures, String bodytypeCareful, String imgUrl, List<ClothesDto> clothesDtoList) {
         this.uploadDate = uploadDate;
         this.bodytypeFeatures = bodytypeFeatures;
         this.bodytypeCareful = bodytypeCareful;
         this.imgUrl = imgUrl;
-        this.outwear = clothesDTOList;
-        this.top = clothesDTOList;
-        this.bottom = clothesDTOList;
+        this.outwear = clothesDtoList;
+        this.top = clothesDtoList;
+        this.bottom = clothesDtoList;
     }
 }
