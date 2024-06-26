@@ -9,13 +9,8 @@ import smu.FittingPair.model.Users;
 @NoArgsConstructor
 public class LoginRequestDto {
     private String phoneNumber; //id
-    @Builder
     public LoginRequestDto(String phoneNumber){
         this.phoneNumber = phoneNumber;
     }
-//    public Users toEntity(){
-//        return Users.builder()
-//                .phoneNumber(phoneNumber)
-//                .build();
-//    }
+
 }
