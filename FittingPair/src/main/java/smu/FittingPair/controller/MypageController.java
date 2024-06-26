@@ -1,16 +1,26 @@
 package smu.FittingPair.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RestController;
-import smu.FittingPair.Repository.UsersRepository;
+import org.springframework.web.bind.annotation.*;
+import smu.FittingPair.DTO.UserNewResultDTO;
+import smu.FittingPair.Service.UserService;
+import smu.FittingPair.config.response.BaseResponse;
 
 @RestController
 @RequiredArgsConstructor
 public class MypageController {
-    private UsersRepository usersRepository;
+    private final UserService userService;
+    @PostMapping("/users/mypage")
+    public void addResult(@RequestBody UserNewResultDTO userNewResultDto) {
+       // userService.addResult(userNewResultDto);
+    }
 
-    //PostMapping("/users/mypage")
+    @GetMapping("/users/mypage/{id}")
+    public BaseResponse<?> getMypage(@PathVariable ("id") Long dd){
 
 
+
+        return BaseResponse.ok();
+    }
 
 }

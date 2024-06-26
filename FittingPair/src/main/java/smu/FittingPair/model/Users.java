@@ -1,13 +1,15 @@
 package smu.FittingPair.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.*;
-
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -27,15 +29,6 @@ public class Users implements UserDetails {
     @OneToOne (mappedBy = "users",cascade = CascadeType.PERSIST)
     private MyPage myPage;
 
-    @OneToMany
-    private List<UserImg> userImgsList;
-
-    @OneToMany(cascade = CascadeType.PERSIST)
-    private List<UserClothers> userClothers;
-
-    @OneToMany
-    private List<UserBodyType> userBodyTypes;
-
     @Builder
     public Users(String userName, String phoneNumber, String gender, Long height) {
         this.userName = userName;
@@ -49,10 +42,6 @@ public class Users implements UserDetails {
         this.myPage = myPage;
     }
 
-
-    public void setUsersClothes(List<UserClothers> clothes) {
-        this.userClothers = clothes;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -68,8 +57,5 @@ public class Users implements UserDetails {
     public String getUsername() {
         return userName;
     }
-
-
-
 
 }

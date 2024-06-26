@@ -1,6 +1,5 @@
 package smu.FittingPair.model;
 
-import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;

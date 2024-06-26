@@ -4,7 +4,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/fittingpair_test
     username: 'root'
-    password:
+    password: 'rlatmdwnd0970'
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
