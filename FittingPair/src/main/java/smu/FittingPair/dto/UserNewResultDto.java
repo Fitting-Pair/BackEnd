@@ -10,7 +10,9 @@ import java.util.List;
 
 
 @Data @NoArgsConstructor
-public class UserNewResultDto {
+public class UserNewResultDTO {
+
+    private Long userID;
     private String uploadDate;
     private String bodytypeFeatures;
     private String bodytypeCareful;
@@ -20,7 +22,7 @@ public class UserNewResultDto {
     private List<ClothesDTO> bottom;
 
     @Builder
-    public UserNewResultDto(String uploadDate, String bodytypeFeatures, String bodytypeCareful, String imgUrl, List<ClothesDTO> clothesDTOList) {
+    public UserNewResultDTO(String uploadDate, String bodytypeFeatures, String bodytypeCareful, String imgUrl, List<ClothesDTO> clothesDTOList) {
         this.uploadDate = uploadDate;
         this.bodytypeFeatures = bodytypeFeatures;
         this.bodytypeCareful = bodytypeCareful;

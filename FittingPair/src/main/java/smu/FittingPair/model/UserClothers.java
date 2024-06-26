@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity @Getter @Setter @RequiredArgsConstructor
 public class UserClothers {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
