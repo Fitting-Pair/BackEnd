@@ -1,10 +1,7 @@
 package smu.FittingPair.model;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,18 +10,22 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Getter
+@Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Users implements UserDetails {
+
+public class Users {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
-
     private String userName;
     @Column(name="phone_number",nullable = false, unique = true)
     private String phoneNumber;
     private String gender;
     private Long height; //키
+    private String refreshToken;
+
+    @ElementCollection
+    private List<Role> roles;
 
     @OneToOne (mappedBy = "users",cascade = CascadeType.PERSIST)
     private MyPage myPage;
@@ -37,25 +38,9 @@ public class Users implements UserDetails {
         this.height = height;
     }
 
-
-    public void setUsers(MyPage myPage) {
+    public void setMypage(MyPage myPage) {
         this.myPage = myPage;
     }
 
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("user"));
-    }
-
-    @Override
-    public String getPassword() {
-        return "";
-    }
-
-    @Override
-    public String getUsername() {
-        return userName;
-    }
 
 }

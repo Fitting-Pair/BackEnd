@@ -3,11 +3,7 @@ package smu.FittingPair.Service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import smu.FittingPair.DTO.MypageResponseDTO;
 import smu.FittingPair.Repository.UsersRepository;
-import smu.FittingPair.model.Users;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

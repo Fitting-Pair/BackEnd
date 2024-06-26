@@ -1,9 +1,7 @@
-package smu.FittingPair.DTO;
+package smu.FittingPair.dto;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import smu.FittingPair.model.UserImg;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package smu.FittingPair.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import smu.FittingPair.DTO.UserNewResultDTO;
+import smu.FittingPair.dto.UserNewResultDTO;
 import smu.FittingPair.Service.UserService;
 import smu.FittingPair.config.response.BaseResponse;
 

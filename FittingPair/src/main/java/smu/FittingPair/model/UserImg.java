@@ -5,9 +5,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import smu.FittingPair.DTO.MypageResponseDTO;
-
-import java.time.LocalDate;
 
 @RequiredArgsConstructor
 @Getter @Setter @Entity
