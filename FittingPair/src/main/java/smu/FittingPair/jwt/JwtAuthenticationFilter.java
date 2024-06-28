@@ -20,15 +20,15 @@ import java.io.IOException;
 //클라이언트 요청 시 JWT가 유효한지 검사
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends GenericFilterBean {
-    private final JWTProvider jwtProvier;
+    private final JWTProvider jwtProvider;
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
 
         String token = resolveToken((HttpServletRequest) request);
 
-        if (token != null && jwtProvier.isExpired(token)) {
+        if (token != null && !jwtProvider.isExpired(token)) {
             // 토큰이 유효할 경우 토큰에서 Authentication 객체를 가지고 와서 SecurityContext 에 저장
-            Authentication authentication = jwtProvier.getAuthentication(token);
+            Authentication authentication = jwtProvider.getAuthentication(token);
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
         filterChain.doFilter(request,response);
