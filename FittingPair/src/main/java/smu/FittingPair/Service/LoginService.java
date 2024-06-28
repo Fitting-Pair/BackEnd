@@ -15,7 +15,11 @@ import smu.FittingPair.dto.LoginResponseDto;
 import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.NotFoundException;
 import smu.FittingPair.jwt.JWTProvider;
+import smu.FittingPair.model.CustomUserDetails;
 import smu.FittingPair.model.Users;
+
+import java.security.Principal;
+import java.util.Objects;
 
 
 @RequiredArgsConstructor
@@ -41,6 +45,7 @@ public class LoginService {
         //3. 일치하면 토큰을 생성한다. (인가)
         String accessToken = jwtProvider.createAccessToken(Long.toString(users.getId()));
         String refreshToken = jwtProvider.createRefreshToken(Long.toString(users.getId()));
+
         System.out.println(accessToken);
         System.out.println(refreshToken);
 
@@ -59,5 +64,11 @@ public class LoginService {
         cookie.setMaxAge(30*60); //쿠키 유효 시간:30분
         cookie.setSecure(true); //HTTPS
         cookie.setHttpOnly(true); //HTTP에서 수정 불가. (JS에서 불가)
+    }
+    public Long currentUserId(){
+      Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+      String id = ((CustomUserDetails) principal).getUsername();
+      System.out.println(Long.parseLong(id));
+      return Long.parseLong(id);
     }
 }
