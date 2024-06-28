@@ -33,11 +33,11 @@ public class SignUpService {
     public void signUp(SignUpRequestDto signUpRequestDto){
        if(checkDuplicatePhoneNum(signUpRequestDto)){
            Users user = signUpRequestDto.toEntity();
-           usersRepository.save(user);
            user.setRoles(List.of(Role.ROLE_USER));
+           usersRepository.save(user);
        }
     }
-
+    //todo: 회원정보 테스트용 (지워도됨)
     public UserInfoResponseDto getUserInfo(Long id){
         Optional<Users> OptionalUser = usersRepository.findById(id);
         Users users = OptionalUser.orElseThrow(()-> new NotFoundException(ErrorCode.NOT_FOUND));
