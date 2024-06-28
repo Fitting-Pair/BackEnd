@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import smu.FittingPair.Service.CustomUserDetailService;
 import smu.FittingPair.jwt.JWTProvider;
+import smu.FittingPair.jwt.JwtAuthenticationFilter;
 
 //실제 인증 처리
 @Configuration
@@ -48,8 +49,8 @@ public class WebSecurityConfig {
         http
                 .sessionManagement((session) -> session //세션을 항상 stateless 상태: 비활성화
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-//        http
-//                .addFilterBefore(new LoginFilter(authenticationManager(authenticationConfiguration),jwtProvider), UsernamePasswordAuthenticationFilter.class);
+        http
+                .addFilterBefore(new JwtAuthenticationFilter(jwtProvider), UsernamePasswordAuthenticationFilter.class);
         return http.build();
 
     }

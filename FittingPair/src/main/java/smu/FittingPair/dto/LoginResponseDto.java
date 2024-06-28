@@ -12,15 +12,14 @@ import smu.FittingPair.model.Users;
 public class LoginResponseDto {
     private Long id;
     private String userName;
-    private String refreshToken;
     private String accessToken;
+    private String refreshToken;
 
     public static LoginResponseDto to(Users users,String accessToken,String refreshToken){
         return LoginResponseDto.builder()
                 .id(users.getId())
-                .userName(users.getUserName())
-                .refreshToken(refreshToken)
                 .accessToken(accessToken)
+                .refreshToken(refreshToken)
                 .build();
     }
 }
