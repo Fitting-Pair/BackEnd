@@ -18,13 +18,10 @@ import smu.FittingPair.jwt.JWTProvider;
 import smu.FittingPair.model.CustomUserDetails;
 import smu.FittingPair.model.Users;
 
-import java.security.Principal;
-import java.util.Objects;
-
 
 @RequiredArgsConstructor
 @Service
-public class LoginService {
+public class AuthService {
     private final UsersRepository usersRepository;
     private final CustomUserDetailService userDetailService;
     private final JWTProvider jwtProvider;
@@ -52,18 +49,8 @@ public class LoginService {
         //3-1. 회원의 DB에도 저장함.
         users.setRefreshToken(refreshToken);
         usersRepository.save(users);
-        //4. refresh Token을 쿠키 생성 및 설정
-        setCookie(refreshToken);
-        //5. 리턴
+
         return LoginResponseDto.to(users,accessToken,refreshToken);
-    }
-    public void setCookie(String refreshToken){
-        Cookie cookie = new Cookie("refreshToken",refreshToken);
-        cookie.setDomain("localhost");
-        cookie.setPath("/"); //쿠키 경로 결정
-        cookie.setMaxAge(30*60); //쿠키 유효 시간:30분
-        cookie.setSecure(true); //HTTPS
-        cookie.setHttpOnly(true); //HTTP에서 수정 불가. (JS에서 불가)
     }
     public Long currentUserId(){
       Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
