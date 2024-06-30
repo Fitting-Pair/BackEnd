@@ -65,7 +65,7 @@ public class AuthService {
       return Long.parseLong(id);
     }
     @Transactional
-    public void logout(String refreshToken){
+    public void logout(String refreshToken,String accessToken){
         //1. 만료된 토큰인가?
         refreshTokenValidator.validateToken(refreshToken);
         //2. 현재 로그인한 사용자와 같은 아이디인지?
@@ -73,7 +73,7 @@ public class AuthService {
         //3. 현재 로그아웃한 토큰에 있는지
         refreshTokenValidator.isinBlackList(refreshToken);
         //로그아웃 처리
-        refreshTokenValidator.addBlackList(refreshToken);
+        refreshTokenValidator.addBlackList(refreshToken,accessToken);
     }
 
 }
