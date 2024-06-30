@@ -23,7 +23,6 @@ public class Users {
     private String phoneNumber;
     private String gender;
     private Long height; //키
-    private String refreshToken;
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Role> roles;
 
