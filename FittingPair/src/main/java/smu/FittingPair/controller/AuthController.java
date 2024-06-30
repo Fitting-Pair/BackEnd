@@ -11,7 +11,7 @@ import smu.FittingPair.dto.LoginRequestDto;
 
 @RestController
 @RequiredArgsConstructor
-public class LoginController {
+public class AuthController {
     private final AuthService authService;
     private final SignUpService signUpService;
     @PostMapping("/login")
@@ -23,9 +23,13 @@ public class LoginController {
     public BaseResponse<?> getUserInfo(){
         return BaseResponse.ok(signUpService.getUserInfo(authService.currentUserId()));
     }
-    @PostMapping
-    public BaseResponse<?> logout(){
-
+    @PostMapping("/logout")
+    public BaseResponse<?> logout(@RequestHeader("Refresh") String refreshToken){
+        authService.logout(refreshToken);
+        return BaseResponse.ok();
+    }
+    @GetMapping("/auth/reissue-token")
+    public BaseResponse<?> reissueToken(@RequestHeader("Refresh") String refreshToken){
         return BaseResponse.ok();
     }
 

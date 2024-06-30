@@ -7,10 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import smu.FittingPair.error.ErrorCode;
-import smu.FittingPair.error.exception.DuplicateKeyException;
+import smu.FittingPair.error.exception.*;
 import smu.FittingPair.config.response.BaseResponse;
-import smu.FittingPair.error.exception.NotFoundException;
-import smu.FittingPair.error.exception.UnauthorizedException;
 
 @Slf4j
 @ControllerAdvice
@@ -23,7 +21,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
     //2. 권한이 없는 경우
     @ExceptionHandler(UnauthorizedException.class)
-    @ResponseStatus(HttpStatus.CONFLICT)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     protected BaseResponse<?>handle(UnauthorizedException e){
         return BaseResponse.fail(e.getErrorCode());
     }
@@ -31,6 +29,17 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     protected BaseResponse<?>handle(NotFoundException e){
+        return BaseResponse.fail(e.getErrorCode());
+    }
+    //4. 토큰이 만료된 경우
+    @ExceptionHandler(TokenExpiredException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    protected BaseResponse<?>handle(TokenExpiredException e){
+        return BaseResponse.fail(e.getErrorCode());
+    }
+    @ExceptionHandler(TokenExpiredException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    protected BaseResponse<?>handle(AlreadyLogoutException e){
         return BaseResponse.fail(e.getErrorCode());
     }
 
