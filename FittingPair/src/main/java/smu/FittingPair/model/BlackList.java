@@ -18,9 +18,12 @@ public class BlackList {
 
     @Column(name = "invalid_refresh_token")
     private String invalidRefreshToken;
+    @Column(name = "invalid_access_token")
+    private String invalidAccessToken;
 
-    public BlackList(String invalidRefreshToken){
+    public BlackList(String invalidRefreshToken,String invalidAccessToken){
         this.invalidRefreshToken = invalidRefreshToken;
+        this.invalidAccessToken = invalidAccessToken;
     }
 
 }

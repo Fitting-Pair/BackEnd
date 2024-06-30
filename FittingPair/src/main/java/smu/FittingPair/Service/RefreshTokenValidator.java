@@ -34,8 +34,8 @@ public class RefreshTokenValidator {
             throw new AlreadyLogoutException(ErrorCode.ALREADY_LOGGED_OUT_ERROR);
         }
     }
-    public void addBlackList(String refreshToken){
-        BlackList blackList = new BlackList(refreshToken);
+    public void addBlackList(String refreshToken,String accessToken){
+        BlackList blackList = new BlackList(refreshToken,accessToken);
         blackListRepository.save(blackList);
     }
 
