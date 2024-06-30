@@ -1,18 +1,5 @@
 package smu.FittingPair.jwt;
 
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import lombok.AllArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import smu.FittingPair.Service.LoginService;
-import smu.FittingPair.error.ErrorCode;
-import smu.FittingPair.error.exception.UnauthorizedException;
-import smu.FittingPair.model.CustomUserDetails;
 //
 ////로그인하면 검증
 //@AllArgsConstructor
