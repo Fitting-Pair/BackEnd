@@ -37,7 +37,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     protected BaseResponse<?>handle(TokenExpiredException e){
         return BaseResponse.fail(e.getErrorCode());
     }
-    @ExceptionHandler(TokenExpiredException.class)
+    @ExceptionHandler(AlreadyLogoutException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     protected BaseResponse<?>handle(AlreadyLogoutException e){
         return BaseResponse.fail(e.getErrorCode());
