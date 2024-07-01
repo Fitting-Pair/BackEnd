@@ -27,14 +27,14 @@ public class CustomUserDetailService implements UserDetailsService {
     @Transactional
     public UserDetails loadUserByUserLogin(String phoneNumber){ //login 시 사용자 정보를 가져온다.
         Optional<Users> OptionalUser = usersRepository.findByPhoneNumber(phoneNumber);
-        Users users = OptionalUser.orElseThrow(()-> new NotFoundException(ErrorCode.NOT_FOUND));
+        Users users = OptionalUser.orElseThrow(()-> new NotFoundException(ErrorCode.USER_NOT_FOUND));
         return new CustomUserDetails(users);
     }
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String id){ //사용자 정보를 가져옴. (필수 구현)
         Optional<Users> OptionalUser = usersRepository.findById(Long.parseLong(id));
-        Users users = OptionalUser.orElseThrow(()-> new NotFoundException(ErrorCode.NOT_FOUND));
+        Users users = OptionalUser.orElseThrow(()-> new NotFoundException(ErrorCode.USER_NOT_FOUND));
         return new CustomUserDetails(users);
     }
 
