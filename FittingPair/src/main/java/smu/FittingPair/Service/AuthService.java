@@ -49,7 +49,7 @@ public class AuthService {
     }
     private Users getUser(LoginRequestDto loginRequestDto) {
         return usersRepository.findByPhoneNumber(loginRequestDto.getPhoneNumber())
-                .orElseThrow(()-> new NotFoundException(ErrorCode.NOT_FOUND));
+                .orElseThrow(()-> new NotFoundException(ErrorCode.USER_NOT_FOUND));
     }
 
     private Authentication getAuthentication(LoginRequestDto loginRequestDto) {

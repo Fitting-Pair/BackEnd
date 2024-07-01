@@ -15,7 +15,7 @@ import smu.FittingPair.model.Users;
 public class SignUpController {
     private final SignUpService signUpService;
 
-    @PostMapping("/signup")
+    @PostMapping("/auth/signup")
     public BaseResponse<?> signup(@RequestBody SignUpRequestDto signUpRequestDto){
         signUpService.signUp(signUpRequestDto);
         return BaseResponse.ok();
