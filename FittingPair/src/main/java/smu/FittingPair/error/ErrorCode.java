@@ -18,9 +18,9 @@ public enum ErrorCode {
     TOKEN_EXPIRED_ERROR(HttpStatus.UNAUTHORIZED,40102,"토큰이 만료되었습니다."),
     ALREADY_LOGGED_OUT_ERROR(HttpStatus.UNAUTHORIZED,40103,"이미 로그아웃한 사용자입니다."),
     /* 403 */
-    FORBIDDEN(HttpStatus.FORBIDDEN,403,"회원 정보가 없습니다."),
+    FORBIDDEN(HttpStatus.FORBIDDEN,403,"권한 정보가 없습니다."),
     /* 404 */
-    NOT_FOUND(HttpStatus.NOT_FOUND, 404, "존재하지 않는 엔티티입니다."),
+    USER_NOT_FOUND(HttpStatus.NOT_FOUND, 404, "존재하지 않는 회원입니다."),
     /* 405 */
     METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED, 405, "잘못된 HTTP 메서드를 호출했습니다."),
     /* 409 */
