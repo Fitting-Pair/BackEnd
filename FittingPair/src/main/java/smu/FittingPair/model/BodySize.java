@@ -1,11 +1,9 @@
 package smu.FittingPair.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@Entity @Getter @Setter @RequiredArgsConstructor
+@Entity @Getter @NoArgsConstructor
 public class BodySize {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bodysize_id")
@@ -21,9 +19,9 @@ public class BodySize {
     private Long waist_size;
     private Long height_size;
 
-    public BodySize(Long bodysize_id, Users users, Long chest_size, Long hip_size,
+    @Builder
+    public BodySize(Users users, Long chest_size, Long hip_size,
                     Long shoulder_size, Long waist_size, Long height_size) {
-        this.bodysize_id = bodysize_id;
         this.users = users;
         this.chest_size = chest_size;
         this.hip_size = hip_size;

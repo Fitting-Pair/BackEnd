@@ -2,12 +2,10 @@ package smu.FittingPair.model;
 
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-@RequiredArgsConstructor
-@Entity @Getter @Setter
+@NoArgsConstructor
+@Entity @Getter
 public class Result {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "result_id")
@@ -20,4 +18,10 @@ public class Result {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mypage_id")
     private MyPage mypage;
+
+    @Builder
+    public Result(UserBodyType userBodyType_id, MyPage mypage) {
+        this.userBodyType_id = userBodyType_id;
+        this.mypage = mypage;
+    }
 }

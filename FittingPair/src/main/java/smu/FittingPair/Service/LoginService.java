@@ -60,4 +60,6 @@ public class LoginService {
         cookie.setSecure(true); //HTTPS
         cookie.setHttpOnly(true); //HTTP에서 수정 불가. (JS에서 불가)
     }
+
+    
 }
