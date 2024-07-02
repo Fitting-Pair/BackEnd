@@ -1,10 +1,12 @@
 package smu.FittingPair.Service;
 
 import lombok.RequiredArgsConstructor;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.stereotype.Service;
 import smu.FittingPair.dto.RequestUserBodySizeDto;
 import smu.FittingPair.Repository.UserImgRepository;
 import smu.FittingPair.Repository.UsersRepository;
+import smu.FittingPair.dto.UserImgDto;
 import smu.FittingPair.model.UserImg;
 import smu.FittingPair.model.Users;
 
@@ -21,10 +23,29 @@ public class UserService {
     }
 
 
-    public void addUserImg(Long userId, String imgurl) {
-        Optional<Users> byId = usersRepository.findById(userId);
-        UserImg createdimg = UserImg.saveImg(byId.get(), imgurl);
-        userImgRepository.save(createdimg);
+
+
+    public void addUserImg(String userId, UserImgDto userImgDto) {
+        Optional<Users> byId = usersRepository.findById(Long.parseLong(userId));
+        if (byId.isPresent()) {
+            UserImg build = UserImg.builder().
+                    image_url(userImgDto.getImage_url())
+                    .users(byId.get())
+                    .build();
+            userImgRepository.save(build);
+        } else {
+            System.out.println("조회된 사용자가 없음");
+        }
+
     }
+
+
+//    public void addUserImg(Long userId, String imgurl) {
+//        Optional<Users> byId = usersRepository.findById(userId);
+//        UserImg createdimg = UserImg.saveImg(byId.get(), imgurl);
+//        userImgRepository.save(createdimg);
+//    }
+
+
 
 }

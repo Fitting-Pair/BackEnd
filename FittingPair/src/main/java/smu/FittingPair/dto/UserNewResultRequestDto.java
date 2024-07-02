@@ -10,20 +10,19 @@ import java.util.List;
 
 
 @Data @NoArgsConstructor
-public class UserNewResultDto {
+public class UserNewResultRequestDto {
 
     private Long userID;
-    private String uploadDate;
     private String bodytypeFeatures;
     private String bodytypeCareful;
+    //사용자 결과 이미지
     private String imgUrl;
     private List<ClothesDto> outwear;
     private List<ClothesDto> top;
     private List<ClothesDto> bottom;
 
     @Builder
-    public UserNewResultDto(String uploadDate, String bodytypeFeatures, String bodytypeCareful, String imgUrl, List<ClothesDto> clothesDtoList) {
-        this.uploadDate = uploadDate;
+    public UserNewResultRequestDto(String bodytypeFeatures, String bodytypeCareful, String imgUrl, List<ClothesDto> clothesDtoList) {
         this.bodytypeFeatures = bodytypeFeatures;
         this.bodytypeCareful = bodytypeCareful;
         this.imgUrl = imgUrl;

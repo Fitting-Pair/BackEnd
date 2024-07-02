@@ -1,17 +1,10 @@
 package smu.FittingPair.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
-@Getter @Setter
-@AllArgsConstructor
+@Getter
 @NoArgsConstructor
 public class Clothes {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,4 +12,20 @@ public class Clothes {
     private String clothesName;
     private String brand;
 //  private String clothesCategory!;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bodytype_id")
+    private BodyType bodyType;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private Users users;
+
+    @Builder
+    public Clothes(String clothesName, String brand, BodyType bodyType, Users users) {
+        this.clothesName = clothesName;
+        this.brand = brand;
+        this.bodyType = bodyType;
+        this.users = users;
+    }
 }

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class LoginRequestDto {
-    private String phoneNumber; //id
+    private String phoneNumber;
     public LoginRequestDto(String phoneNumber){this.phoneNumber = phoneNumber;}
 
 }
