@@ -5,6 +5,10 @@ import org.springframework.web.bind.annotation.*;
 import smu.FittingPair.service.SignUpService;
 import smu.FittingPair.config.response.BaseResponse;
 import smu.FittingPair.dto.SignUpRequestDto;
+import smu.FittingPair.service.AuthService;
+import smu.FittingPair.dto.SignUpRequestDto;
+import smu.FittingPair.config.response.BaseResponse;
+import smu.FittingPair.service.SignUpService;
 
 
 @RestController

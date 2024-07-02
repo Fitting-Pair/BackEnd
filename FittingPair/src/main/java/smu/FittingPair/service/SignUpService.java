@@ -3,6 +3,23 @@ package smu.FittingPair.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import smu.FittingPair.dto.SignUpRequestDto;
+import smu.FittingPair.repository.UsersRepository;
+import smu.FittingPair.dto.UserInfoResponseDto;
+import smu.FittingPair.error.ErrorCode;
+import smu.FittingPair.error.exception.DuplicateKeyException;
+import smu.FittingPair.error.exception.NotFoundException;
+import smu.FittingPair.model.MyPage;
+import smu.FittingPair.model.Role;
+
+import smu.FittingPair.model.Users;
+
+import java.util.List;
+import java.util.Optional;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import smu.FittingPair.repository.UsersRepository;
 import smu.FittingPair.dto.UserInfoResponseDto;
 import smu.FittingPair.error.ErrorCode;
