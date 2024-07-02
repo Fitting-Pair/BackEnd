@@ -9,4 +9,5 @@ public class AiBodySizeRequestDto {
     private Long shoulder_size;
     private Long waist_size;
     private Long height_size;
+
 }
