@@ -7,16 +7,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-<<<<<<< HEAD
 import smu.FittingPair.config.response.BaseResponse;
 import smu.FittingPair.error.exception.DuplicateKeyException;
 import smu.FittingPair.error.exception.NotFoundException;
 import smu.FittingPair.error.exception.UnauthorizedException;
-=======
 import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.*;
 import smu.FittingPair.config.response.BaseResponse;
->>>>>>> a53ca84048e90cb3403790b7df69f9cf4bf7b20a
 
 @Slf4j
 @ControllerAdvice
