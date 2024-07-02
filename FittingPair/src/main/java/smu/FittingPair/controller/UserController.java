@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 import smu.FittingPair.dto.RequestUserBodySizeDto;
-import smu.FittingPair.Service.UserService;
+import smu.FittingPair.service.UserService;
 import smu.FittingPair.dto.UserImgDto;
-import smu.FittingPair.dto.UserNewResultRequestDto;
 
 
 @RestController
