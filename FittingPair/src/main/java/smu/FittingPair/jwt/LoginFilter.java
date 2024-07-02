@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 //HEAD<<<<<<< HEAD
 ////package smu.FittingPair.jwt;
 ////
@@ -16,10 +16,7 @@
 ////import smu.FittingPair.model.CustomUserDetails;
 //=======
 //package smu.FittingPair.jwt;
-=======
-package smu.FittingPair.jwt;
 
->>>>>>> a53ca84048e90cb3403790b7df69f9cf4bf7b20a
 //
 //import jakarta.servlet.FilterChain;
 //import jakarta.servlet.http.HttpServletRequest;

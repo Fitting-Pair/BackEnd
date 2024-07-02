@@ -24,8 +24,8 @@ public class UserService {
 
 
 
-    public void addUserImg(String userId, UserImgDto userImgDto) {
-        Optional<Users> byId = usersRepository.findById(Long.parseLong(userId));
+    public void addUserImg(Long userId, UserImgDto userImgDto) {
+        Optional<Users> byId = usersRepository.findById(userId);
         if (byId.isPresent()) {
             UserImg build = UserImg.builder().
                     image_url(userImgDto.getImage_url())
