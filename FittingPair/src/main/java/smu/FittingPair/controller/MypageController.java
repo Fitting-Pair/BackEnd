@@ -3,7 +3,7 @@ package smu.FittingPair.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import smu.FittingPair.dto.UserNewResultRequestDto;
-import smu.FittingPair.Service.UserService;
+import smu.FittingPair.service.UserService;
 import smu.FittingPair.config.response.BaseResponse;
 
 @RestController

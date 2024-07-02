@@ -1,11 +1,10 @@
-package smu.FittingPair.Service;
+package smu.FittingPair.service;
 
 import lombok.RequiredArgsConstructor;
-import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.stereotype.Service;
 import smu.FittingPair.dto.RequestUserBodySizeDto;
-import smu.FittingPair.Repository.UserImgRepository;
-import smu.FittingPair.Repository.UsersRepository;
+import smu.FittingPair.repository.UserImgRepository;
+import smu.FittingPair.repository.UsersRepository;
 import smu.FittingPair.dto.UserImgDto;
 import smu.FittingPair.model.UserImg;
 import smu.FittingPair.model.Users;

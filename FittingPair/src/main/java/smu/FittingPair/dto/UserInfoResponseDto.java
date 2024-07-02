@@ -1,9 +1,12 @@
 package smu.FittingPair.dto;
 
 import lombok.Builder;
+import lombok.Getter;
 import smu.FittingPair.model.Users;
 
 @Builder
+@Getter
+
 public class UserInfoResponseDto {
     private Long id;
     private String userName;

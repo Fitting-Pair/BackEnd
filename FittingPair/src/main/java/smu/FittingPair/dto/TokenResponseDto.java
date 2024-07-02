@@ -9,17 +9,16 @@ import smu.FittingPair.model.Users;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Getter @Setter
-public class LoginResponseDto {
-    private Long id;
-    private String userName;
+public class TokenResponseDto {
     private String accessToken;
     private String refreshToken;
+    private Long expiredIn;
 
-    public static LoginResponseDto to(Users users,String accessToken,String refreshToken){
-        return LoginResponseDto.builder()
-                .id(users.getId())
+    public static TokenResponseDto to(String accessToken, String refreshToken,Long expiredIn){
+        return TokenResponseDto.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
+                .expiredIn(expiredIn)
                 .build();
     }
 }

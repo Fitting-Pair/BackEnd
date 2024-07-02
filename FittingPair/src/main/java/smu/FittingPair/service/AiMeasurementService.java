@@ -1,8 +1,8 @@
-package smu.FittingPair.Service;
+package smu.FittingPair.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import smu.FittingPair.Repository.*;
+import smu.FittingPair.repository.*;
 import smu.FittingPair.dto.AiBodySizeRequestDto;
 import smu.FittingPair.dto.BodyTypeDto;
 import smu.FittingPair.dto.ClothesDto;
@@ -68,7 +68,7 @@ public class AiMeasurementService {
                     .build();
 
         }
-        
+
     }
     private void addUserBodyType(Users byId, BodySize bodySize, BodyType bodyType, String imageUrl) {
         UserBodyType.builder()
