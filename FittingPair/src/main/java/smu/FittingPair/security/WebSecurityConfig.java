@@ -13,7 +13,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import smu.FittingPair.Service.CustomUserDetailService;
+import smu.FittingPair.service.CustomUserDetailService;
 import smu.FittingPair.jwt.JWTProvider;
 import smu.FittingPair.jwt.JwtAuthenticationFilter;
 
@@ -43,8 +43,8 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable);
         http
                 .authorizeHttpRequests((auth) -> auth
-                                .requestMatchers("/auth/login","/auth/signup","/").permitAll()
-                                .anyRequest().authenticated() //외에 다른 요청은 로그인한 사용자만 가능
+                        .requestMatchers("/auth/login","/auth/signup","/").permitAll()
+                        .anyRequest().authenticated() //외에 다른 요청은 로그인한 사용자만 가능
                 );
         http
                 .sessionManagement((session) -> session //세션을 항상 stateless 상태: 비활성화

@@ -12,8 +12,9 @@ public class SignUpRequestDto {
     private String phoneNumber; //id
     private Long height;
     private String gender;
+
     @Builder
-    public SignUpRequestDto(String userName,String phoneNumber,Long height,String gender){
+    public SignUpRequestDto(String userName, String phoneNumber, Long height, String gender){
         this.userName = userName;
         this.phoneNumber = phoneNumber;
         this.height = height;
@@ -22,9 +23,12 @@ public class SignUpRequestDto {
     public Users toEntity(){
         return Users.builder()
                 .userName(userName)
-                .phoneNumber(phoneNumber)
                 .height(height)
                 .gender(gender)
+                .phoneNumber(phoneNumber)
                 .build();
+
     }
+
+
 }

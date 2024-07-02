@@ -3,9 +3,9 @@ package smu.FittingPair.controller;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import smu.FittingPair.Service.AuthService;
-import smu.FittingPair.Service.ReissueTokenService;
-import smu.FittingPair.Service.SignUpService;
+import smu.FittingPair.service.AuthService;
+import smu.FittingPair.service.ReissueTokenService;
+import smu.FittingPair.service.SignUpService;
 import smu.FittingPair.config.response.BaseResponse;
 import smu.FittingPair.dto.LoginRequestDto;
 

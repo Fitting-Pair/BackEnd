@@ -1,6 +1,5 @@
-package smu.FittingPair.Service;
+package smu.FittingPair.service;
 
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -9,16 +8,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import smu.FittingPair.Repository.BlackListRepository;
-import smu.FittingPair.Repository.UsersRepository;
+import smu.FittingPair.repository.UsersRepository;
 import smu.FittingPair.dto.LoginRequestDto;
 import smu.FittingPair.dto.LoginResponseDto;
 import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.NotFoundException;
-import smu.FittingPair.error.exception.TokenExpiredException;
-import smu.FittingPair.error.exception.UnauthorizedException;
 import smu.FittingPair.jwt.JWTProvider;
-import smu.FittingPair.model.BlackList;
 import smu.FittingPair.model.CustomUserDetails;
 import smu.FittingPair.model.Users;
 

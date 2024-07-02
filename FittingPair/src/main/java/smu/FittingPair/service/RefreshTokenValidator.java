@@ -1,10 +1,10 @@
-package smu.FittingPair.Service;
+package smu.FittingPair.service;
 
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import smu.FittingPair.Repository.BlackListRepository;
+import smu.FittingPair.repository.BlackListRepository;
 import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.AlreadyLogoutException;
 import smu.FittingPair.error.exception.TokenExpiredException;
