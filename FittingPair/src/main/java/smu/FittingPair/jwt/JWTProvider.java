@@ -7,8 +7,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import smu.FittingPair.Repository.BlackListRepository;
-import smu.FittingPair.Service.CustomUserDetailService;
+import smu.FittingPair.repository.BlackListRepository;
+import smu.FittingPair.service.CustomUserDetailService;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
