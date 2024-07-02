@@ -4,8 +4,6 @@ import lombok.Data;
 
 @Data
 public class RequestUserBodySizeDto {
-
-    private Long userID;
     private Long chest_size;
     private Long hip_size;
     private Long shoulder_size;
