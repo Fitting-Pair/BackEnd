@@ -13,7 +13,6 @@ public class BodyType {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bodytype_id")
     private Long id;
-
     private String bodytypeFeatures;
     private String bodytypeCareful;
     private String bodytypeName;
