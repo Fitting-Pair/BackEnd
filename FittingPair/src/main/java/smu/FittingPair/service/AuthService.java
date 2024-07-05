@@ -21,6 +21,7 @@ import smu.FittingPair.model.Users;
 @RequiredArgsConstructor
 @Service
 public class AuthService {
+
     private final UsersRepository usersRepository;
     private final CustomUserDetailService userDetailService;
     private final JWTProvider jwtProvider;
