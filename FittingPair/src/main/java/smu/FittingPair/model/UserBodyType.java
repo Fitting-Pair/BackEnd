@@ -23,7 +23,6 @@ public class UserBodyType {
 
     private String imageUrl; // 사용자 체형 결과 이미지 주소
     private String created_at; // 사용자 체형 이미지 생성 날짜 (날짜로 변환 필요)
-
     @Builder
     public UserBodyType(Users users, BodySize bodySize, String imageUrl, String created_at, BodyType bodyType) {
         this.users = users;
