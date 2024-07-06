@@ -12,7 +12,6 @@ import java.util.List;
 @Entity
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-
 public class Users {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -29,8 +28,6 @@ public class Users {
     @OneToOne (mappedBy = "users",cascade = CascadeType.PERSIST)
     private MyPage myPage;
 
-    @OneToMany (mappedBy = "users",cascade = CascadeType.PERSIST)
-    private List<UserImg> userImg;   // 추가 사항
 
     @Builder
     public Users(String userName, String phoneNumber, String gender, Long height) {
@@ -39,6 +36,7 @@ public class Users {
         this.gender = gender;
         this.height = height;
     }
+
 
     public void setMypage(MyPage myPage) {
         this.myPage = myPage;
