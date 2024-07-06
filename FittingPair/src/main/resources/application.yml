@@ -1,19 +1,17 @@
+
 # JPA DB
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/fittingpair_test
-    url: jdbc:mysql://175.113.68.69:4000/fittingpair_test
+    url: jdbc:mysql://localhost:3306/fittingpair_test
     username: 'root'
-#    password: 'rlatmdwnd0970'
-    password: 'rlatmdwnd'
+    password: 'rlatmdwnd0970'
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true
     hibernate:
       ddl-auto: update
-#      ddl-auto: none or validate
     properties:
       hibernate:
         format_sql: true
