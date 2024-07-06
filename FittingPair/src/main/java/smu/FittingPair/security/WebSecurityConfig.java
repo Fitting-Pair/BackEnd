@@ -44,6 +44,7 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/auth/login","/auth/signup","/").permitAll()
+//                        .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated() //외에 다른 요청은 로그인한 사용자만 가능
                 );
         http

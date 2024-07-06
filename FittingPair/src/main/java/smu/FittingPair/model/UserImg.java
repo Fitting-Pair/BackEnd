@@ -22,18 +22,16 @@ public class UserImg {
 
 
     @Builder
-    public UserImg(Users users, String image_url, String created_at) {
+    public UserImg(Users users, String image_url) {
         this.users = users;
-        this.image_url = image_url;
-        this.created_at = created_at;
+        this.image_url = "http://localhost:8080/Ai/sendImg/" + image_url;
+        this.created_at = LocalDateTime.now().toString();
     }
 
-    @Builder
     public static UserImg saveImg (Users users,String imgurl) {
         return UserImg.builder()
                 .users(users)
                 .image_url(imgurl)
-                .created_at(String.valueOf(LocalDateTime.now()))
                 .build();
     }
 

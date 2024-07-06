@@ -24,4 +24,5 @@ public class BodyType {
         this.bodytypeCareful = bodytypeCareful;
         this.bodytypeName = bodytypeName;
     }
+
 }
