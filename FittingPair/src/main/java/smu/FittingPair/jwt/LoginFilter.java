@@ -1,5 +1,4 @@
 
-//HEAD<<<<<<< HEAD
 ////package smu.FittingPair.jwt;
 ////
 ////import jakarta.servlet.FilterChain;
@@ -14,8 +13,6 @@
 ////import smu.FittingPair.error.ErrorCode;
 ////import smu.FittingPair.error.exception.UnauthorizedException;
 ////import smu.FittingPair.model.CustomUserDetails;
-//=======
-//package smu.FittingPair.jwt;
 
 //
 //import jakarta.servlet.FilterChain;
