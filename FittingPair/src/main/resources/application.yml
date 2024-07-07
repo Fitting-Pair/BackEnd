@@ -21,3 +21,5 @@ jwt:
   header: Authorization
   issuer: codingbear
   secret-key: autodafasfdadflsmucodingbeadfarsmucodindfsdsgbearsmudfsacodfsdingbeadsfar
+server:
+  port: 10007
