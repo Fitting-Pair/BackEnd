@@ -8,6 +8,7 @@ import smu.FittingPair.service.UserImgService;
 import smu.FittingPair.config.response.BaseResponse;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequiredArgsConstructor
 public class MypageController {
     private final MyPageService myPageService;

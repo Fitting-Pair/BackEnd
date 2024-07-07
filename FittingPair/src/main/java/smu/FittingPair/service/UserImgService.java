@@ -36,7 +36,8 @@ public class UserImgService {
         Users user = usersRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.USER_NOT_FOUND));
 
-        Path imgePath = Paths.get("C:\\home", imgFile.getOriginalFilename());
+        //경로 바꿔야 할듯?
+        Path imgePath = Paths.get("/home/imgfile", imgFile.getOriginalFilename());
 
 
         Files.write(imgePath, imgFile.getBytes());
