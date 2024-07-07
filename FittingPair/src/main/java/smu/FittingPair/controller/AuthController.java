@@ -11,6 +11,7 @@ import smu.FittingPair.dto.LoginRequestDto;
 
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
