@@ -15,6 +15,7 @@ import smu.FittingPair.model.Users;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -36,9 +37,7 @@ public class UserImgService {
         Users user = usersRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.USER_NOT_FOUND));
 
-        //경로 바꿔야 할듯?
         Path imgePath = Paths.get("/home/imgfile", imgFile.getOriginalFilename());
-
 
         Files.write(imgePath, imgFile.getBytes());
 
@@ -49,9 +48,31 @@ public class UserImgService {
 
         List<UserImg> dd = new ArrayList<>();
         dd.add(build);
+        user.setUserImg(dd);
 
         userImgRepository.saveAll(dd);
     }
 
+    public void deleteImg(Long id,String savetime){
+        UserImg userImg = userImgRepository.deletefindfile(id, savetime);
+
+        String imageUrl = userImg.getImage_url();
+        String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
+
+        Path imagePath = Paths.get("/home/imgfile", fileName);
+
+        try {
+            // 로컬 파일 시스템에서 이미지 삭제
+            boolean fileDeleted = Files.deleteIfExists(imagePath);
+            if (!fileDeleted) {
+                throw new NotFoundException(ErrorCode.INVALID_INPUT_VALUE);
+            }
+        } catch (IOException e) {
+            // 예외 처리
+            throw new RuntimeException("Failed to delete image file: " + userImg.getImage_url(), e);
+        }
+
+        userImgRepository.delete(userImg);
+    }
 
 }

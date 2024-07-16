@@ -7,15 +7,16 @@ import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @Getter @Setter @Entity
-//@NoArgsConstructor
 public class UserImg {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "userImg_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private Users users;
+
 
     private String image_url;
     private String created_at ;
@@ -34,6 +35,7 @@ public class UserImg {
                 .image_url(imgurl)
                 .build();
     }
+
 
 }
 

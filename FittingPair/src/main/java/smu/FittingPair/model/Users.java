@@ -25,8 +25,11 @@ public class Users {
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Role> roles;
 
-    @OneToOne (mappedBy = "users",cascade = CascadeType.PERSIST)
+    @OneToOne (mappedBy = "users")
     private MyPage myPage;
+
+    @OneToMany(mappedBy = "users")
+    private List<UserImg> userImg;
 
 
     @Builder
@@ -37,6 +40,9 @@ public class Users {
         this.height = height;
     }
 
+    public void setUserImg(List<UserImg> userImg) {
+        this.userImg = userImg;
+    }
 
     public void setMypage(MyPage myPage) {
         this.myPage = myPage;

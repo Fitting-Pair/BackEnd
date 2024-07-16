@@ -3,9 +3,7 @@ package smu.FittingPair.dto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import smu.FittingPair.model.BodyType;
-import smu.FittingPair.model.Clothes;
-import smu.FittingPair.model.Users;
+import smu.FittingPair.model.*;
 
 import java.util.List;
 
@@ -21,13 +19,14 @@ public class ClothesDto {
         this.topClothes = topClothes;
     }
 
-    public static Clothes addClothes(Users users,BodyType bodyType ,String brand, String clothesName, String imageUrl) {
+    public static Clothes addClothes(Users users,BodyType bodyType ,String brand, String clothesName, String imageUrl, String categoryName) {
         return Clothes.builder()
                 .users(users)
                 .bodyType(bodyType)
                 .brand(brand)
                 .clothesName(clothesName)
                 .imageUrl(imageUrl)
+                .clothesCategory(categoryName)
                 .build();
     }
 }
