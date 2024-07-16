@@ -12,8 +12,9 @@ public class Result {
     private Long result_id;
 
 
-    @OneToOne @JoinColumn(name = "userbodytype_id")
-    private UserBodyType userBodyType_id;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userbodytype_id")
+    private UserBodyType userBodyType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mypage_id")
@@ -21,7 +22,7 @@ public class Result {
 
     @Builder
     public Result(UserBodyType userBodyType_id, MyPage mypage) {
-        this.userBodyType_id = userBodyType_id;
+        this.userBodyType = userBodyType_id;
         this.mypage = mypage;
     }
 }
