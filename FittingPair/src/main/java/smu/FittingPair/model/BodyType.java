@@ -17,12 +17,18 @@ public class BodyType {
     private String bodytypeCareful;
     private String bodytypeName;
 
+    @OneToOne(mappedBy = "bodyType")
+    private UserBodyType userBodyType;
 
     @Builder
     public BodyType(String bodytypeFeatures, String bodytypeCareful, String bodytypeName) {
         this.bodytypeFeatures = bodytypeFeatures;
         this.bodytypeCareful = bodytypeCareful;
         this.bodytypeName = bodytypeName;
+    }
+
+    public void settingUserBodyType(UserBodyType userBodyType) {
+        this.userBodyType = userBodyType;
     }
 
 }

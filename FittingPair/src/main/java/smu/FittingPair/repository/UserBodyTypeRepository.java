@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 import smu.FittingPair.model.UserBodyType;
 import smu.FittingPair.model.Users;
 
-import java.util.Optional;
 
 public interface UserBodyTypeRepository extends JpaRepository<UserBodyType, Long> {
 
