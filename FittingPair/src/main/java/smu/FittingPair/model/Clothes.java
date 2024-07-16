@@ -13,7 +13,7 @@ public class Clothes {
     private Long id;
     private String clothesName;
     private String brand;
-//  private String clothesCategory!;
+    private String clothesCategory;
     private String imageUrl;
 
 
@@ -27,11 +27,12 @@ public class Clothes {
 
 
     @Builder
-    public Clothes(String clothesName, String brand, BodyType bodyType, Users users, String imageUrl) {
+    public Clothes(String clothesName, String brand, BodyType bodyType, Users users, String imageUrl, String clothesCategory) {
         this.clothesName = clothesName;
         this.brand = brand;
         this.bodyType = bodyType;
         this.users = users;
         this.imageUrl = imageUrl;
+        this.clothesCategory = clothesCategory;
     }
 }

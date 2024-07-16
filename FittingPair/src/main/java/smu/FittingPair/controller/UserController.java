@@ -8,13 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 import smu.FittingPair.config.response.BaseResponse;
 import smu.FittingPair.dto.ClothesDto;
 import smu.FittingPair.dto.RequestUserBodySizeDto;
-import smu.FittingPair.dto.UserImgResponseDto;
 import smu.FittingPair.service.AuthService;
-import smu.FittingPair.service.UserBodySizeService;
+import smu.FittingPair.service.UserBodyTypeService;
 import smu.FittingPair.service.UserClothesService;
-import smu.FittingPair.service.UserImgService;
-
-import java.util.List;
 
 
 @RestController
@@ -25,13 +21,13 @@ public class UserController {
 
     private AuthService authService;
 
-    private final UserBodySizeService userBodySizeService;
+    private final UserBodyTypeService userBodyTypeService;
     private final UserClothesService userClothesService;
 
-    //해당 유저에 bodytype 장점, 단점 저장
+    //userbodytype 엔티티가 저장되며 해당, 유저에 bodytype 장점, 단점도 자동 저장됨 test 중
     @PostMapping("/body/bodytype")
     public BaseResponse<?> addUserBodyType(@RequestBody RequestUserBodySizeDto requestUserBodySizeDTO) {
-        userBodySizeService.addUserBodySize(requestUserBodySizeDTO);
+        userBodyTypeService.addUserBodySize(requestUserBodySizeDTO);
         return BaseResponse.ok();
     }
 
@@ -42,12 +38,5 @@ public class UserController {
         userClothesService.addUserClothes(clothesDto);
         return BaseResponse.ok();
     }
-
-
-    //마이페이지 추가
-//    @PostMapping("/users/mypage")
-//    public void addUserResult(@RequestHeader HttpHeaders httpHeaders, @RequestBody UserNewResultRequestDto userNewResultRequestDto) {
-//        userService.addUseResult(httpHeaders.getFirst("token"), userNewResultRequestDto);
-//    }
 
 }
