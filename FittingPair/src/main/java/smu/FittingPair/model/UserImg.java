@@ -17,23 +17,26 @@ public class UserImg {
     @JoinColumn(name = "user_id")
     private Users users;
 
-
-    private String image_url;
-    private String created_at ;
+    private String imageUrl; //실제 사진
+    private String objFileUrl; //obj file
+    private String createdAt;
 
 
     @Builder
     public UserImg(Users users, String image_url) {
         this.users = users;
-        this.image_url = "http://localhost:8080/Ai/sendImg/" + image_url;
-        this.created_at = LocalDateTime.now().toString();
+        this.imageUrl = "http://localhost:8080/Ai/sendImg/" + image_url;
+        this.createdAt = LocalDateTime.now().toString();
     }
 
-    public static UserImg saveImg (Users users,String imgurl) {
+    public static UserImg saveImg (Users users,String imgUrl) {
         return UserImg.builder()
                 .users(users)
-                .image_url(imgurl)
+                .image_url(imgUrl)
                 .build();
+    }
+    public void setObjFile(String objFileUrl){
+        this.objFileUrl = objFileUrl;
     }
 
 

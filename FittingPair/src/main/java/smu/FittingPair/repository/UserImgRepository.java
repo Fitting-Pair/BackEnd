@@ -13,19 +13,17 @@ import java.util.List;
 public interface UserImgRepository extends JpaRepository<UserImg, Long> {
 
 
-    @Query("SELECT U FROM UserImg U WHERE U.users.id = :userId ORDER BY U.created_at DESC LIMIT 1")
-    UserImg findfile(@Param("userId") Long userId);
+    @Query("SELECT U FROM UserImg U WHERE U.users.id = :userId ORDER BY U.createdAt DESC LIMIT 1")
+    UserImg findFile(@Param("userId") Long userId);
 
-    @Query("SELECT U FROM UserImg U WHERE U.users.id = :userId AND U.created_at = :savetime")
-    UserImg deletefindfile(@Param("userId") Long userId, @Param("savetime") String savetime);
+    @Query("SELECT U FROM UserImg U WHERE U.users.id = :userId AND U.createdAt = :savetime")
+    UserImg deleteFindFile(@Param("userId") Long userId, @Param("savetime") String savetime);
 
-    @Query("SELECT U.created_at from UserImg U where U.users.id = :userId ORDER BY U.created_at desc ")
-    List<String> findCreate_At(@Param("userId") Long userId);
+    @Query("SELECT U.createdAt from UserImg U where U.users.id = :userId ORDER BY U.createdAt desc ")
+    List<String> findCreateAt(@Param("userId") Long userId);
 
-    @Query("SELECT U FROM UserImg U WHERE U.users.id = :userId AND U.created_at = :saveImgTime")
+    @Query("SELECT U FROM UserImg U WHERE U.users.id = :userId AND U.createdAt = :saveImgTime")
     UserImg findImg(@Param("userId") Long userId, @Param("saveImgTime") String saveImgTime);
-
-
 
 
 }

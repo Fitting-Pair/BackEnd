@@ -10,7 +10,7 @@ import lombok.Setter;
 public class UserClothers {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userclothes_id")
-    private Long userclothes_id;
+    private Long id;
 
     @ManyToOne @JoinColumn(name = "user_id")
     private Users users;

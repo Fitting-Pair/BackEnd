@@ -19,7 +19,7 @@ public class MyPageService {
     private final UserImgRepository userImgRepository;
 
     public List<String> getMypage(){
-        return userImgRepository.findCreate_At(authService.currentUserId());
+        return userImgRepository.findCreateAt(authService.currentUserId());
     }
 
 }

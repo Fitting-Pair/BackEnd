@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCode {
     /* success code */
     SUCCESS(HttpStatus.OK,200,"요청에 성공했습니다."),
-
     /* error code */
 
     /* 400 */
@@ -21,6 +20,7 @@ public enum ErrorCode {
     FORBIDDEN(HttpStatus.FORBIDDEN,403,"권한 정보가 없습니다."),
     /* 404 */
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, 404, "존재하지 않는 회원입니다."),
+    USER_IMG_NOT_FOUND(HttpStatus.NOT_FOUND, 40401, "존재하지 않는 이미지입니다."),
     /* 405 */
     METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED, 405, "잘못된 HTTP 메서드를 호출했습니다."),
     /* 409 */
