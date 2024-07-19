@@ -9,7 +9,7 @@ import lombok.*;
 public class Result {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "result_id")
-    private Long result_id;
+    private Long id;
 
 
     @OneToOne(fetch = FetchType.LAZY)
@@ -18,11 +18,11 @@ public class Result {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mypage_id")
-    private MyPage mypage;
+    private MyPage myPage;
 
     @Builder
     public Result(UserBodyType userBodyType_id, MyPage mypage) {
         this.userBodyType = userBodyType_id;
-        this.mypage = mypage;
+        this.myPage = myPage;
     }
 }

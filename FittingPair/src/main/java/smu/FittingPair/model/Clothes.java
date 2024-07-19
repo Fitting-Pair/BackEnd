@@ -3,8 +3,6 @@ package smu.FittingPair.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @Getter
 @NoArgsConstructor
@@ -16,10 +14,8 @@ public class Clothes {
     private String clothesCategory;
     private String imageUrl;
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bodytype_id")
-    private BodyType bodyType;
+    private BodyShape bodyShape;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -27,10 +23,10 @@ public class Clothes {
 
 
     @Builder
-    public Clothes(String clothesName, String brand, BodyType bodyType, Users users, String imageUrl, String clothesCategory) {
+    public Clothes(String clothesName, String brand, BodyShape bodyShape, Users users, String imageUrl, String clothesCategory) {
         this.clothesName = clothesName;
         this.brand = brand;
-        this.bodyType = bodyType;
+        this.bodyShape = bodyShape;
         this.users = users;
         this.imageUrl = imageUrl;
         this.clothesCategory = clothesCategory;

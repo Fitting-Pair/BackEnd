@@ -1,13 +1,9 @@
 package smu.FittingPair.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
-import smu.FittingPair.dto.RequestUserBodySizeDto;
-import smu.FittingPair.dto.UserImgResponseDto;
 import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.NotFoundException;
-import smu.FittingPair.model.BodySize;
 import smu.FittingPair.repository.UserImgRepository;
 import smu.FittingPair.repository.UsersRepository;
 import smu.FittingPair.model.UserImg;
@@ -15,13 +11,11 @@ import smu.FittingPair.model.Users;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -54,9 +48,9 @@ public class UserImgService {
     }
 
     public void deleteImg(Long id,String savetime){
-        UserImg userImg = userImgRepository.deletefindfile(id, savetime);
+        UserImg userImg = userImgRepository.deleteFindFile(id, savetime);
 
-        String imageUrl = userImg.getImage_url();
+        String imageUrl = userImg.getImageUrl();
         String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
 
         Path imagePath = Paths.get("/home/imgfile", fileName);
@@ -69,7 +63,7 @@ public class UserImgService {
             }
         } catch (IOException e) {
             // 예외 처리
-            throw new RuntimeException("Failed to delete image file: " + userImg.getImage_url(), e);
+            throw new RuntimeException("Failed to delete image file: " + userImg.getImageUrl(), e);
         }
 
         userImgRepository.delete(userImg);
