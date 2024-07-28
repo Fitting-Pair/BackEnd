@@ -2,6 +2,7 @@ package smu.FittingPair.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.NotFoundException;
 import smu.FittingPair.repository.UserImgRepository;
@@ -35,16 +36,14 @@ public class UserImgService {
 
         Files.write(imgePath, imgFile.getBytes());
 
-        UserImg build = UserImg.builder()
+        UserImg userImg = UserImg.builder()
                 .users(user)
                 .image_url(imgFile.getResource().getFilename())
                 .build();
 
-        List<UserImg> dd = new ArrayList<>();
-        dd.add(build);
-        user.setUserImg(dd);
+        user.getUserImg().add(userImg);
 
-        userImgRepository.saveAll(dd);
+        userImgRepository.save(userImg);
     }
 
     public void deleteImg(Long id,String savetime){
@@ -67,6 +66,17 @@ public class UserImgService {
         }
 
         userImgRepository.delete(userImg);
+    }
+    @Transactional
+    public void putObjPngFile(Long userImgId,MultipartFile file){
+        if(file.isEmpty()){
+            throw new NotFoundException(ErrorCode.USER_OBJ_NOT_FOUND);
+        }
+        UserImg userImg = userImgRepository.findById(userImgId).orElseThrow(()->new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
+        //todo: 라즈베리 파이에 저장하는걸로 수정
+        String fileName = file.getOriginalFilename();
+        userImg.setObjFile(fileName);
+
     }
 
 }

@@ -15,6 +15,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class UserResultService {
+    //todo: 1. result 완성
 //
 //    private final UserBodyTypeRepository userBodyTypeRepository;
 //    private final UserImgRepository userImgRepository;

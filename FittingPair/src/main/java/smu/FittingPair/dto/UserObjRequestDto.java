@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Getter @Setter
 public class UserObjRequestDto {
     Long id; //userImgId
-    MultipartFile multipartFile; //obj file
+    MultipartFile multipartFile; //userImg
 
     public UserObjRequestDto(Long id,MultipartFile multipartFile){
         this.id = id;

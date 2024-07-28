@@ -6,7 +6,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
-@Getter @Setter @Entity
+@Getter @Entity
 public class UserImg {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

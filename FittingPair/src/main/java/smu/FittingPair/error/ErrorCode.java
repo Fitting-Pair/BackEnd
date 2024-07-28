@@ -21,6 +21,7 @@ public enum ErrorCode {
     /* 404 */
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, 404, "존재하지 않는 회원입니다."),
     USER_IMG_NOT_FOUND(HttpStatus.NOT_FOUND, 40401, "존재하지 않는 이미지입니다."),
+    USER_OBJ_NOT_FOUND(HttpStatus.NOT_FOUND,40402,"유저 obj 파일이 존재하지 않습니다."),
     /* 405 */
     METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED, 405, "잘못된 HTTP 메서드를 호출했습니다."),
     /* 409 */
