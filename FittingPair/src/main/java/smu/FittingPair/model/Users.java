@@ -26,11 +26,11 @@ public class Users {
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Role> roles;
 
-    @OneToOne (mappedBy = "users")
+    @OneToOne(mappedBy = "users")
     private MyPage myPage;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UserImg> userImg;
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserImg> userImgs;
 
     @Builder
     public Users(String userName, String phoneNumber, String gender, Long height) {
@@ -38,7 +38,7 @@ public class Users {
         this.phoneNumber = phoneNumber;
         this.gender = gender;
         this.height = height;
-        this.userImg = new ArrayList<>();
+        this.userImgs = new ArrayList<>();
         this.roles = new ArrayList<>();
     }
 

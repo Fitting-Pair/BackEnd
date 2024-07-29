@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Entity @Getter @Setter @RequiredArgsConstructor
-public class UserClothers {
+public class UserClothes {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userclothes_id")
     private Long id;

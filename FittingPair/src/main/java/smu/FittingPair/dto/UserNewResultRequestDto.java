@@ -12,7 +12,7 @@ import java.util.List;
 @Data @NoArgsConstructor
 public class UserNewResultRequestDto {
 
-    private Long userID;
+    private Long userId;
     private String bodytypeFeatures;
     private String bodytypeCareful;
     //사용자 결과 이미지

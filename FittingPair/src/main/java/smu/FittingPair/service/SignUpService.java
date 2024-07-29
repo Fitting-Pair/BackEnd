@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import smu.FittingPair.dto.SignUpRequestDto;
+import smu.FittingPair.repository.MyPageRepository;
 import smu.FittingPair.repository.UsersRepository;
 import smu.FittingPair.dto.UserInfoResponseDto;
 import smu.FittingPair.error.ErrorCode;
@@ -36,6 +37,7 @@ import java.util.Optional;
 @Service
 public class SignUpService {
     private final UsersRepository usersRepository;
+    private final MyPageRepository myPageRepository;
 
     //중복된 전화번호 검사
     public void checkDuplicatePhoneNum(SignUpRequestDto signUpRequestDto){
@@ -51,6 +53,10 @@ public class SignUpService {
         Users user = signUpRequestDto.toEntity();
         user.setRoles(List.of(Role.ROLE_USER));
         usersRepository.save(user);
+        MyPage myPage = MyPage.builder()
+                .users(user)
+                .build();
+        myPageRepository.save(myPage);
     }
     //todo: 회원정보 테스트용 (지워도됨)
     public UserInfoResponseDto getUserInfo(Long id){
