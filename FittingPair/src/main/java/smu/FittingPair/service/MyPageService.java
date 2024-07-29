@@ -17,7 +17,7 @@ public class MyPageService {
     private final AuthService authService;
     private final UserBodyTypeRepository userBodyTypeRepository;
     private final UserImgRepository userImgRepository;
-
+    //todo: 수정 List<Result>
     public List<String> getMypage(){
         return userImgRepository.findCreateAt(authService.currentUserId());
     }

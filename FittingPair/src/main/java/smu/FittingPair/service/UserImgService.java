@@ -41,7 +41,7 @@ public class UserImgService {
                 .image_url(imgFile.getResource().getFilename())
                 .build();
 
-        user.getUserImg().add(userImg);
+        user.getUserImgs().add(userImg);
 
         userImgRepository.save(userImg);
     }
@@ -76,7 +76,6 @@ public class UserImgService {
         //todo: 라즈베리 파이에 저장하는걸로 수정
         String fileName = file.getOriginalFilename();
         userImg.setObjFile(fileName);
-
     }
 
 }

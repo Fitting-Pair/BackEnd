@@ -5,9 +5,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import smu.FittingPair.model.Result;
 import smu.FittingPair.model.UserImg;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserImgRepository extends JpaRepository<UserImg, Long> {
@@ -23,8 +25,7 @@ public interface UserImgRepository extends JpaRepository<UserImg, Long> {
     List<String> findCreateAt(@Param("userId") Long userId);
 
     @Query("SELECT U FROM UserImg U WHERE U.users.id = :userId AND U.createdAt = :saveImgTime")
-    UserImg findImg(@Param("userId") Long userId, @Param("saveImgTime") String saveImgTime);
-
+    Optional<UserImg> findImg(@Param("userId") Long userId, @Param("saveImgTime") String saveImgTime);
 
 }
 

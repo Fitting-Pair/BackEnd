@@ -46,6 +46,7 @@ public class UserBodySizeService {
     private final UserImgRepository userImgRepository;
     private final UserBodyTypeService userBodyTypeService;
     private final UserBodyTypeRepository userBodyTypeRepository;
+    private final UserResultService userResultService;
 
     //json으로부터 받은 결과를 주입하고, 새로운 BodySize 객체를 만들어 UserImg와 이어준다.
     @Transactional
@@ -63,6 +64,8 @@ public class UserBodySizeService {
         //저장
         userBodyTypeRepository.save(userBodyType);
         bodySizeRepository.save(bodySize);
+        //결과 생성
+        userResultService.makeResult(users,userBodyType);
     }
     private UserBodyType decideBodyType(UserBodySizeRequestDto.UserSize userBodySizeRequestDto, Users users) {
         if(users.getGender().equals("Male")){

@@ -24,24 +24,17 @@ public class UserBodyType {
     @Column(name = "body_shape")
     private BodyShape bodyShape;
 
-    @OneToOne(mappedBy = "userBodyType", cascade = CascadeType.ALL)
-    private Result result;
-
     public void setUsers(Users users){
         this.users = users;
     }
     public void setBodySize(BodySize bodySize){
         this.bodySize = bodySize;
     }
-//    private String imageUrl; // 사용자 체형 결과 이미지 주소
-//    private String created_at; // 사용자 체형 이미지 생성 날짜 (날짜로 변환 필요)
 
     @Builder
     public UserBodyType(Users users, BodySize bodySize, BodyShape bodyShape) {
         this.users = users;
         this.bodySize = bodySize;
-//        this.imageUrl = imageUrl;
-//        this.created_at = created_at;
         this.bodyShape = bodyShape;
     }
 
