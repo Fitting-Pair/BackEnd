@@ -4,11 +4,13 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity @Getter @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class BodySize {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "bodysize_id")
-    private Long bodysize_id;
+    private Long id;
 
     @OneToOne(mappedBy = "bodySize")
     private UserBodyType userBodyType;
@@ -16,27 +18,28 @@ public class BodySize {
     @OneToOne
     @JoinColumn(name = "userImg_id")
     private UserImg userImg;
+    private double chestSize;
+    private double hipSize;
+    private double shoulderSize;
+    private double waistSize;
+    private Long heightSize;
 
-    private Long chest_size;
-    private Long hip_size;
-    private Long shoulder_size;
-    private Long waist_size;
-    private Long height_size;
-
-    @Builder
-    public BodySize(UserImg userImg, Long chest_size, Long hip_size,
-                    Long shoulder_size, Long waist_size, Long height_size) {
-        this.userImg = userImg;
-        this.chest_size = chest_size;
-        this.hip_size = hip_size;
-        this.shoulder_size = shoulder_size;
-        this.waist_size = waist_size;
-        this.height_size = height_size;
+    public void setHeightSize(Long heightSize) {
+        this.heightSize = heightSize;
     }
-
-    public void setttingUserBodyType(UserBodyType userBodyType) {
+    public void setUserImg(UserImg userImg) {
+        this.userImg = userImg;
+    }
+    public void setUserBodyType(UserBodyType userBodyType){
         this.userBodyType = userBodyType;
     }
 
+    @Builder
+    public BodySize(double chestSize, double hipSize, double shoulderSize, double waistSize){
+        this.chestSize = chestSize;
+        this.hipSize = hipSize;
+        this.shoulderSize = shoulderSize;
+        this.waistSize = waistSize;
+    }
 
 }

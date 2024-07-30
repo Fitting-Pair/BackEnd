@@ -57,7 +57,6 @@ public class AuthService {
     public Long currentUserId(){
       Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
       String id = ((CustomUserDetails) principal).getUsername();
-      System.out.println(Long.parseLong(id));
       return Long.parseLong(id);
     }
     @Transactional

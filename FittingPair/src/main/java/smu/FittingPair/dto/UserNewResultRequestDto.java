@@ -12,20 +12,20 @@ import java.util.List;
 @Data @NoArgsConstructor
 public class UserNewResultRequestDto {
 
-    private Long userID;
+    private Long userId;
     private String bodytypeFeatures;
     private String bodytypeCareful;
     //사용자 결과 이미지
     private String imgUrl;
-    private List<ClothesDto> top;
-    private List<ClothesDto> bottom;
+//    private List<ClothesDto> top;
+//    private List<ClothesDto> bottom;
 
     @Builder
-    public UserNewResultRequestDto(String bodytypeFeatures, String bodytypeCareful, String imgUrl, List<ClothesDto> clothesDtoList) {
+    public UserNewResultRequestDto(String bodytypeFeatures, String bodytypeCareful, String imgUrl) {
         this.bodytypeFeatures = bodytypeFeatures;
         this.bodytypeCareful = bodytypeCareful;
         this.imgUrl = imgUrl;
-        this.top = clothesDtoList;
-        this.bottom = clothesDtoList;
+//        this.top = clothesDtoList;
+//        this.bottom = clothesDtoList;
     }
 }

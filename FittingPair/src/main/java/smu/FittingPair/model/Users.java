@@ -6,6 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -25,12 +26,11 @@ public class Users {
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Role> roles;
 
-    @OneToOne (mappedBy = "users")
+    @OneToOne(mappedBy = "users")
     private MyPage myPage;
 
-    @OneToMany(mappedBy = "users")
-    private List<UserImg> userImg;
-
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserImg> userImgs;
 
     @Builder
     public Users(String userName, String phoneNumber, String gender, Long height) {
@@ -38,10 +38,8 @@ public class Users {
         this.phoneNumber = phoneNumber;
         this.gender = gender;
         this.height = height;
-    }
-
-    public void setUserImg(List<UserImg> userImg) {
-        this.userImg = userImg;
+        this.userImgs = new ArrayList<>();
+        this.roles = new ArrayList<>();
     }
 
     public void setMypage(MyPage myPage) {
