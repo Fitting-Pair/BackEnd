@@ -38,8 +38,6 @@ public class UserResultService {
         List<TopClothes> topClothes = clothesRepository.findTopClothes(l, "top");
         List<ButtomClothes> buttomClothes = clothesRepository.findButtomClothes(l, "buttom");
         return UserResultResponseDto.to(userBodyType, bodyType, buttomClothes, topClothes);
-
-
     }
 
     public void DeleteMypage(String saveImgTime){
