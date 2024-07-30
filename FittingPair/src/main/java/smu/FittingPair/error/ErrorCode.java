@@ -16,6 +16,7 @@ public enum ErrorCode {
     UNAUTHORIZED(HttpStatus.UNAUTHORIZED,401,"인증되지 않은 사용자입니다."),
     TOKEN_EXPIRED_ERROR(HttpStatus.UNAUTHORIZED,40102,"토큰이 만료되었습니다."),
     ALREADY_LOGGED_OUT_ERROR(HttpStatus.UNAUTHORIZED,40103,"이미 로그아웃한 사용자입니다."),
+    TOKEN_IS_NULL(HttpStatus.UNAUTHORIZED,40104,"토큰 값이 비어있습니다."),
     /* 403 */
     FORBIDDEN(HttpStatus.FORBIDDEN,403,"권한 정보가 없습니다."),
     /* 404 */
