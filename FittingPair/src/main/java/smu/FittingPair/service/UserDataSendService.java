@@ -56,12 +56,6 @@ public class UserDataSendService {
         HttpEntity<MultiValueMap<String, HttpEntity<?>>> requestEntity = new HttpEntity<>(multipartBody,headers);
         //보내기
         ResponseEntity<String> response = restTemplate.postForEntity(SERVER_ADDRESS + "/process",requestEntity,String.class);
-        //응답 확인
-        if (response.getStatusCode().is2xxSuccessful()) {
-            System.out.println("데이터 전송 완료");
-        } else {
-            System.err.println("데이터 전송 실패");
-        }
     }
     //multipartfile -> resource로 변환해 파일을 보냄
     private Resource convert(MultipartFile file) {
