@@ -34,7 +34,7 @@ public class AuthController {
         authService.logout(refreshToken,accessToken);
         return BaseResponse.ok();
     }
-    @GetMapping("/auth/reissue-token")
+    @PostMapping("/auth/reissue-token")
     public BaseResponse<?> reissueToken(@RequestHeader("Refresh") String refreshToken){
         return BaseResponse.ok(reissueTokenService.reissueToken(refreshToken));
     }
