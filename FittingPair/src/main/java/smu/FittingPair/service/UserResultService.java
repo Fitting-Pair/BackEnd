@@ -6,10 +6,7 @@ import org.apache.catalina.User;
 import org.aspectj.weaver.ast.Not;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import smu.FittingPair.dto.BodyTypeDto;
-import smu.FittingPair.dto.ButtomClothes;
-import smu.FittingPair.dto.TopClothes;
-import smu.FittingPair.dto.UserResultResponseDto;
+import smu.FittingPair.dto.*;
 import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.NotFoundException;
 import smu.FittingPair.model.*;
@@ -24,7 +21,6 @@ public class UserResultService {
     private final UserBodyTypeRepository userBodyTypeRepository;
     private final UserImgRepository userImgRepository;
     private final UserImgService userImgService;
-    private final ClothesRepository clothesRepository;
     private final BodySizeRepository bodySizeRepository;
     private final AuthService authService;
     private final ResultRepository resultRepository;
@@ -42,7 +38,7 @@ public class UserResultService {
                 .map(Result::getUserBodyType)
                 .map(UserBodyType::getBodyShape)
                 .orElseThrow(()-> new NotFoundException(ErrorCode.BODYSHAPE_NOT_FOUND));
-        return UserResultResponseDto.to(userImg.getObjFileUrl(),bodyShape.getName(),bodyShape.getFeatures(),bodyShape.getCareful());
+        return UserResultResponseDto.to(userImg.getObjFileUrl(),bodyShape.getName(),bodyShape.getFeatures(),bodyShape.getCareful(), ClothesDto.to(bodyShape));
 
     }
     // 체형 측정 결과를 받고 바로 생성. -> Result 새로 생성
@@ -59,7 +55,7 @@ public class UserResultService {
                 .build();
         resultRepository.save(result);
         //응답 리스폰스 생성
-        return UserResultResponseDto.to(userImg.getObjFileUrl(),bodyShape.getName(), bodyShape.getCareful(), bodyShape.getFeatures());
+        return UserResultResponseDto.to(userImg.getObjFileUrl(),bodyShape.getName(), bodyShape.getCareful(), bodyShape.getFeatures(),ClothesDto.to(bodyShape));
     }
     private Users getUserOrThrow(UserBodyType userBodyType){
         Users users = userBodyType.getUsers();
