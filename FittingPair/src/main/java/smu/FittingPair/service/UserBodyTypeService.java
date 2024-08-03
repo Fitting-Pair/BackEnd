@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import smu.FittingPair.dto.UserBodySizeRequestDto;
 import smu.FittingPair.model.BodyShape;
 import smu.FittingPair.model.UserBodyType;
+import smu.FittingPair.model.Users;
 import smu.FittingPair.repository.UserBodyTypeRepository;
 import smu.FittingPair.repository.UserImgRepository;
 
@@ -15,7 +16,7 @@ public class UserBodyTypeService {
     private final UserImgRepository userImgRepository;
     private final AuthService authService;
 
-    public UserBodyType decideMaleBodyType(UserBodySizeRequestDto.UserSize bodySizeRequestDto){
+    public UserBodyType decideMaleBodyType(UserBodySizeRequestDto.UserSize bodySizeRequestDto, Users users){
         double shoulder = bodySizeRequestDto.getShoulderSize();
         double hip = bodySizeRequestDto.getHipSize();
         double waist = bodySizeRequestDto.getWaistSize();
@@ -26,7 +27,7 @@ public class UserBodyTypeService {
 
         BodyShape bodyShape = getMaleBodyShape(shoulder, hip, waist, shoulderToWaistRatio, shoulderToHipRatio, waistToHipRatio);
         return UserBodyType.builder()
-                .bodyShape(bodyShape).build();
+                .bodyShape(bodyShape).users(users).build();
     }
 
     private BodyShape getMaleBodyShape(double shoulder, double hip, double waist, double shoulderToWaistRatio, double shoulderToHipRatio, double waistToHipRatio) {
@@ -80,7 +81,7 @@ public class UserBodyTypeService {
         return closestShape;
     }
 
-    public UserBodyType decideFemaleBodyType(UserBodySizeRequestDto.UserSize bodySizeRequestDto){
+    public UserBodyType decideFemaleBodyType(UserBodySizeRequestDto.UserSize bodySizeRequestDto,Users users){
         double waist = bodySizeRequestDto.getWaistSize();
         double hip = bodySizeRequestDto.getHipSize();
         double shoulder = bodySizeRequestDto.getShoulderSize();
@@ -91,7 +92,7 @@ public class UserBodyTypeService {
 
         BodyShape bodyShape = getFemaleBodyShape(waist, hip, shoulder, shoulderToWaistRatio, shoulderToHipRatio, waistToHipRatio);
         return UserBodyType.builder()
-                .bodyShape(bodyShape).build();
+                .bodyShape(bodyShape).users(users).build();
     }
 
     private BodyShape getFemaleBodyShape(double waist, double hip, double shoulder, double shoulderToWaistRatio, double shoulderToHipRatio, double waistToHipRatio) {

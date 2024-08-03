@@ -50,7 +50,7 @@ public class UserBodySizeService {
 
     //json으로부터 받은 결과를 주입하고, 새로운 BodySize 객체를 만들어 UserImg와 이어준다.
     @Transactional
-    public void putBodySize(UserBodySizeRequestDto userBodySizeRequestDto){
+    public UserBodyType putBodySize(UserBodySizeRequestDto userBodySizeRequestDto){
         UserBodySizeRequestDto.UserSize userSize = userBodySizeRequestDto.getUserSize();
         BodySize bodySize = userBodySizeRequestDto.toEntity(userSize.getChestSize(), userSize.getHipSize(), userSize.getShoulderSize(), userSize.getWaistSize());
         //userBodySize에 있는 id는 유저 아이디가 아니라 유저 이미지 아이디므로, 유저 이미지에서 조회한 후, 유저의 정보를 이어준다.
@@ -65,13 +65,13 @@ public class UserBodySizeService {
         userBodyTypeRepository.save(userBodyType);
         bodySizeRepository.save(bodySize);
         //결과 생성
-        userResultService.makeResult(users,userBodyType);
+        return userBodyType;
     }
     private UserBodyType decideBodyType(UserBodySizeRequestDto.UserSize userBodySizeRequestDto, Users users) {
         if(users.getGender().equals("Male")){
-            return userBodyTypeService.decideMaleBodyType(userBodySizeRequestDto);
+            return userBodyTypeService.decideMaleBodyType(userBodySizeRequestDto,users);
         }else{
-            return userBodyTypeService.decideFemaleBodyType(userBodySizeRequestDto);
+            return userBodyTypeService.decideFemaleBodyType(userBodySizeRequestDto,users);
         }
     }
     public Users findUserByUserImgId(Long id){

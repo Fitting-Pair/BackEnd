@@ -11,6 +11,7 @@ import smu.FittingPair.dto.UserObjRequestDto;
 import smu.FittingPair.service.UserBodySizeService;
 import smu.FittingPair.service.UserDataSendService;
 import smu.FittingPair.service.UserImgService;
+import smu.FittingPair.service.UserResultService;
 import smu.FittingPair.util.JsonMapper;
 
 import java.util.Map;
@@ -23,6 +24,7 @@ public class JsonDataController {
     private final UserBodySizeService userBodySizeService;
     private final UserDataSendService userDataSendService;
     private final UserImgService userImgService;
+    private final UserResultService userResultService;
     private final JsonMapper jsonMapper;
     //obj file를 FAST-API에 보내줍니다.
     @PostMapping("/send/userImg")
@@ -35,8 +37,7 @@ public class JsonDataController {
     @PostMapping("/get/json")
     public BaseResponse<?> getUserJsonData(@RequestPart("json") String json,@RequestPart("file") MultipartFile file) throws JsonProcessingException {
         userImgService.putObjPngFile(jsonMapper.StringToDto(json).getUserId(),file);
-        userBodySizeService.putBodySize(jsonMapper.StringToDto(json));
-        return BaseResponse.ok();
+        return BaseResponse.ok(userResultService.makeResult(userBodySizeService.putBodySize(jsonMapper.StringToDto(json))));
     }
 
 
