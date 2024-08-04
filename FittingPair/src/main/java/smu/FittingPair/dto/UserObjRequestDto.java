@@ -4,15 +4,16 @@ import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @Data
-@NoArgsConstructor
+@AllArgsConstructor
 @Getter @Setter
+@Builder
+@NoArgsConstructor
 public class UserObjRequestDto {
     Long id; //userImgId
     MultipartFile multipartFile; //userImg
 
-    public UserObjRequestDto(Long id,MultipartFile multipartFile){
-        this.id = id;
-        this.multipartFile = multipartFile;
+    public static UserObjRequestDto to(Long id, MultipartFile multipartFile){
+       return UserObjRequestDto.builder().id(id).multipartFile(multipartFile).build();
     }
 
 }
