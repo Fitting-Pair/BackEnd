@@ -54,7 +54,7 @@ public class AuthService {
     }
 
     //현재 로그인한 사용자의 아이디를 가져오는 메서드
-    public Long currentUserId(){
+    public static Long currentUserId(){
       Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
       String id = ((CustomUserDetails) principal).getUsername();
       return Long.parseLong(id);

@@ -23,20 +23,20 @@ public class UserImg {
 
 
     @Builder
-    public UserImg(Users users, String image_url) {
+    public UserImg(Users users, String imageUrl) {
         this.users = users;
-        this.imageUrl = "http://localhost:8080/Ai/sendImg/" + image_url;
+        this.imageUrl = "http://localhost:8080/Ai/sendImg/" + imageUrl;
         this.createdAt = LocalDateTime.now().toString();
     }
 
     public static UserImg saveImg (Users users,String imgUrl) {
         return UserImg.builder()
                 .users(users)
-                .image_url(imgUrl)
+                .imageUrl(imgUrl)
                 .build();
     }
     public void setObjFile(String objFileUrl){
-        this.objFileUrl = objFileUrl;
+        this.objFileUrl = "http://localhost:8080/Ai/sendImg/" + imageUrl;
     }
 
 
