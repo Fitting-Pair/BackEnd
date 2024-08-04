@@ -59,8 +59,8 @@ public class JWTProvider {
     //토큰 생성
     public String createAccessToken(String username){
         //30분
-        //long ACCESS_TOKEN_EXPIRE_TIME = 1000 * 60 * 30;
-        long ACCESS_TOKEN_EXPIRE_TIME = 1000*15;
+        long ACCESS_TOKEN_EXPIRE_TIME = 1000 * 60 * 30;
+        //long ACCESS_TOKEN_EXPIRE_TIME = 1000*15;
         return Jwts.builder()
                 .claim("id",username)
                 .claim("role","ROLE_USER") //Long id
@@ -71,8 +71,8 @@ public class JWTProvider {
     }
     public String createRefreshToken(String username){
         //7일
-        //long REFRESH_TOKEN_EXPIRE_TIME = 1000 * 60 * 60 * 24 * 7;
-        long REFRESH_TOKEN_EXPIRE_TIME = 1000 * 60;
+        long REFRESH_TOKEN_EXPIRE_TIME = 1000 * 60 * 60 * 24 * 7;
+        //long REFRESH_TOKEN_EXPIRE_TIME = 1000 * 60;
         return Jwts.builder()
                 .claim("id",username)
                 .claim("role","ROLE_USER")
