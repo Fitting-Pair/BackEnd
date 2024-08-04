@@ -18,6 +18,7 @@ public class ResultController {
     public BaseResponse<?> getResult(@PathVariable("create") String create) {
         return BaseResponse.ok(userResultService.getResult(create));
     }
+    //todo: 이거 구현
     @GetMapping("/result/{resultId}")
     public BaseResponse<?> getNewResult(@PathVariable("resultId") Long resultId){
         return BaseResponse.ok(userResultService.getResultById(resultId));
