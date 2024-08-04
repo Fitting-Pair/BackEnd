@@ -29,7 +29,7 @@ public class UserImgService {
 
     //프론트로부터 사용자 이미지를 받아옴.
     public UserObjRequestDto addUserImg(MultipartFile imgFile) throws IOException {
-        Long id = authService.currentUserId();
+        Long id = AuthService.currentUserId();
         Users user = usersRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.USER_NOT_FOUND));
 
@@ -44,7 +44,7 @@ public class UserImgService {
 
         user.getUserImgs().add(userImg);
         userImgRepository.save(userImg);
-        return UserObjRequestDto.to(id,imgFile);
+        return UserObjRequestDto.to(userImg.getId(), imgFile);
     }
 
     public void deleteImg(Long id,String savetime){
@@ -79,7 +79,7 @@ public class UserImgService {
 
         Files.write(imgePath, file.getBytes());
 
-        userImg.setObjFile(file.getOriginalFilename());
+        userImg.setObjFile(file.getResource().getFilename());
     }
 
 }
