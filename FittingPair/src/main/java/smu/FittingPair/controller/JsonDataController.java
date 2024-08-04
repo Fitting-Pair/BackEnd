@@ -37,7 +37,8 @@ public class JsonDataController {
     @PostMapping("/get/json")
     public BaseResponse<?> getUserJsonData(@RequestPart("json") String json,@RequestPart("file") MultipartFile file) throws JsonProcessingException {
         userImgService.putObjPngFile(jsonMapper.StringToDto(json).getUserId(),file);
-        return BaseResponse.ok(userResultService.makeResult(userBodySizeService.putBodySize(jsonMapper.StringToDto(json))));
+        userResultService.makeResult(userBodySizeService.putBodySize(jsonMapper.StringToDto(json)));
+        return BaseResponse.ok();
     }
 
 

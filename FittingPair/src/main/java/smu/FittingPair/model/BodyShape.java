@@ -1,10 +1,7 @@
 package smu.FittingPair.model;
 
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -405,7 +402,7 @@ public enum BodyShape {
     }
     @Builder
     @Getter @Setter
-    @RequiredArgsConstructor
+    @AllArgsConstructor
     public static class TopClothesItem {
         private String name;
         private String brand;
@@ -424,7 +421,7 @@ public enum BodyShape {
     }
     @Builder
     @Getter @Setter
-    @RequiredArgsConstructor
+    @AllArgsConstructor
     public static class BottomClothesItem {
         private String name;
         private String brand;

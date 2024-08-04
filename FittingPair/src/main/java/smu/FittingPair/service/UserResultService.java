@@ -43,7 +43,7 @@ public class UserResultService {
     }
     // 체형 측정 결과를 받고 바로 생성. -> Result 새로 생성
     @Transactional
-    public UserResultResponseDto makeResult(UserBodyType userBodyType){
+    public void makeResult(UserBodyType userBodyType){
         Users users = userBodyType.getUsers();
         MyPage myPage = getUserImgOrThrow(users);
         BodyShape bodyShape = getBodyShapeOrThrow(userBodyType);
@@ -54,7 +54,13 @@ public class UserResultService {
                 .userImg(userImg)
                 .build();
         resultRepository.save(result);
+        //return UserResultResponseDto.to(userImg.getObjFileUrl(),bodyShape.getName(), bodyShape.getCareful(), bodyShape.getFeatures(),ClothesDto.to(bodyShape));
         //응답 리스폰스 생성
+    }
+    public UserResultResponseDto getResultById(Long id){
+        Result result = resultRepository.findById(id).orElseThrow(()->new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
+        UserImg userImg = result.getUserImg();
+        BodyShape bodyShape = result.getUserBodyType().getBodyShape();
         return UserResultResponseDto.to(userImg.getObjFileUrl(),bodyShape.getName(), bodyShape.getCareful(), bodyShape.getFeatures(),ClothesDto.to(bodyShape));
     }
     private Users getUserOrThrow(UserBodyType userBodyType){

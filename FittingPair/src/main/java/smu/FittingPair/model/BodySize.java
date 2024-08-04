@@ -9,14 +9,14 @@ import lombok.*;
 public class BodySize {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "bodysize_id")
+    @Column(name = "body_size_id")
     private Long id;
 
     @OneToOne(mappedBy = "bodySize")
     private UserBodyType userBodyType;
 
     @OneToOne
-    @JoinColumn(name = "userImg_id")
+    @JoinColumn(name = "user_img_id")
     private UserImg userImg;
     private double chestSize;
     private double hipSize;
