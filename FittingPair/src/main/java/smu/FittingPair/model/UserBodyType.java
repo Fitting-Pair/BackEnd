@@ -9,7 +9,7 @@ import lombok.*;
 public class UserBodyType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "bodytype_id")
+    @Column(name = "user_body_type_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -37,6 +37,5 @@ public class UserBodyType {
         this.bodySize = bodySize;
         this.bodyShape = bodyShape;
     }
-
 
 }

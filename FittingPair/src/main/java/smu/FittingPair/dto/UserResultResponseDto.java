@@ -18,12 +18,10 @@ public class UserResultResponseDto {
     private String bodyTypeName;
     private String bodyTypeFeature;
     private String bodyTypeCareful;
-//    private List<TopClothes> top;
-//    private List<ButtomClothes> buttom;
-
+    private ClothesDto clothesDto;
     public static UserResultResponseDto to(String objFile, String bodyTypeName,
-                                 String bodyTypeFeature, String bodyTypeCareful) {
-        return new UserResultResponseDto(objFile,bodyTypeName,bodyTypeFeature,bodyTypeCareful);
+                                 String bodyTypeFeature, String bodyTypeCareful,ClothesDto clothesDto) {
+        return new UserResultResponseDto(objFile,bodyTypeName,bodyTypeFeature,bodyTypeCareful,clothesDto);
     }
 
 }

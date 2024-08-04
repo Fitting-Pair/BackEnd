@@ -12,14 +12,14 @@ public class Result {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userbodytype_id")
+    @JoinColumn(name = "user_body_type_id")
     private UserBodyType userBodyType;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mypage_id")
+    @JoinColumn(name = "my_page_id")
     private MyPage myPage;
     @OneToOne
-    @JoinColumn(name = "userImg_id")
+    @JoinColumn(name = "user_img_id")
     private UserImg userImg;
     @Builder
     public Result(UserBodyType userBodyType, MyPage myPage,UserImg userImg) {

@@ -15,8 +15,8 @@ import java.util.List;
 public class MyPage {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mypage_id")
-    private Long mypage_id;
+    @Column(name = "my_page_id")
+    private Long id;
 
     @OneToOne @JoinColumn(name = "user_id")
     private Users users;
