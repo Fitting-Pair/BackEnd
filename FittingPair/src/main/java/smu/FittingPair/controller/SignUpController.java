@@ -12,7 +12,6 @@ import smu.FittingPair.service.SignUpService;
 
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequiredArgsConstructor
 public class SignUpController {
     private final SignUpService signUpService;
