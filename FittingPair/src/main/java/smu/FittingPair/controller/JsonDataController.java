@@ -19,7 +19,6 @@ import java.util.Map;
 
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequiredArgsConstructor
 public class JsonDataController {
     private final UserBodySizeService userBodySizeService;

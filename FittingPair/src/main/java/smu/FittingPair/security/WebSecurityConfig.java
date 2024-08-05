@@ -13,9 +13,13 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import smu.FittingPair.service.CustomUserDetailService;
 import smu.FittingPair.jwt.JWTProvider;
 import smu.FittingPair.jwt.JwtAuthenticationFilter;
+import java.util.*;
 
 //실제 인증 처리
 @Configuration
@@ -36,15 +40,25 @@ public class WebSecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
     @Bean
+    CorsConfigurationSource corsConfigurationSource(){
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.setAllowedOrigins(Arrays.asList("https://fitting-pair.vercel.app"));
+        corsConfiguration.setAllowedMethods(Arrays.asList("GET","POST"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**",corsConfiguration);
+        return source;
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http
+                .cors(corsCustomizer->corsCustomizer.configurationSource(corsConfigurationSource()))
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable);
         http
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/auth/login","/auth/signup","/","/get/json","/auth/reissue-token").permitAll()
-//                        .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated() //외에 다른 요청은 로그인한 사용자만 가능
                 );
         http
