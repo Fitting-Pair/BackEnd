@@ -13,7 +13,6 @@ import java.io.IOException;
 
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequiredArgsConstructor
 public class UserImgController {
 
