@@ -58,14 +58,5 @@ public class SignUpService {
                 .build();
         myPageRepository.save(myPage);
     }
-    //todo: 회원정보 테스트용 (지워도됨)
-    public UserInfoResponseDto getUserInfo(Long id){
-        Optional<Users> OptionalUser = usersRepository.findById(id);
-        Users users = OptionalUser.orElseThrow(()-> new NotFoundException(ErrorCode.USER_NOT_FOUND));
-        return UserInfoResponseDto.to(users);
-    }
-
-
-
 
 }

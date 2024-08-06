@@ -38,7 +38,7 @@ public class UserResultService {
                 .map(Result::getUserBodyType)
                 .map(UserBodyType::getBodyShape)
                 .orElseThrow(()-> new NotFoundException(ErrorCode.BODYSHAPE_NOT_FOUND));
-        return UserResultResponseDto.to(userImg.getObjFileUrl(),bodyShape.getName(),bodyShape.getFeatures(),bodyShape.getCareful(), ClothesDto.to(bodyShape));
+        return UserResultResponseDto.to(result);
 
     }
     // 체형 측정 결과를 받고 바로 생성. -> Result 새로 생성
@@ -62,7 +62,7 @@ public class UserResultService {
         UserImg userImg = userImgRepository.findById(id).orElseThrow(()-> new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
         Result result = resultRepository.findByUserImg(userImg).orElseThrow(()->new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
         BodyShape bodyShape = result.getUserBodyType().getBodyShape();
-        return UserResultResponseDto.to(userImg.getObjFileUrl(),bodyShape.getName(), bodyShape.getCareful(), bodyShape.getFeatures(),ClothesDto.to(bodyShape));
+        return UserResultResponseDto.to(result);
     }
     private Users getUserOrThrow(UserBodyType userBodyType){
         Users users = userBodyType.getUsers();
