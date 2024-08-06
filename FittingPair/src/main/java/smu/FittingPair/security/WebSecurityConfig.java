@@ -43,7 +43,7 @@ public class WebSecurityConfig {
     CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowedOrigins(Arrays.asList("https://fitting-pair.vercel.app"));
-        corsConfiguration.setAllowedMethods(Arrays.asList("GET","POST"));
+        corsConfiguration.setAllowedMethods(Arrays.asList("GET","POST","OPTION"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**",corsConfiguration);
         return source;

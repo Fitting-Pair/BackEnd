@@ -38,10 +38,11 @@ public class AuthService {
         //3. 일치하면 토큰을 생성한다. (인가)
         String accessToken = jwtProvider.createAccessToken(Long.toString(users.getId()));
         String refreshToken = jwtProvider.createRefreshToken(Long.toString(users.getId()));
+        Long expiredIn = jwtProvider.getExpiredIn(accessToken);
 
         usersRepository.save(users);
 
-        return LoginResponseDto.to(users,accessToken,refreshToken);
+        return LoginResponseDto.to(users,accessToken,refreshToken,expiredIn);
     }
     private Users getUser(LoginRequestDto loginRequestDto) {
         return usersRepository.findByPhoneNumber(loginRequestDto.getPhoneNumber())
