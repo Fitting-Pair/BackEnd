@@ -19,9 +19,9 @@ public class ResultController {
         return BaseResponse.ok(userResultService.getResult(create));
     }
     //todo: 이거 구현
-    @GetMapping("/result/{resultId}")
-    public BaseResponse<?> getNewResult(@PathVariable("resultId") Long resultId){
-        return BaseResponse.ok(userResultService.getResultById(resultId));
+    @GetMapping("/result/{imgId}")
+    public BaseResponse<?> getNewResult(@PathVariable("imgId") Long imgId){
+        return BaseResponse.ok(userResultService.getResultByImgId(imgId));
     }
     //todo: 마이페이지 삭제 로직
 //    // 마이페이지에 사용자 결과 하나 삭제하기
