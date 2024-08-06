@@ -36,7 +36,7 @@ public class UserImg {
                 .build();
     }
     public void setObjFile(String objFileUrl){
-        this.objFileUrl = "http://localhost:8080/Ai/sendImg/" + imageUrl;
+        this.objFileUrl = "http://localhost:8080/Ai/sendImg/" + objFileUrl;
     }
 
 

@@ -1,16 +1,16 @@
 package smu.FittingPair.dto;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.apache.catalina.User;
 import org.springframework.web.multipart.MultipartFile;
-import smu.FittingPair.model.UserImg;
-import smu.FittingPair.model.Users;
 
-@Setter
 @Getter
-@RequiredArgsConstructor
+@AllArgsConstructor
+@Builder
 public class UserImgResponseDto {
-    //private String image_url;
-    private MultipartFile imageFile;
+    private final String message = "이미지 처리가 완료되었습니다.";
+    private Long imgId;
+    public static UserImgResponseDto to(Long imgId){
+        return UserImgResponseDto.builder().imgId(imgId).build();
+    }
 }
