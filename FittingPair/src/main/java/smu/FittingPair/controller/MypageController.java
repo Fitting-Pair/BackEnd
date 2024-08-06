@@ -3,6 +3,7 @@ package smu.FittingPair.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import smu.FittingPair.dto.UserNewResultRequestDto;
+import smu.FittingPair.service.AuthService;
 import smu.FittingPair.service.MyPageService;
 import smu.FittingPair.service.UserImgService;
 import smu.FittingPair.config.response.BaseResponse;
@@ -16,9 +17,13 @@ public class MypageController {
     private final MyPageService myPageService;
 
     //마이페이지 가져오기 (날짜 리스트들)
-    @GetMapping("/users/mypage")
+    @GetMapping("/mypage")
         public BaseResponse<?> getMyPage(){
             return BaseResponse.ok(myPageService.getMyPage());
+    }
+    @GetMapping("/mypage/info")
+    public BaseResponse<?> getUserInfo(){
+        return BaseResponse.ok(myPageService.getUserInfo(AuthService.currentUserId()));
     }
 
 

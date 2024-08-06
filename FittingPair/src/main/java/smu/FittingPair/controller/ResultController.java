@@ -18,7 +18,7 @@ public class ResultController {
     public BaseResponse<?> getResult(@PathVariable("create") String create) {
         return BaseResponse.ok(userResultService.getResult(create));
     }
-    //todo: 이거 구현
+    //체형 측정 후 바로 조회
     @GetMapping("/result/{imgId}")
     public BaseResponse<?> getNewResult(@PathVariable("imgId") Long imgId){
         return BaseResponse.ok(userResultService.getResultByImgId(imgId));
