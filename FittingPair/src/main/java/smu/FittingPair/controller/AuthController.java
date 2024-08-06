@@ -21,10 +21,6 @@ public class AuthController {
     public BaseResponse<?> login(@RequestBody LoginRequestDto loginRequestDto, HttpServletResponse response){
         return BaseResponse.ok(authService.login(loginRequestDto,response));
     }
-    @GetMapping("/users")
-    public BaseResponse<?> getUserInfo(){
-        return BaseResponse.ok(signUpService.getUserInfo(authService.currentUserId()));
-    }
     @PostMapping("/auth/logout")
     public BaseResponse<?> logout(@RequestHeader("Refresh") String refreshToken, @RequestHeader("Authorization") String accessToken){
         if (accessToken.startsWith("Bearer ")) {

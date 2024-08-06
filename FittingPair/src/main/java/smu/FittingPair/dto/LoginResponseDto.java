@@ -11,15 +11,16 @@ import smu.FittingPair.model.Users;
 @Getter @Setter
 public class LoginResponseDto {
     private Long id;
-    private String userName;
     private String accessToken;
     private String refreshToken;
+    private Long expiredIn;
 
-    public static LoginResponseDto to(Users users,String accessToken,String refreshToken){
+    public static LoginResponseDto to(Users users,String accessToken,String refreshToken,Long expiredIn){
         return LoginResponseDto.builder()
                 .id(users.getId())
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
+                .expiredIn(expiredIn)
                 .build();
     }
 }
