@@ -17,8 +17,8 @@ public class MypageController {
 
     //마이페이지 가져오기 (날짜 리스트들)
     @GetMapping("/users/mypage")
-        public BaseResponse<?> getMypage(){
-            return BaseResponse.ok(myPageService.getMypage());
+        public BaseResponse<?> getMyPage(){
+            return BaseResponse.ok(myPageService.getMyPage());
     }
 
 
