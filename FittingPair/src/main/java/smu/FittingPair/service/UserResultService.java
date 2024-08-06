@@ -31,7 +31,7 @@ public class UserResultService {
         2. 유저 이미지로 만들어둔 바디 사이즈를 찾는다.
         3. 결과지를 반환한다.
          */
-        UserImg userImg = userImgRepository.findImg(authService.currentUserId(), saveImgTime).orElseThrow(()->new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
+        UserImg userImg = userImgRepository.findImg(AuthService.currentUserId(), saveImgTime).orElseThrow(()->new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
         Result result = resultRepository.findByUserImg(userImg).orElseThrow(()->new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
         //todo: 추천 의류 넣기.
         BodyShape bodyShape = Optional.ofNullable(result)
@@ -50,16 +50,17 @@ public class UserResultService {
         UserImg userImg = getUserImgOrThrow(userBodyType);
         Result result = Result.builder()
                 .userBodyType(userBodyType)
-                .myPage(myPage) //todo: 의류
+                .myPage(myPage)
                 .userImg(userImg)
                 .build();
         resultRepository.save(result);
+        myPage.addResult(result);
         //return UserResultResponseDto.to(userImg.getObjFileUrl(),bodyShape.getName(), bodyShape.getCareful(), bodyShape.getFeatures(),ClothesDto.to(bodyShape));
         //응답 리스폰스 생성
     }
-    public UserResultResponseDto getResultById(Long id){
-        Result result = resultRepository.findById(id).orElseThrow(()->new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
-        UserImg userImg = result.getUserImg();
+    public UserResultResponseDto getResultByImgId(Long id){
+        UserImg userImg = userImgRepository.findById(id).orElseThrow(()-> new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
+        Result result = resultRepository.findByUserImg(userImg).orElseThrow(()->new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
         BodyShape bodyShape = result.getUserBodyType().getBodyShape();
         return UserResultResponseDto.to(userImg.getObjFileUrl(),bodyShape.getName(), bodyShape.getCareful(), bodyShape.getFeatures(),ClothesDto.to(bodyShape));
     }
