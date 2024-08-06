@@ -17,11 +17,11 @@ public class MypageController {
     private final MyPageService myPageService;
 
     //마이페이지 가져오기 (날짜 리스트들)
-    @GetMapping("/users/mypage")
+    @GetMapping("/mypage")
         public BaseResponse<?> getMyPage(){
             return BaseResponse.ok(myPageService.getMyPage());
     }
-    @GetMapping("/users")
+    @GetMapping("/mypage/info")
     public BaseResponse<?> getUserInfo(){
         return BaseResponse.ok(myPageService.getUserInfo(AuthService.currentUserId()));
     }
