@@ -29,6 +29,7 @@ public class WebSecurityConfig {
     private final CustomUserDetailService userDetailService;
     private final AuthenticationConfiguration authenticationConfiguration;
     private final JWTProvider jwtProvider;
+    private final CorsConfig corsConfig;
 
     @Bean
     public WebSecurityCustomizer configure(){  // static 하위 경로 메소드에 대해서 스프링 시큐리티 기능 비활성화
@@ -40,21 +41,11 @@ public class WebSecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
     @Bean
-    CorsConfigurationSource corsConfigurationSource(){
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(Arrays.asList("https://fitting-pair.vercel.app"));
-        corsConfiguration.setAllowedMethods(Arrays.asList("GET","POST","OPTION"));
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**",corsConfiguration);
-        return source;
-    }
-
-    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http
-                .cors(corsCustomizer->corsCustomizer.configurationSource(corsConfigurationSource()))
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
+                .cors(cors->cors.configurationSource(corsConfig.corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable);
         http
                 .authorizeHttpRequests((auth) -> auth
