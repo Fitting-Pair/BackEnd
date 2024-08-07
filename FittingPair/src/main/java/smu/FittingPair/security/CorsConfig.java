@@ -13,7 +13,7 @@ public class CorsConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(Arrays.asList("https://fitting-pair.vercel.app"));
+        corsConfiguration.setAllowedOrigins(Arrays.asList("https://fitting-pair.vercel.app","https://localhost:5173"));
         corsConfiguration.setAllowedMethods(Arrays.asList("GET","POST","OPTIONS","DELETE","PUT"));
         corsConfiguration.setAllowCredentials(true);
         corsConfiguration.setAllowedHeaders(Arrays.asList("Authorization", "Refresh", "Content-Type"));
