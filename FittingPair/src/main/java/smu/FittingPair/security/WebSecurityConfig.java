@@ -45,8 +45,8 @@ public class WebSecurityConfig {
         http
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
-                .cors(cors->cors.configurationSource(corsConfig.corsConfigurationSource()))
-                .csrf(AbstractHttpConfigurer::disable);
+                .csrf(AbstractHttpConfigurer::disable)
+                .cors(cors->cors.configurationSource(corsConfig.corsConfigurationSource()));
         http
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/auth/login","/auth/signup","/","/get/json","/auth/reissue-token").permitAll()
