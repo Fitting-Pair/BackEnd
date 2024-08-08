@@ -43,10 +43,10 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http
-                .formLogin(AbstractHttpConfigurer::disable)
-                .httpBasic(AbstractHttpConfigurer::disable)
+                .cors(corsCustomizer-> corsCustomizer.configurationSource(corsConfig.corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable)
-                .cors(cors->cors.configurationSource(corsConfig.corsConfigurationSource()));
+                .formLogin(AbstractHttpConfigurer::disable)
+                .httpBasic(AbstractHttpConfigurer::disable);
         http
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/auth/login","/auth/signup","/","/get/json","/auth/reissue-token").permitAll()
