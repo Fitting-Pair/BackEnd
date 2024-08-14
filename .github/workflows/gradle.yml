@@ -45,6 +45,8 @@ jobs:
         if [ -L /usr/bin/gradle ]; then sudo rm /usr/bin/gradle; fi
         sudo ln -s /opt/gradle/bin/gradle /usr/bin/gradle
 
+    - name: Initialize Gradle Build
+      run: gradle init
 
     - name: gradle wrapper
       run : gradle wrapper
