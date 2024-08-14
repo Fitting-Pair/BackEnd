@@ -60,6 +60,12 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |                    
+            cd pi
+            sudo ./deploy.sh
 
     # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
