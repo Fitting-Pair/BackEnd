@@ -32,5 +32,10 @@ public class JsonDataController {
         userResultService.makeResult(userBodySizeService.putBodySize(jsonMapper.StringToDto(json)));
         return BaseResponse.ok();
     }
+    @PostMapping("/test")
+    public BaseResponse<String> receiveData(@RequestBody Map<String, Object> payload) {
+        System.out.println("Received data: " + payload);
+        return BaseResponse.ok("Data received successfully!");
+    }
 
 }
