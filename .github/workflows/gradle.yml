@@ -42,6 +42,7 @@ jobs:
         wget https://services.gradle.org/distributions/gradle-8.9-bin.zip
         unzip gradle-8.9-bin.zip
         sudo mv gradle-8.9 /opt/gradle
+        if [ -L /usr/bin/gradle ]; then sudo rm /usr/bin/gradle; fi
         sudo ln -s /opt/gradle/bin/gradle /usr/bin/gradle
 
 
