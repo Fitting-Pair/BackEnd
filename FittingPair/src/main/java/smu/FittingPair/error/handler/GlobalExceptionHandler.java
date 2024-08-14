@@ -2,10 +2,7 @@ package smu.FittingPair.error.handler;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import smu.FittingPair.config.response.BaseResponse;
 import smu.FittingPair.error.exception.DuplicateKeyException;
@@ -16,7 +13,7 @@ import smu.FittingPair.error.exception.*;
 import smu.FittingPair.config.response.BaseResponse;
 
 @Slf4j
-@ControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     //1. 중복된 키 일 때
     @ExceptionHandler(DuplicateKeyException.class)
