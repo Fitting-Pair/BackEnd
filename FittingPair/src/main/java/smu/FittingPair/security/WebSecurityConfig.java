@@ -49,7 +49,7 @@ public class WebSecurityConfig {
                 .httpBasic(AbstractHttpConfigurer::disable);
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/auth/login","/auth/signup","/","/get/json","/auth/reissue-token").permitAll()
+                        .requestMatchers("/auth/login","/auth/signup","/","/get/json","/auth/reissue-token","/test").permitAll()
                         .anyRequest().authenticated() //외에 다른 요청은 로그인한 사용자만 가능
                 );
         http

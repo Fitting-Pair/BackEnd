@@ -21,6 +21,5 @@ public class UserImgController {
     @PostMapping("/userimg/upload")
     public BaseResponse<?> addUserImg(@RequestParam("imageFile") MultipartFile imageFile) throws IOException {
         return BaseResponse.ok(userDataSendService.sendImg(userImgService.addUserImg(imageFile)));
-        //todo: 이미지 아이디 리턴
     }
 }

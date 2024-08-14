@@ -33,8 +33,8 @@ public class UserImgService {
         Users user = usersRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.USER_NOT_FOUND));
 
-        Path imgePath = Paths.get("/Users/vecherish/Desktop/imgfile", imgFile.getOriginalFilename());
-
+        //Path imgePath = Paths.get("/Users/vecherish/Desktop/imgfile", imgFile.getOriginalFilename());
+        Path imgePath = Paths.get("/home/imgfile", imgFile.getOriginalFilename());
         Files.write(imgePath, imgFile.getBytes());
 
         UserImg userImg = UserImg.builder()
@@ -53,8 +53,8 @@ public class UserImgService {
         String imageUrl = userImg.getImageUrl();
         String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
 
-        Path imagePath = Paths.get("/Users/vecherish/Desktop/imgfile ", fileName);
-
+        //Path imagePath = Paths.get("/Users/vecherish/Desktop/imgfile ", fileName);
+        Path imagePath = Paths.get("/home/imgfile", fileName);
         try {
             // 로컬 파일 시스템에서 이미지 삭제
             boolean fileDeleted = Files.deleteIfExists(imagePath);
@@ -75,8 +75,8 @@ public class UserImgService {
         }
         UserImg userImg = userImgRepository.findById(userImgId).orElseThrow(()->new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
         //todo: 라즈베리 파이에 저장하는걸로 수정
-        Path imgePath = Paths.get("/Users/vecherish/Desktop/imgfile", file.getOriginalFilename());
-
+        //Path imgePath = Paths.get("/Users/vecherish/Desktop/imgfile", file.getOriginalFilename());
+        Path imgePath = Paths.get("/home/imgfile", file.getOriginalFilename());
         Files.write(imgePath, file.getBytes());
 
         userImg.setObjFile(file.getResource().getFilename());
