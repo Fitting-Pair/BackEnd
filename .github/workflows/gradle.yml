@@ -45,11 +45,15 @@ jobs:
         if [ -L /usr/bin/gradle ]; then sudo rm /usr/bin/gradle; fi
         sudo ln -s /opt/gradle/bin/gradle /usr/bin/gradle
 
+ 
+
     - name: gradle wrapper
       run : gradle wrapper
 
     - name: Build with Gradle Wrapper
-      run: ./gradlew build
+      run: |
+        cd FittingPair
+        ./gradlew build
 
     - name: Generate and submit dependency graph
       uses: gradle/actions/dependency-submission@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
