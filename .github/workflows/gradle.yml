@@ -38,6 +38,9 @@ jobs:
         cd FittingPair
         ./gradlew build
 
+    - name: Run chmod to make gradlew executable
+      run: chmod +x ./gradlew
+
     - name: Generate and submit dependency graph
       uses: gradle/actions/dependency-submission@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
