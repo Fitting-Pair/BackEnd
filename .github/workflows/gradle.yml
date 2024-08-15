@@ -70,8 +70,9 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
+        host: ${{secrets.HOST}}
+        username: ${{secrets.USERNAME}}
+        password: ${{secrets.PASSWORD}}
         port: ${{ secrets.PORT }}
         script: |                    
             cd pi
