@@ -43,8 +43,8 @@ jobs:
 
     - name: Deploy to Raspberry Pi
       env:
-        SSH_USER: ${{ secrets.RPI_USERNAME }}
-        SSH_HOST: ${{ secrets.RPI_HOST}}
+        SSH_USER: ${{ secrets.USERNAME }}
+        SSH_HOST: ${{ secrets.HOST}}
         SSH_PASSWORD: ${{ secrets.PASSWORD }}
       run: |
         echo "$SSH_PASSWORD" | sshpass ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "cd /path/to/your/deploy/directory && ./deploy.sh"
