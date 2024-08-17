@@ -39,7 +39,7 @@ public class UserImgService {
 
         UserImg userImg = UserImg.builder()
                 .users(user)
-                .imageUrl(imgFile.getResource().getFilename())
+                .imageUrl(imgePath.toString())
                 .build();
 
         user.getUserImgs().add(userImg);
@@ -76,10 +76,10 @@ public class UserImgService {
         UserImg userImg = userImgRepository.findById(userImgId).orElseThrow(()->new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
         //todo: 라즈베리 파이에 저장하는걸로 수정
         //Path imgePath = Paths.get("/Users/vecherish/Desktop/imgfile", file.getOriginalFilename());
-        Path imgePath = Paths.get("/home/imgfile", file.getOriginalFilename());
+        Path imgePath = Paths.get("/home/objfile", file.getOriginalFilename());
         Files.write(imgePath, file.getBytes());
 
-        userImg.setObjFile(file.getResource().getFilename());
+        userImg.setObjFile(imgePath.toString());
     }
 
 }
