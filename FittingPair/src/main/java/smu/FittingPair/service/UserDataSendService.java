@@ -9,6 +9,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.MultipartBodyBuilder;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
@@ -37,7 +38,8 @@ public class UserDataSendService {
     private final String SERVER_ADDRESS = "http://175.45.194.59:8000";
 
     //obj+userId to python server
-    public UserImgResponseDto sendImg(UserObjRequestDto userObjRequestDto){
+    @Async
+    public void sendImg(UserObjRequestDto userObjRequestDto){
         //헤더 설정
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
@@ -51,7 +53,6 @@ public class UserDataSendService {
         HttpEntity<MultiValueMap<String, HttpEntity<?>>> requestEntity = new HttpEntity<>(multipartBody,headers);
         //보내기
         ResponseEntity<String> response = restTemplate.postForEntity(SERVER_ADDRESS + "/process",requestEntity,String.class);
-        return UserImgResponseDto.to(userObjRequestDto.getId());
     }
     //multipartfile -> resource로 변환해 파일을 보냄
     private Resource convert(MultipartFile file) {
