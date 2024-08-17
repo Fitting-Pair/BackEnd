@@ -28,7 +28,7 @@ public class UserImgService {
 
 
     //프론트로부터 사용자 이미지를 받아옴.
-    public UserObjRequestDto addUserImg(MultipartFile imgFile) throws IOException {
+    public Long addUserImg(MultipartFile imgFile) throws IOException {
         Long id = AuthService.currentUserId();
         Users user = usersRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.USER_NOT_FOUND));
@@ -44,7 +44,8 @@ public class UserImgService {
 
         user.getUserImgs().add(userImg);
         userImgRepository.save(userImg);
-        return UserObjRequestDto.to(userImg.getId(), imgFile);
+        //return UserObjRequestDto.to(userImg.getId(), imgFile);
+        return userImg.getId();
     }
 
     public void deleteImg(Long id,String savetime){

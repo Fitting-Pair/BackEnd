@@ -41,14 +41,14 @@ public class UserDataSendService {
 
     //obj+userId to python server
     @Async
-    public void sendImg(UserObjRequestDto userObjRequestDto){
+    public void sendImg(Long imgId, byte [] fileBytes,String name){
         //헤더 설정
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
         //multipart 설정
         MultipartBodyBuilder bodyBuilder = new MultipartBodyBuilder();
-        bodyBuilder.part("userId",userObjRequestDto.getId());
-        bodyBuilder.part("file", new FileSystemResource(Objects.requireNonNull(userObjRequestDto.getMultipartFile().getOriginalFilename())));
+        bodyBuilder.part("userId",imgId);
+        bodyBuilder.part("file", convert(fileBytes,name));
         //bodyBuilder.part("file",convert(userObjRequestDto.getMultipartFile()));
         //request body
         MultiValueMap<String, HttpEntity<?>> multipartBody = bodyBuilder.build();
@@ -58,18 +58,13 @@ public class UserDataSendService {
         ResponseEntity<String> response = restTemplate.postForEntity(SERVER_ADDRESS + "/process",requestEntity,String.class);
     }
     //multipartfile -> resource로 변환해 파일을 보냄
-    private Resource convert(MultipartFile file) {
-        try {
-            byte[] fileBytes = file.getBytes();
-            return new ByteArrayResource(fileBytes) {
-                @Override
-                public String getFilename() {
-                    return file.getOriginalFilename();
-                }
-            };
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to convert file", e);
-        }
+    private Resource convert(byte [] fileBytes,String name) {
+        return new ByteArrayResource(fileBytes) {
+            @Override
+            public String getFilename() {
+                return name;
+            }
+        };
     }
 //    private Resource convert(MultipartFile file) {
 //        try {
