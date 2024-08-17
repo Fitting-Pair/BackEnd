@@ -12,7 +12,7 @@ public class BodySize {
     @Column(name = "body_size_id")
     private Long id;
 
-    @OneToOne(mappedBy = "bodySize")
+    @OneToOne(mappedBy = "bodySize",cascade = CascadeType.ALL, orphanRemoval = true)
     private UserBodyType userBodyType;
 
     @OneToOne
