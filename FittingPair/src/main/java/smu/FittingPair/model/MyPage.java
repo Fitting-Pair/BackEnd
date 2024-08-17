@@ -20,7 +20,7 @@ public class MyPage {
 
     @OneToOne @JoinColumn(name = "user_id")
     private Users users;
-    @OneToMany(mappedBy = "myPage")
+    @OneToMany(mappedBy = "myPage",cascade = CascadeType.ALL,orphanRemoval = true)
     private List <Result> results;
 
     @Builder
