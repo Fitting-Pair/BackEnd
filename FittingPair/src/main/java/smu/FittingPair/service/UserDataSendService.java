@@ -3,6 +3,7 @@ package smu.FittingPair.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -23,6 +24,7 @@ import smu.FittingPair.repository.UserImgRepository;
 import smu.FittingPair.repository.UsersRepository;
 
 import java.io.IOException;
+import java.util.Objects;
 
 
 @RequiredArgsConstructor
@@ -46,7 +48,8 @@ public class UserDataSendService {
         //multipart 설정
         MultipartBodyBuilder bodyBuilder = new MultipartBodyBuilder();
         bodyBuilder.part("userId",userObjRequestDto.getId());
-        bodyBuilder.part("file",convert(userObjRequestDto.getMultipartFile()));
+        bodyBuilder.part("file", new FileSystemResource(Objects.requireNonNull(userObjRequestDto.getMultipartFile().getOriginalFilename())));
+        //bodyBuilder.part("file",convert(userObjRequestDto.getMultipartFile()));
         //request body
         MultiValueMap<String, HttpEntity<?>> multipartBody = bodyBuilder.build();
         //mutlipart body
@@ -57,7 +60,8 @@ public class UserDataSendService {
     //multipartfile -> resource로 변환해 파일을 보냄
     private Resource convert(MultipartFile file) {
         try {
-            return new ByteArrayResource(file.getBytes()) {
+            byte[] fileBytes = file.getBytes();
+            return new ByteArrayResource(fileBytes) {
                 @Override
                 public String getFilename() {
                     return file.getOriginalFilename();
@@ -67,5 +71,17 @@ public class UserDataSendService {
             throw new RuntimeException("Failed to convert file", e);
         }
     }
+//    private Resource convert(MultipartFile file) {
+//        try {
+//            return new ByteArrayResource(file.getBytes()) {
+//                @Override
+//                public String getFilename() {
+//                    return file.getOriginalFilename();
+//                }
+//            };
+//        } catch (IOException e) {
+//            throw new RuntimeException("Failed to convert file", e);
+//        }
+//    }
 
 }

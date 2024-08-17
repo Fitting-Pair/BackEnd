@@ -22,7 +22,7 @@ public class UserImgController {
     // 사용자 이미지 추가
     @PostMapping("/userimg/upload")
     public BaseResponse<?> addUserImg(@RequestParam("imageFile") MultipartFile imageFile) throws IOException {
-        UserObjRequestDto userObjRequestDto =  userImgService.addUserImg(imageFile);
+        UserObjRequestDto userObjRequestDto = userImgService.addUserImg(imageFile);
         userDataSendService.sendImg(userObjRequestDto); //비동기적 처리
         return BaseResponse.ok(UserImgResponseDto.to(userObjRequestDto.getId()));
     }
