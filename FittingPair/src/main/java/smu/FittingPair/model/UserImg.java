@@ -17,6 +17,8 @@ public class UserImg {
     @JoinColumn(name = "user_id")
     private Users users;
 
+    @OneToOne(mappedBy = "userImg",orphanRemoval = true,cascade = CascadeType.ALL)
+    private BodySize bodySize;
     private String imageUrl; //실제 사진
     private String objFileUrl; //obj file
     private String createdAt;
