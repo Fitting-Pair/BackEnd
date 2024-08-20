@@ -46,17 +46,12 @@ public class MyPageService {
     @Transactional
     public UserInfoResponseDto editUserInfo(MyPageEditDto myPageEditDto) {
         Users users = usersRepository.findById(AuthService.currentUserId()).orElseThrow(() -> new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
-        //MyPage myPage = myPageRepository.findByUsers(users).orElseThrow(()-> new NotFoundException(ErrorCode.MYPAGE_NOT_FOUND);
-        if (!myPageEditDto.getUserName().isEmpty()) {
+
+        if (myPageEditDto.getUserName() != null) {
             users.setUserName(myPageEditDto.getUserName());
         }
-        if (!myPageEditDto.getPhoneNumber().isEmpty()) {
-            users.setPhoneNumber(myPageEditDto.getPhoneNumber());
-        }
-        if (!myPageEditDto.getGender().isEmpty()) {
-            users.setGender(myPageEditDto.getGender());
-        }
-        if (myPageEditDto.getHeight() != null) {
+
+        if (myPageEditDto.getHeight() != null) { //null이 아니면
             users.setHeight(myPageEditDto.getHeight());
         }
         usersRepository.save(users);
@@ -65,8 +60,6 @@ public class MyPageService {
     @Transactional
     public void deleteUser(){
         usersRepository.delete(usersRepository.findById(AuthService.currentUserId()).orElseThrow(()->new NotFoundException(ErrorCode.USER_NOT_FOUND)));
-        //이미지 삭제!
-
     }
 
 }

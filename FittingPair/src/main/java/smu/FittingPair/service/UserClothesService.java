@@ -38,7 +38,7 @@ public class UserClothesService {
         UserClothes userClothes = UserClothes.builder().bottomClothesItems(bottomClothesItem).topClothesItems(topClothesItems).build();
         topClothesItemRepository.save(topClothesItems);
         bottomClothesItemRepository.save(bottomClothesItem);
-        //영속성 컨텍스트 - 아직 데베에 저장되지 않는 엔티티를 참조하려고 할 때 발생
+        //영속성 컨텍스트 - 아직 데베에 저장되지 않는 엔티티를 참조하려고 할 때 발생 주의
         userClothesRepository.save(userClothes);
         result.setUserClothes(userClothes);
 
