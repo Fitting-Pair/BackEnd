@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import smu.FittingPair.config.response.BaseResponse;
 import smu.FittingPair.dto.UserResultResponseDto;
+import smu.FittingPair.dto.UserStylingRequestDto;
 import smu.FittingPair.service.UserResultService;
 
 @RestController
@@ -22,6 +23,11 @@ public class ResultController {
     @GetMapping("/result/{imgId}")
     public BaseResponse<?> getNewResult(@PathVariable("imgId") Long imgId){
         return BaseResponse.ok(userResultService.getResultByImgId(imgId));
+    }
+    // 옷 스타일링
+    @PostMapping("/result/styling")
+    public BaseResponse<?> makeUserStyling(@RequestBody UserStylingRequestDto userStylingRequestDto){
+
     }
     //todo: 마이페이지 삭제 로직
 //    // 마이페이지에 사용자 결과 하나 삭제하기

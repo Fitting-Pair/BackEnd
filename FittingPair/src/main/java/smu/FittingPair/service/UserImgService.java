@@ -24,7 +24,6 @@ import java.util.List;
 public class UserImgService {
     private final UsersRepository usersRepository;
     private final UserImgRepository userImgRepository;
-    private final AuthService authService;
 
 
     //프론트로부터 사용자 이미지를 받아옴.

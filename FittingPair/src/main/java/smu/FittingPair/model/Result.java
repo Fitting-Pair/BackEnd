@@ -21,6 +21,9 @@ public class Result {
     @OneToOne
     @JoinColumn(name = "user_img_id")
     private UserImg userImg;
+    @OneToOne
+    @JoinColumn(name = "userClohtes_id")
+    private UserClothes userClothes;
     @Builder
     public Result(UserBodyType userBodyType, MyPage myPage,UserImg userImg) {
         this.userBodyType = userBodyType;
