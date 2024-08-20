@@ -7,6 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
+@Builder
 public class BottomClothesItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,14 +1,17 @@
 package smu.FittingPair.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@NoArgsConstructor
+@AllArgsConstructor @NoArgsConstructor
 @Entity
 @Getter
+@Builder
 public class UserClothes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,5 +20,4 @@ public class UserClothes {
     private TopClothesItems topClothesItems;
     @OneToOne
     private BottomClothesItems bottomClothesItems;
-
 }

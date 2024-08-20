@@ -4,10 +4,7 @@ package smu.FittingPair.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import smu.FittingPair.dto.MyPageEditDto;
-import smu.FittingPair.dto.MyPageResponseDto;
-import smu.FittingPair.dto.UserInfoResponseDto;
-import smu.FittingPair.dto.UserResultResponseDto;
+import smu.FittingPair.dto.*;
 import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.NotFoundException;
 import smu.FittingPair.model.*;
@@ -36,8 +33,8 @@ public class MyPageService {
         List <Result> results = Optional.ofNullable(myPage)
                 .map(MyPage::getResults)
                 .orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
-        List<UserResultResponseDto> userResultResponseDtos = results.stream().map(UserResultResponseDto::to).toList();
-        return MyPageResponseDto.builder().userResultResponseDtos(userResultResponseDtos).build();
+        List<UserStylingResultResponseDto> userResult = results.stream().map(UserStylingResultResponseDto::to).toList();
+        return MyPageResponseDto.builder().userStylingResultResponseDtos(userResult).build();
 
     }
     //회원정보

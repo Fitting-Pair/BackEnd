@@ -360,7 +360,7 @@ public enum BodyShape {
     ),
     FEMALE_HOURGLASS("모래시계형","모래시계 체형을 가진 여성은 어깨와 엉덩이가 비슷한 폭을 가지며, 잘록한 허리로 인해 뚜렷한 곡선을 이루는 특징이 있습니다. 상체와 하체의 비율이 균형 잡혀 있으며, 허리선이 잘 드러나 전체적으로 여성스러운 실루엣을 자랑합니다. 이러한 체형은 허리 라인을 강조하고 곡선을 살리는 스타일이 어울립니다.","모래시계 체형을 가진 여성은 너무 헐렁하고 박시한 옷을 피하는 것이 좋습니다. 이러한 옷은 허리선을 감추고 전체적인 곡선을 덜 부각시켜 체형의 장점을 살리지 못합니다. 또한, 일자형 드레스나 스트레이트 핏의 바지는 허리 라인을 숨겨 체형을 평평하게 보이게 할 수 있습니다. 너무 과한 장식이나 디테일이 많은 옷도 피해야 하며, 특히 상체나 하체에 불필요한 부피를 더해주는 디자인은 체형의 균형을 깨트릴 수 있습니다.",
             TopClothesItem.createClothesItems(
-                    new String[]{"네티 랩 썸머니트", "Becky Bamboo Short-Sleeve Knit - 5COL", "슬림핏 레귤러 긴팔 티셔츠 [화이트]", "언발란스 크롭 레이어드 나시 티셔츠 세트", "Geek Half Zip-Up Blue Gray"},
+                    new String[]{"네티 랩 썸머니트", "Becky Bamboo Short-Sleeve Knit", "슬림핏 레귤러 긴팔 티셔츠 [화이트]", "언발란스 크롭 레이어드 나시 티셔츠 세트", "Geek Half Zip-Up Blue Gray"},
                     new String[]{"트위", "어반드레스", "무아무아", "썸플레이스", "스컬프터"},
                     new String[]{
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240509/4118941/4118941_17152412559989_big.jpg?w=1200",

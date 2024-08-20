@@ -22,7 +22,7 @@ public class Result {
     @JoinColumn(name = "user_img_id")
     private UserImg userImg;
     @OneToOne
-    @JoinColumn(name = "userClohtes_id")
+    @JoinColumn(name = "userClothes_id")
     private UserClothes userClothes;
     @Builder
     public Result(UserBodyType userBodyType, MyPage myPage,UserImg userImg) {
@@ -32,5 +32,8 @@ public class Result {
     }
     public void setMyPage(MyPage myPage){
         this.myPage = myPage;
+    }
+    public void setUserClothes(UserClothes userClothes){
+        this.userClothes = userClothes;
     }
 }

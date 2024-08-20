@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UserResultResponseDto {
     //todo: 의류 넣기
+    private Long resultId;
     private String objFile;
     private String bodyTypeName;
     private String bodyTypeFeature;
@@ -25,7 +26,7 @@ public class UserResultResponseDto {
 //        return new UserResultResponseDto(objFile,bodyTypeName,bodyTypeFeature,bodyTypeCareful,clothesDto);
 //    }
     public static UserResultResponseDto to(Result result) {
-        return new UserResultResponseDto(result.getUserImg().getObjFileUrl(),
+        return new UserResultResponseDto(result.getId(),result.getUserImg().getObjFileUrl(),
                 result.getUserBodyType().getBodyShape().getName(),
                 result.getUserBodyType().getBodyShape().getFeatures(),
                 result.getUserBodyType().getBodyShape().getCareful(),
