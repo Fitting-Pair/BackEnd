@@ -12,6 +12,6 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class MyPageResponseDto {
-    private List<UserResultResponseDto> userResultResponseDtos;
+    private List<UserStylingResultResponseDto> userStylingResultResponseDtos;
 
 }

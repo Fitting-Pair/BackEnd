@@ -3,13 +3,9 @@ package smu.FittingPair.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import smu.FittingPair.dto.MyPageEditDto;
-import smu.FittingPair.dto.UserNewResultRequestDto;
 import smu.FittingPair.service.AuthService;
 import smu.FittingPair.service.MyPageService;
-import smu.FittingPair.service.UserImgService;
 import smu.FittingPair.config.response.BaseResponse;
-
-import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")

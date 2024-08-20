@@ -1,13 +1,11 @@
 package smu.FittingPair.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
-@Getter
-@Setter
+@Getter @AllArgsConstructor
+@Builder
 public class TopClothesItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
