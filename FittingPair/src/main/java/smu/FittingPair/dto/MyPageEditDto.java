@@ -3,6 +3,8 @@ package smu.FittingPair.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
+import java.util.Optional;
+
 @Getter
 @NoArgsConstructor
 @Builder
@@ -11,8 +13,6 @@ import lombok.*;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MyPageEditDto {
     private String userName;
-    private String phoneNumber;
-    private String gender;
     private Long height;
 
 }

@@ -91,6 +91,9 @@ public class UserResultService {
     }
 
 //todo: 마이페이지 삭제 구현
+    public void deleteResult(Long id){
+        resultRepository.delete(resultRepository.findById(id).orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND)));
+    }
 
 //    public void DeleteMypage(String saveImgTime){
 //
