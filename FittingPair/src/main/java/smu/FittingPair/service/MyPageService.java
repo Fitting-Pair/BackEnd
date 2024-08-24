@@ -5,6 +5,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import smu.FittingPair.dto.*;
+import smu.FittingPair.dto.MyPageEditDto;
+import smu.FittingPair.dto.MyPageResponseDto;
+import smu.FittingPair.dto.UserInfoResponseDto;
 import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.NotFoundException;
 import smu.FittingPair.model.*;
@@ -35,7 +38,6 @@ public class MyPageService {
                 .orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
         List<UserStylingResultResponseDto> userResult = results.stream().map(UserStylingResultResponseDto::to).toList();
         return MyPageResponseDto.builder().userStylingResultResponseDtos(userResult).build();
-
     }
     //회원정보
     public UserInfoResponseDto getUserInfo(Long id){
@@ -46,20 +48,25 @@ public class MyPageService {
     @Transactional
     public UserInfoResponseDto editUserInfo(MyPageEditDto myPageEditDto) {
         Users users = usersRepository.findById(AuthService.currentUserId()).orElseThrow(() -> new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
-
-        if (myPageEditDto.getUserName() != null) {
+        if (!myPageEditDto.getUserName().isEmpty()) {
             users.setUserName(myPageEditDto.getUserName());
         }
-
-        if (myPageEditDto.getHeight() != null) { //null이 아니면
+        if (!myPageEditDto.getPhoneNumber().isEmpty()) {
+            users.setPhoneNumber(myPageEditDto.getPhoneNumber());
+        }
+        if (!myPageEditDto.getGender().isEmpty()) {
+            users.setGender(myPageEditDto.getGender());
+        }
+        if (myPageEditDto.getHeight() != null) {
             users.setHeight(myPageEditDto.getHeight());
         }
         usersRepository.save(users);
         return UserInfoResponseDto.to(users);
     }
+
     @Transactional
     public void deleteUser(){
-        usersRepository.delete(usersRepository.findById(AuthService.currentUserId()).orElseThrow(()->new NotFoundException(ErrorCode.USER_NOT_FOUND)));
+        usersRepository.delete(usersRepository.findById(AuthService.currentUserId()).orElseThrow(() -> new NotFoundException(ErrorCode.USER_NOT_FOUND)));
     }
 
 }

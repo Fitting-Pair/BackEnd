@@ -1,10 +1,10 @@
 package smu.FittingPair.service;
-
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import smu.FittingPair.dto.UserObjRequestDto;
@@ -33,6 +33,7 @@ public class UserImgService {
     private final AmazonS3 amazonS3Client;
     private final String OBJ_DIR = "obj";
     private final String USER_DIR = "user";
+    private final AuthService authService;
 
     //프론트로부터 사용자 이미지를 받아옴.
     public Long addUserImg(MultipartFile imgFile) throws IOException {

@@ -35,6 +35,4 @@ public class UserImgController {
 //        Long imgId = userImgService.addUserImg(imgFile);
 //        userDataSendService.sendImg(imgId,fileBytes,name); //비동기적 처리
 //        return BaseResponse.ok(UserImgResponseDto.to(imgId));
-//
-//    }
 }

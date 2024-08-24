@@ -42,6 +42,7 @@ public class UserBodyTypeService {
             return BodyShape.MALE_RECTANGLE;
         } else if (shoulderToWaistRatio < 1.0 && shoulderToHipRatio < 1.0) {
             return BodyShape.MALE_TRAPEZOID;
+
         } else {
             // 가장 가까운 체형을 결정
             return getClosestMaleBodyShape(shoulderToWaistRatio, shoulderToHipRatio, waistToHipRatio);
@@ -67,6 +68,7 @@ public class UserBodyTypeService {
                 BodyShape.MALE_OVAL,
                 BodyShape.MALE_RECTANGLE,
                 BodyShape.MALE_TRAPEZOID
+
         };
 
         for (int i = 0; i < maleRatios.length; i++) {

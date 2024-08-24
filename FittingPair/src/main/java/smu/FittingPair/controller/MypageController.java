@@ -6,7 +6,12 @@ import smu.FittingPair.dto.MyPageEditDto;
 import smu.FittingPair.service.AuthService;
 import smu.FittingPair.service.MyPageService;
 import smu.FittingPair.config.response.BaseResponse;
-
+import smu.FittingPair.dto.UserNewResultRequestDto;
+import smu.FittingPair.service.AuthService;
+import smu.FittingPair.service.MyPageService;
+import smu.FittingPair.service.UserImgService;
+import smu.FittingPair.config.response.BaseResponse;
+import java.util.List;
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequiredArgsConstructor
