@@ -24,8 +24,17 @@ public class UserImgController {
     public BaseResponse<?> addUserImg(@RequestParam("imageFile") MultipartFile imageFile) throws IOException {
         byte[] fileBytes = imageFile.getBytes();
         String name = imageFile.getOriginalFilename();
-        Long imgId = userImgService.addUserImg(imageFile);
+        Long imgId = userImgService.imgFileUpload(imageFile);
         userDataSendService.sendImg(imgId,fileBytes,name); //비동기적 처리
         return BaseResponse.ok(UserImgResponseDto.to(imgId));
     }
+//    @PostMapping("")
+//    public BaseResponse<?> uploadFile(@RequestParam("file")MultipartFile imgFile) throws IOException{
+//        byte[] fileBytes = imgFile.getBytes();
+//        String name = imgFile.getOriginalFilename();
+//        Long imgId = userImgService.addUserImg(imgFile);
+//        userDataSendService.sendImg(imgId,fileBytes,name); //비동기적 처리
+//        return BaseResponse.ok(UserImgResponseDto.to(imgId));
+//
+//    }
 }

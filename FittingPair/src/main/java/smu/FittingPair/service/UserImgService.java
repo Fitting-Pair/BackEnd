@@ -1,6 +1,10 @@
 package smu.FittingPair.service;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.ObjectMetadata;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import smu.FittingPair.dto.UserObjRequestDto;
@@ -24,7 +28,11 @@ import java.util.List;
 public class UserImgService {
     private final UsersRepository usersRepository;
     private final UserImgRepository userImgRepository;
-
+    @Value("${aws.s3.bucket}")
+    private String bucket;
+    private final AmazonS3 amazonS3Client;
+    private final String OBJ_DIR = "obj";
+    private final String USER_DIR = "user";
 
     //프론트로부터 사용자 이미지를 받아옴.
     public Long addUserImg(MultipartFile imgFile) throws IOException {
@@ -44,6 +52,31 @@ public class UserImgService {
         user.getUserImgs().add(userImg);
         userImgRepository.save(userImg);
         //return UserObjRequestDto.to(userImg.getId(), imgFile);
+        return userImg.getId();
+    }
+    /**
+     * Using amazon s3
+     * @param file
+     * @return userId
+     * @throws IOException
+     */
+    public Long imgFileUpload(MultipartFile file) throws IOException{
+        if(file.isEmpty()){
+            throw new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND);
+        }
+        String fileName = file.getOriginalFilename();
+        String fileUrl = "https://" + bucket + "/" + USER_DIR + "/" + fileName;
+
+        ObjectMetadata metadata = new ObjectMetadata();
+
+        metadata.setContentType(file.getContentType());
+        metadata.setContentLength(file.getSize());
+
+        amazonS3Client.putObject(bucket, USER_DIR + "/" + fileName,file.getInputStream(),metadata);
+        Users user = usersRepository.findById(AuthService.currentUserId()).orElseThrow(()-> new NotFoundException(ErrorCode.USER_NOT_FOUND));
+
+        UserImg userImg = UserImg.builder().users(user).imageUrl(fileUrl).build();
+        userImgRepository.save(userImg);
         return userImg.getId();
     }
 
@@ -80,6 +113,27 @@ public class UserImgService {
         Files.write(imgePath, file.getBytes());
 
         userImg.setObjFile(imgePath.toString());
+    }
+    /**
+     * Using amazon s3
+     * @param file
+     * @return userId
+     * @throws IOException
+     */
+    public void objFileUpload(Long userImgId, MultipartFile file) throws IOException{
+        if(file.isEmpty()){
+            throw new NotFoundException(ErrorCode.USER_OBJ_NOT_FOUND);
+        }
+        UserImg userImg = userImgRepository.findById(userImgId).orElseThrow(()->new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
+        String fileName = file.getOriginalFilename() + userImgId;
+        String fileUrl = "https://" + bucket + "/" + OBJ_DIR + "/" + fileName;
+
+        ObjectMetadata metadata = new ObjectMetadata();
+        metadata.setContentType(file.getContentType());
+        metadata.setContentLength(file.getSize());
+
+        amazonS3Client.putObject(bucket, OBJ_DIR + "/" + fileName,file.getInputStream(),metadata);
+        userImg.setObjFile(fileUrl);
     }
 
 }

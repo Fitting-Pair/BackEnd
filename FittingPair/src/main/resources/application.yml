@@ -16,10 +16,12 @@ spring:
       hibernate:
         format_sql: true
     generate-ddl: true
-#  #JWT
+#JWT
 jwt:
   header: Authorization
   issuer: codingbear
   secret-key: autodafasfdadflsmucodingbeadfarsmucodindfsdsgbearsmudfsacodfsdingbeadsfar
 server:
   port: 8080
+
+
