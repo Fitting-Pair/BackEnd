@@ -11,15 +11,16 @@ spring:
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         format_sql: true
     generate-ddl: true
-#  #JWT
+#JWT
 jwt:
   header: Authorization
   issuer: codingbear
   secret-key: autodafasfdadflsmucodingbeadfarsmucodindfsdsgbearsmudfsacodfsdingbeadsfar
 server:
   port: 8080
+

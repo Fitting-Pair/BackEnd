@@ -17,6 +17,8 @@ public class UserImg {
     @JoinColumn(name = "user_id")
     private Users users;
 
+    @OneToOne(mappedBy = "userImg",orphanRemoval = true,cascade = CascadeType.ALL)
+    private BodySize bodySize;
     private String imageUrl; //실제 사진
     private String objFileUrl; //obj file
     private String createdAt;
@@ -25,7 +27,7 @@ public class UserImg {
     @Builder
     public UserImg(Users users, String imageUrl) {
         this.users = users;
-        this.imageUrl = "http://localhost:8080/Ai/sendImg/" + imageUrl;
+        this.imageUrl = imageUrl;
         this.createdAt = LocalDateTime.now().toString();
     }
 
@@ -36,7 +38,7 @@ public class UserImg {
                 .build();
     }
     public void setObjFile(String objFileUrl){
-        this.objFileUrl = "http://localhost:8080/Ai/sendImg/" + objFileUrl;
+        this.objFileUrl = objFileUrl;
     }
 
 

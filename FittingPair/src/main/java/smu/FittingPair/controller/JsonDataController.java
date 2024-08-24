@@ -28,9 +28,14 @@ public class JsonDataController {
     //json을 받습니다.
     @PostMapping("/get/json")
     public BaseResponse<?> getUserJsonData(@RequestPart("json") String json,@RequestPart("file") MultipartFile file) throws JsonProcessingException, IOException {
-        userImgService.putObjPngFile(jsonMapper.StringToDto(json).getUserId(),file);
+        userImgService.objFileUpload(jsonMapper.StringToDto(json).getUserId(),file);
         userResultService.makeResult(userBodySizeService.putBodySize(jsonMapper.StringToDto(json)));
         return BaseResponse.ok();
+    }
+    @PostMapping("/test")
+    public BaseResponse<String> receiveData(@RequestBody Map<String, Object> payload) {
+        System.out.println("Received data: " + payload);
+        return BaseResponse.ok("Data received successfully!");
     }
 
 }
