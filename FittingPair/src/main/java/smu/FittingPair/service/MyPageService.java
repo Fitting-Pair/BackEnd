@@ -38,6 +38,7 @@ public class MyPageService {
                 .orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
         List<UserStylingResultResponseDto> userResult = results.stream().map(UserStylingResultResponseDto::to).toList();
         return MyPageResponseDto.builder().userStylingResultResponseDtos(userResult).build();
+
     }
     //회원정보
     public UserInfoResponseDto getUserInfo(Long id){
@@ -48,25 +49,20 @@ public class MyPageService {
     @Transactional
     public UserInfoResponseDto editUserInfo(MyPageEditDto myPageEditDto) {
         Users users = usersRepository.findById(AuthService.currentUserId()).orElseThrow(() -> new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
-        if (!myPageEditDto.getUserName().isEmpty()) {
+
+        if (myPageEditDto.getUserName() != null) {
             users.setUserName(myPageEditDto.getUserName());
         }
-        if (!myPageEditDto.getPhoneNumber().isEmpty()) {
-            users.setPhoneNumber(myPageEditDto.getPhoneNumber());
-        }
-        if (!myPageEditDto.getGender().isEmpty()) {
-            users.setGender(myPageEditDto.getGender());
-        }
-        if (myPageEditDto.getHeight() != null) {
+
+        if (myPageEditDto.getHeight() != null) { //null이 아니면
             users.setHeight(myPageEditDto.getHeight());
         }
         usersRepository.save(users);
         return UserInfoResponseDto.to(users);
     }
-
     @Transactional
     public void deleteUser(){
-        usersRepository.delete(usersRepository.findById(AuthService.currentUserId()).orElseThrow(() -> new NotFoundException(ErrorCode.USER_NOT_FOUND)));
+        usersRepository.delete(usersRepository.findById(AuthService.currentUserId()).orElseThrow(()->new NotFoundException(ErrorCode.USER_NOT_FOUND)));
     }
 
 }

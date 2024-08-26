@@ -20,7 +20,16 @@ spring:
 jwt:
   header: Authorization
   issuer: codingbear
-  secret-key: autodafasfdadflsmucodingbeadfarsmucodindfsdsgbearsmudfsacodfsdingbeadsfar
+  secret-key: ${{secrets.JWT_KEY}}
 server:
   port: ${{secrets.SERVER_PORT}}
-
+aws:
+  s3:
+    bucket: ${{AWD_BUCKET}}
+    stack:
+      auto: false
+    region:
+      static: ap-northeast-2
+    credentials:
+      accessKey: ${{AWS_ACCESSKEY}}
+      secretKey: ${{AWS_SECRETKEY}}
