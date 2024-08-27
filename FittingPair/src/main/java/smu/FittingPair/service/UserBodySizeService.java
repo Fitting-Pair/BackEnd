@@ -68,7 +68,7 @@ public class UserBodySizeService {
         return userBodyType;
     }
     private UserBodyType decideBodyType(UserBodySizeRequestDto.UserSize userBodySizeRequestDto, Users users) {
-        if(users.getGender().equals("Male")){
+        if(users.getGender().equals("male")){
             return userBodyTypeService.decideMaleBodyType(userBodySizeRequestDto,users);
         }else{
             return userBodyTypeService.decideFemaleBodyType(userBodySizeRequestDto,users);
