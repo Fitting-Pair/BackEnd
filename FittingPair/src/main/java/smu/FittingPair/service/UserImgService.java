@@ -66,7 +66,7 @@ public class UserImgService {
             throw new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND);
         }
         String fileName = file.getOriginalFilename();
-        String fileUrl = "https://" + bucket + "/" + USER_DIR + "/" + fileName;
+        String fileUrl = "https://fittingpair-s3-bucket.s3.ap-northeast-2.amazonaws.com/user/" + fileName;
 
         ObjectMetadata metadata = new ObjectMetadata();
 
