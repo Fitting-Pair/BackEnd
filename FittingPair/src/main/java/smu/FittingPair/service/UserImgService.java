@@ -126,7 +126,7 @@ public class UserImgService {
             throw new NotFoundException(ErrorCode.USER_OBJ_NOT_FOUND);
         }
         UserImg userImg = userImgRepository.findById(userImgId).orElseThrow(()->new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
-        String fileName = file.getOriginalFilename() + userImgId;
+        String fileName = file.getOriginalFilename();
         String fileUrl = "https://" + bucket + "/" + OBJ_DIR + "/" + fileName;
 
         ObjectMetadata metadata = new ObjectMetadata();
