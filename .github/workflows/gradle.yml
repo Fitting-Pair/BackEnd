@@ -106,14 +106,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: docker image build
-        run: |
-          cd FittingPair
-          ls -al
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-main .
-
-
-
 
 
           
