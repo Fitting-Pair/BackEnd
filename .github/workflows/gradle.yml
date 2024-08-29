@@ -80,13 +80,16 @@ jobs:
         run: |
           cd FittingPair
           sudo chmod +x gradlew
-          ./gradlew build --info
+          ./gradlew clean build --info
+
+    
 
 
       - name: Verify JAR file
         run: |
           cd FittingPair/build/libs
           echo "Listing contents of build/libs:"
+          ls -al
           chmod +777 FittingPair-0.0.1-SNAPSHOT.jar
 
 
@@ -111,6 +114,7 @@ jobs:
         run: |
           cd FittingPair
           ls -al
+          
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-main .
 
 
