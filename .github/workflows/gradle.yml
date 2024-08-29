@@ -23,12 +23,16 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
-      - uses: mirromutth/mysql-action@v1.1
+      - name: Set up MySQL
+        uses: mirromutth/mysql-action@v1.1
         with:
-          host port: 4000
-          container port: 4000
-          mysql database: 'fittingpair-test'
-          mysql root password: ${{ secrets.DB_PASSWORD }}
+          mysql-version: '8.0'
+          mysql-database: 'fittingpair-test'
+          mysql-root-password: ${{ secrets.DB_PASSWORD }}
+          mysql-user: 'root'
+          mysql-password: ${{ secrets.DB_USER_PASSWORD }}
+
+
 
           
       - name: Build with Gradle Wrapper
@@ -49,9 +53,6 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-
-
-
 
 
       # Docker 이미지 Build
