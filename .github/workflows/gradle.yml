@@ -31,13 +31,51 @@ jobs:
           mysql version: '8.0'
           mysql database: 'fittingpair-test'
           mysql root password: ${{ secrets.DB_PASSWORD }}
-          mysql user: 'root'
+          mysql user: ${{ secrets.DB_USERNAME }}
           mysql password: ${{ secrets.DB_USER_PASSWORD }}
 
+      - name: Create application.yml
+        run: |
+          mkdir -p FittingPair/src/main/resources
+          cat <<EOL > FittingPair/src/main/resources/application.yml
+          spring:
+            datasource:
+              url: jdbc:mysql://${{ secrets.MYSQL_IP}}/fittingpair-test
+              username: root
+              password: ${{ secrets.DB_USER_PASSWORD }}
+              driver-class-name: com.mysql.cj.jdbc.Driver
 
+            jpa:
+              database: mysql
+              database-platform: org.hibernate.dialect.MySQLDialect
+              show-sql: true
+              hibernate:
+                ddl-auto: none
+              properties:
+                hibernate:
+                  format_sql: true
+              generate-ddl: true
 
+          jwt:
+            header: Authorization
+            issuer: codingbear
+            secret-key: ${{ secrets.JWT_KEY }}
 
-          
+          server:
+            port: ${{ secrets.SERVER_PORT }}
+
+          aws:
+            s3:
+              bucket: ${{ secrets.AWS_BUCKET }}
+              stack:
+                auto: false
+              region:
+                static: ap-northeast-2
+              credentials:
+                accessKey: ${{ secrets.AWS_ACCESSKEY }}
+                secretKey: ${{ secrets.AWS_SECRETKEY }}
+          EOL
+
       - name: Build with Gradle Wrapper
         run: |
           cd FittingPair
@@ -57,28 +95,21 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-
-      # Docker 이미지 Build
       - name: docker image build
         run: |
           cd FittingPair
-          docker build -t ${{secrets.DOCKERHUB_USERNAME}}/spring-main .
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-main .
 
-      # DockerHub Login (push 하기 위해)
       - name: docker login
         uses: docker/login-action@v2
         with:
-          username: ${{secrets.DOCKERHUB_USERNAME}}
-          password: ${{secrets.DOCKERHUB_PASSWORD}}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      # Docker hub 로 push
       - name: Docker Hub push
-        run: docker push ${{secrets.DOCKERHUB_USERNAME}}/spring-main
-        
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/spring-main
 
-  # 푸시한 이미지를 네이버 클라우드에서 pull 받아서 실행
   deploy:
-    # needs를 통해 build job이 수행 성공시에 작업되도록 설정
     needs: build
     runs-on: ubuntu-latest
 
@@ -95,7 +126,6 @@ jobs:
       - name: docker run new container
         run: |
           sudo docker run --rm -it -d -p 10007:10007 --name spring-main ${{ secrets.DOCKERHUB_USERNAME }}/spring-main
-          
+
       - name: delete old docker image
         run: sudo docker system prune -f
-
