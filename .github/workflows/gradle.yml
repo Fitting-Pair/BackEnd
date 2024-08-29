@@ -29,7 +29,7 @@ jobs:
           host port: 4000
           container port: 4000
           mysql version: '8.0'
-          mysql database: 'fittingpair-test'
+          mysql database: 'fittingpair_test'
           mysql root password: ${{ secrets.DB_PASSWORD }}
           mysql user: ${{ secrets.DB_USERNAME }}
           mysql password: ${{ secrets.DB_USER_PASSWORD }}
