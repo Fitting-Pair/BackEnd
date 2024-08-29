@@ -85,13 +85,14 @@ jobs:
 
       - name: Verify JAR file
         run: |
+          echo "Listing contents of FittingPair/build/libs:"
+          ls -l FittingPair/build/libs
           if [ -f FittingPair/build/libs/FittingPair-0.0.1-SNAPSHOT.jar ]; then
-            echo "JAR file exists."
+          echo "JAR file exists."
           else
             echo "JAR file does not exist."
             exit 1
           fi
-
 
 
 
