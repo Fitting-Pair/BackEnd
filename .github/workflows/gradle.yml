@@ -40,7 +40,7 @@ jobs:
           cat <<EOL > FittingPair/src/main/resources/application.yml
           spring:
             datasource:
-              url: jdbc:mysql://${{ secrets.MYSQL_IP}}/fittingpair-test
+              url: jdbc:mysql://${{ secrets.MYSQL_IP}}/fittingpair_test
               username: root
               password: ${{ secrets.DB_USER_PASSWORD }}
               driver-class-name: com.mysql.cj.jdbc.Driver
