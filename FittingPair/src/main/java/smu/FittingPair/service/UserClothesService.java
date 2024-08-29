@@ -32,8 +32,8 @@ public class UserClothesService {
         BodyShape.TopClothesItem topClothes = decideTopClothes(userStylingRequestDto.getTopName(), bodyShape.getTopClothesItems());
         BodyShape.BottomClothesItem bottomClothes = decideBottomClothes(userStylingRequestDto.getBottomName(), bodyShape.getBottomClothesItems());
 
-        TopClothesItems topClothesItems = TopClothesItems.builder().name(topClothes.getName()).brand(topClothes.getBrand()).imageUrl(topClothes.getImageUrl()).siteUrl(topClothes.getSiteUrl()).build();
-        BottomClothesItems bottomClothesItem = BottomClothesItems.builder().name(bottomClothes.getName()).brand(bottomClothes.getBrand()).imageUrl(bottomClothes.getImageUrl()).siteUrl(bottomClothes.getSiteUrl()).build();
+        TopClothesItems topClothesItems = TopClothesItems.builder().name(topClothes.getName()).brand(topClothes.getBrand()).imageUrl(topClothes.getImageUrl()).siteUrl(topClothes.getSiteUrl()).clothesCategory(ClothesCategory.TOP).build();
+        BottomClothesItems bottomClothesItem = BottomClothesItems.builder().name(bottomClothes.getName()).brand(bottomClothes.getBrand()).imageUrl(bottomClothes.getImageUrl()).siteUrl(bottomClothes.getSiteUrl()).clothesCategory(ClothesCategory.BOTTOM).build();
 
         UserClothes userClothes = UserClothes.builder().bottomClothesItems(bottomClothesItem).topClothesItems(topClothesItems).build();
         topClothesItemRepository.save(topClothesItems);

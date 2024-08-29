@@ -8,6 +8,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @Builder
+@NoArgsConstructor
 public class BottomClothesItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +19,4 @@ public class BottomClothesItems {
     private String siteUrl;
     @Enumerated(EnumType.STRING)
     private ClothesCategory clothesCategory;
-    public BottomClothesItems(){
-        this.clothesCategory= ClothesCategory.BOTTOM;
-    }
-
 }
