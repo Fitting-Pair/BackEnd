@@ -87,17 +87,7 @@ jobs:
         run: |
           cd FittingPair/build/libs
           echo "Listing contents of build/libs:"
-          ls -al 
-          if [ -f build/libs/FittingPair-0.0.1-SNAPSHOT.jar ]; then
-            echo "JAR file exists."
-          else
-            echo "JAR file does not exist."
-            exit 1
-          fi
-
-
-
-
+          chmod +777 FittingPair-0.0.1-SNAPSHOT.jar
 
 
 
@@ -122,6 +112,9 @@ jobs:
           cd FittingPair
           ls -al
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-main .
+
+
+
 
 
           
