@@ -25,7 +25,7 @@ server:
   port: ${{secrets.SERVER_PORT}}
 aws:
   s3:
-    bucket: ${{secrets.AWD_BUCKET}}
+    bucket: ${{secrets.AWS_BUCKET}}
     stack:
       auto: false
     region:
