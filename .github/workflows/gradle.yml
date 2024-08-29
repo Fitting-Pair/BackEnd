@@ -82,6 +82,22 @@ jobs:
           sudo chmod +x gradlew
           ./gradlew build --info
 
+
+      - name: Verify JAR file
+        run: |
+          if [ -f FittingPair/build/libs/FittingPair-0.0.1-SNAPSHOT.jar ]; then
+            echo "JAR file exists."
+          else
+            echo "JAR file does not exist."
+            exit 1
+          fi
+
+
+
+
+
+
+
   dependency-submission:
     needs: build
     runs-on: ubuntu-latest
