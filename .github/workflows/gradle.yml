@@ -42,7 +42,7 @@ jobs:
         run: |
           cd FittingPair
           sudo chmod +x gradlew
-          ./gradlew build
+          ./gradlew build --info
 
   dependency-submission:
     runs-on: ubuntu-latest
