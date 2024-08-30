@@ -1,3 +1,5 @@
+name: Java CI with Gradle
+
 on:
   push:
     branches: [ "main" ]
@@ -19,7 +21,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+        uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582
 
       - name: Set up MySQL
         uses: mirromutth/mysql-action@v1.1
@@ -69,6 +71,7 @@ jobs:
                 accessKey: ${{ secrets.AWS_ACCESSKEY }}
                 secretKey: ${{ secrets.AWS_SECRETKEY }}
           EOL
+
       - name: Build with Gradle Wrapper
         run: |
           cd FittingPair
@@ -77,16 +80,16 @@ jobs:
           ./gradlew clean build --info
           ls -al
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-main .
-          
-    
 
   dependency-submission:
     needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: write
-  
-          
+    steps:
+      - name: Placeholder step
+        run: echo "This job is a placeholder"
+
   push:
     needs: dependency-submission
     runs-on: ubuntu-latest
@@ -97,17 +100,16 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          
 
-      - name: docker push
+      - name: Docker push
         run: |
           sudo docker push ${{ secrets.DOCKERHUB_USERNAME }}/spring-main
-  deploy:
-      needs: push
-      runs-on: ubuntu-latest
 
-      steps:
-      # NCP 로그인 / docker image pull & run
+  deploy:
+    needs: push
+    runs-on: ubuntu-latest
+
+    steps:
       - name: NCP login and docker image pull and run
         uses: appleboy/ssh-action@master
         with:
@@ -116,7 +118,7 @@ jobs:
           password: ${{ secrets.NCP_PASSWORD }}
           port: ${{ secrets.NCP_PORT }}
           script: |
-            sudo docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{secrets.DOCKERHUB_PASSWORD}}
+            sudo docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
             
             if [ $(sudo docker ps -a -q -f name=spring-main) ]; then
               sudo docker stop spring-main
