@@ -2,9 +2,9 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+        uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582
 
       - name: Set up MySQL
         uses: mirromutth/mysql-action@v1.1
@@ -86,17 +86,8 @@ jobs:
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-main .
           
 
-    
-
-  dependency-submission:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-  
-          
   push:
-    needs: dependency-submission
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -106,30 +97,24 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           
-
       - name: docker push
         run: |
           sudo docker push ${{ secrets.DOCKERHUB_USERNAME }}/spring-main
 
-
-
-
-
   deploy:
-      needs: push
-      runs-on: ubuntu-latest
+    needs: push
+    runs-on: ubuntu-latest
 
-      steps:
-      # NCP 로그인 / docker image pull & run
+    steps:
       - name: NCP login and docker image pull and run
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{ secrets.NCP_HOST }}
           username: ${{ secrets.NCP_USERNAME }}
           password: ${{ secrets.NCP_PASSWORD }}
           port: ${{ secrets.NCP_PORT }}
           script: |
-            sudo docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{secrets.DOCKERHUB_PASSWORD}}
+            sudo docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
             
             if [ $(sudo docker ps -a -q -f name=spring-main) ]; then
               sudo docker stop spring-main
