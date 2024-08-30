@@ -89,31 +89,11 @@ public class UserResultService {
                 .map(BodySize::getUserImg)
                 .orElseThrow(() -> new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
     }
-
-//todo: 마이페이지 삭제 구현
+    public UserStylingResultResponseDto getOneResult(Long id){
+        Result result = resultRepository.findById(id).orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
+        return UserStylingResultResponseDto.to(result);
+    }
     public void deleteResult(Long id){
         resultRepository.delete(resultRepository.findById(id).orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND)));
     }
-
-//    public void DeleteMypage(String saveImgTime){
-//
-//        UserImg userImg = userImgRepository.findImg(authService.currentUserId(), saveImgTime).orElseThrow(()->new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
-//
-//        Optional<BodySize> byId = bodySizeRepository.findById(userImg.getId());
-//        BodySize bodySize = byId.get();
-//
-//        Optional<UserBodyType> byId1 = userBodyTypeRepository.findById(bodySize.getId());
-//        UserBodyType userBodyType = byId1.get();
-//
-//        Optional<FemaleBodyType> byId2 = bodyTypeRepository.findById(userBodyType.getId());
-//        FemaleBodyType femaleBodyType = byId2.get();
-//
-//        List<Clothes> deleterepo = clothesRepository.deleterepo(l, femaleBodyType.getId());
-//
-//
-//        userBodyTypeRepository.delete(userBodyType);
-//        //clothesRepository.deleteAll(deleterepo);
-//        bodySizeRepository.delete(bodySize);
-//        userImgService.deleteImg(authService.currentUserId(), saveImgTime);
-//    }
 }

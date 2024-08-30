@@ -30,6 +30,12 @@ public class ResultController {
     public BaseResponse<?> makeUserStyling(@PathVariable("resultId") Long resultId, @RequestBody UserStylingRequestDto userStylingRequestDto){
         return BaseResponse.ok(userClothesService.makeUserStyling(resultId,userStylingRequestDto));
     }
+    @GetMapping("/result/{resultId}")
+    public BaseResponse<?> getOneResult(@PathVariable("resultId") Long resultId){
+        userResultService.getOneResult(resultId);
+        return BaseResponse.ok();
+
+    }
     //todo: 마이페이지 삭제 로직 마이페이지에 사용자 결과 하나 삭제하기
     @DeleteMapping("/result/{resultId}")
     public BaseResponse<?> deleteMypage(@PathVariable("resultId") Long resultId){
