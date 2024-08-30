@@ -45,11 +45,11 @@ public enum BodyShape {
                             "https://image.msscdn.net/thumbnails/images/goods_img/20231019/3642581/3642581_16977772857947_big.jpg?w=1200"
                     },
                     new String[]{
-                            "https://www.musinsa.com/app/goods/4086500",
-                            "https://www.musinsa.com/app/goods/3325842",
-                            "https://www.musinsa.com/app/goods/3927583",
-                            "https://www.musinsa.com/app/goods/3188656",
-                            "https://www.musinsa.com/app/goods/3239237"
+                            "https://www.musinsa.com/app/goods/3839145",
+                            "https://www.musinsa.com/app/goods/3889949",
+                            "https://www.musinsa.com/app/goods/4089380",
+                            "https://www.musinsa.com/app/goods/2351467",
+                            "https://www.musinsa.com/app/goods/3642581"
                     })
     ),
 
@@ -67,11 +67,11 @@ public enum BodyShape {
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240510/4120841/4120841_17158527674709_big.jpg?w=1200"
                     },
                     new String[]{
-                            "https://www.musinsa.com/app/goods/4086500",
-                            "https://www.musinsa.com/app/goods/3325842",
-                            "https://www.musinsa.com/app/goods/3927583",
-                            "https://www.musinsa.com/app/goods/3188656",
-                            "https://www.musinsa.com/app/goods/3239237"
+                            "https://www.musinsa.com/app/goods/4110592",
+                            "https://www.musinsa.com/app/goods/4139025",
+                            "https://www.musinsa.com/app/goods/407482",
+                            "https://www.musinsa.com/app/goods/3974616",
+                            "https://www.musinsa.com/app/goods/4120841"
                     }),
             BottomClothesItem.createBottomClothesItems(
                     new String[]{"블리치 사이드 패널 데님 팬츠", "썸머 하프밴딩 린넨 데님 팬츠[라이트인디고]", "TR 카고 벌룬 팬츠 오프 화이트", "립스탑 퍼티그 팬츠 [베이지]", "와이드 밴딩 치노 팬츠 [BEIGE]"},
@@ -84,11 +84,11 @@ public enum BodyShape {
                             "https://image.msscdn.net/thumbnails/images/goods_img/20210909/2119984/2119984_16933729338657_big.jpg?w=1200"
                     },
                     new String[]{
-                            "https://www.musinsa.com/app/goods/4086500",
-                            "https://www.musinsa.com/app/goods/3325842",
-                            "https://www.musinsa.com/app/goods/3927583",
+                            "https://www.musinsa.com/app/goods/3492412",
+                            "https://www.musinsa.com/app/goods/4103468",
+                            "https://www.musinsa.com/app/goods/3048779",
                             "https://www.musinsa.com/app/goods/3188656",
-                            "https://www.musinsa.com/app/goods/3239237"
+                            "https://www.musinsa.com/app/goods/2119984"
                     })
     ),
     MALE_OVAL("원형","원형 체형의 남자는 복부 주위에 볼륨이 있어 전체적으로 원형에 가까운 체형을 가지고 있습니다. 이 체형은 상체 중심으로 무게감이 느껴지며, 비교적 짧은 목과 넓은 허리라인이 특징입니다. 이러한 체형의 남성에게는 실루엣을 길고 슬림하게 보이도록 하는 스타일링이 필요합니다. 세로 줄무늬 패턴의 셔츠나 니트를 선택하여 시각적으로 높이를 더해주고, V넥이나 열린 카라 디자인의 상의를 통해 목선을 길어 보이게 하는 것이 좋습니다. 또한, 상의는 몸에 약간 여유 있는 핏을 선택하여 복부를 자연스럽게 커버할 수 있습니다.\n" +
@@ -105,11 +105,11 @@ public enum BodyShape {
                             "https://image.msscdn.net/thumbnails/images/goods_img/20230130/3046771/3046771_16758170199743_big.jpg?w=1200"
                     },
                     new String[]{
-                            "https://www.musinsa.com/app/goods/4086500",
-                            "https://www.musinsa.com/app/goods/3325842",
-                            "https://www.musinsa.com/app/goods/3927583",
+                            "https://www.musinsa.com/app/goods/4091542",
+                            "https://www.musinsa.com/app/goods/3269419",
+                            "https://www.musinsa.com/app/goods/3562068",
                             "https://www.musinsa.com/app/goods/3188656",
-                            "https://www.musinsa.com/app/goods/3239237"
+                            "https://www.musinsa.com/app/goods/3046771"
                     }),
             BottomClothesItem.createBottomClothesItems(
                     new String[]{"HEM BUTTON UTILITY DENIM PANTS GREY", "DART BRUSH WIDE DENIM PANTS DARK BLUE", "[여름원단] 와이드 빅포켓 밴딩 카고 팬츠 블랙", "[2PACK] 노즈 텐셀코튼 투턱 버뮤다 숏팬츠 8종", "[2PACK] 미니멀 카고 트레이닝 반바지"},
@@ -122,11 +122,11 @@ public enum BodyShape {
                             "https://image.msscdn.net/thumbnails/images/goods_img/20230512/3294841/3294841_17152175012380_big.jpg?w=1200"
                     },
                     new String[]{
-                            "https://www.musinsa.com/app/goods/4086500",
-                            "https://www.musinsa.com/app/goods/3325842",
-                            "https://www.musinsa.com/app/goods/3927583",
-                            "https://www.musinsa.com/app/goods/3188656",
-                            "https://www.musinsa.com/app/goods/3239237"
+                            "https://www.musinsa.com/app/goods/3926422",
+                            "https://www.musinsa.com/app/goods/3942523",
+                            "https://www.musinsa.com/app/goods/2060720",
+                            "https://www.musinsa.com/app/goods/3226716",
+                            "https://www.musinsa.com/app/goods/3294841"
                     })
     ),
     MALE_RECTANGLE("사각형",
@@ -144,11 +144,11 @@ public enum BodyShape {
                             "https://image.msscdn.net/thumbnails/images/goods_img/20230329/3188656/3188656_16861154551258_big.jpg?w=1200"
                     },
                     new String[]{
-                            "https://www.musinsa.com/app/goods/4086500",
-                            "https://www.musinsa.com/app/goods/3325842",
-                            "https://www.musinsa.com/app/goods/3927583",
-                            "https://www.musinsa.com/app/goods/3188656",
-                            "https://www.musinsa.com/app/goods/3239237"
+                            "https://www.musinsa.com/app/goods/4166018",
+                            "https://www.musinsa.com/app/goods/4139025",
+                            "https://www.musinsa.com/app/goods/4166090",
+                            "https://www.musinsa.com/app/goods/2313388",
+                            "https://www.musinsa.com/app/goods/3188656"
                     }),
             BottomClothesItem.createBottomClothesItems(
                     new String[]{"더스티 엠보 워시드 데님 팬츠 (더스티그레이)", "[여름원단] 투턱 와이드 슬랙스 그레이", "와이드 히든 밴딩 슬랙스 [미디엄 그레이]", "빅 브러쉬 와이드 데님 팬츠 [미디엄 인디고]", "옐로우 워싱 리버스 턱 데님 팬츠 (BLACK)"},
@@ -448,5 +448,3 @@ public enum BodyShape {
 
 
 }
-
-
