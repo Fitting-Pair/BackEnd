@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import smu.FittingPair.dto.*;
 import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.NotFoundException;
+import smu.FittingPair.error.exception.UnauthorizedException;
 import smu.FittingPair.model.*;
 import smu.FittingPair.repository.*;
 
@@ -91,6 +92,9 @@ public class UserResultService {
     }
     public UserStylingResultResponseDto getOneResult(Long id){
         Result result = resultRepository.findById(id).orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
+        if(!AuthService.currentUserId().equals(result.getUserImg().getUsers().getId())){ //todo: 맘에 안 드는 코드...
+            throw new UnauthorizedException(ErrorCode.UNAUTHORIZED);
+        }
         return UserStylingResultResponseDto.to(result);
     }
     public void deleteResult(Long id){
