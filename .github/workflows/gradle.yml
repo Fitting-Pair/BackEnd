@@ -76,30 +76,23 @@ jobs:
                 secretKey: ${{ secrets.AWS_SECRETKEY }}
           EOL
 
-      - name: Build with Gradle Wrapper
+  push:
+      - name: Build, Tag, and Push Docker Image
         run: |
           cd FittingPair
-          mkdir build
           sudo chmod +x gradlew
           ./gradlew clean build --info
-          ls -al
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-main .
-          
-
-  push:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Docker login  
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          
-      - name: docker push
-        run: |
+    
+          # Docker 이미지 빌드
+          sudo docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-main .
+    
+          # DockerHub 로그인 
+          sudo docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+    
+          # Docker 이미지 푸시
           sudo docker push ${{ secrets.DOCKERHUB_USERNAME }}/spring-main
+
+      
 
   deploy:
     needs: push
