@@ -77,6 +77,9 @@ jobs:
           EOL
 
   push:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Build, Tag, and Push Docker Image
         run: |
           cd FittingPair
@@ -86,18 +89,15 @@ jobs:
           # Docker 이미지 빌드
           sudo docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-main .
     
-          # DockerHub 로그인 
+          # DockerHub 로그인
           sudo docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
     
           # Docker 이미지 푸시
           sudo docker push ${{ secrets.DOCKERHUB_USERNAME }}/spring-main
 
-      
-
   deploy:
     needs: push
     runs-on: ubuntu-latest
-
     steps:
       - name: NCP login and docker image pull and run
         uses: appleboy/ssh-action@v0.1.6
