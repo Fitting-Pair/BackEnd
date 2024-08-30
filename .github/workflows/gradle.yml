@@ -82,6 +82,7 @@ jobs:
     steps:
       - name: Build, Tag, and Push Docker Image
         run: |
+          ls -al
           cd FittingPair
           sudo chmod +x gradlew
           ./gradlew clean build --info
@@ -94,6 +95,8 @@ jobs:
     
           # Docker 이미지 푸시
           sudo docker push ${{ secrets.DOCKERHUB_USERNAME }}/spring-main
+
+
 
   deploy:
     needs: push
