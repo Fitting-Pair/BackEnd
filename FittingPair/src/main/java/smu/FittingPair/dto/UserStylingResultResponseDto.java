@@ -10,7 +10,7 @@ import smu.FittingPair.model.Result;
 @AllArgsConstructor
 public class UserStylingResultResponseDto {
     //todo: 의류 넣기
-    private Long id;
+    private Long resultId;
     private String objFile;
     private String bodyTypeName;
     private String bodyTypeFeature;
