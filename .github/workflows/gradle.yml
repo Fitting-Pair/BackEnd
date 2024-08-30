@@ -79,7 +79,10 @@ jobs:
           sudo chmod +x gradlew
           ./gradlew clean build --info
           ls -al
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-main .
+          sudo docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/spring-main .
+          sudo docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+          sudo docker push ${{ secrets.DOCKERHUB_USERNAME }}/spring-main
+          
 
   dependency-submission:
     needs: build
@@ -90,23 +93,23 @@ jobs:
       - name: Placeholder step
         run: echo "This job is a placeholder"
 
-  push:
-    needs: dependency-submission
-    runs-on: ubuntu-latest
+  #push:
+  #  needs: dependency-submission
+  #  runs-on: ubuntu-latest
 
-    steps:
-      - name: Docker login  
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+  #  steps:
+  #    - name: Docker login  
+  #      uses: docker/login-action@v2
+  #      with:
+  #        username: ${{ secrets.DOCKERHUB_USERNAME }}
+  #        password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Docker push
-        run: |
-          sudo docker push ${{ secrets.DOCKERHUB_USERNAME }}/spring-main
+  #    - name: Docker push
+  #      run: |
+  #        sudo docker push ${{ secrets.DOCKERHUB_USERNAME }}/spring-main
 
   deploy:
-    needs: push
+    needs: dependency-submission
     runs-on: ubuntu-latest
 
     steps:
