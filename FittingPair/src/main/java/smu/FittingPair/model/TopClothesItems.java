@@ -6,6 +6,7 @@ import lombok.*;
 @Entity
 @Getter @AllArgsConstructor
 @Builder
+@NoArgsConstructor
 public class TopClothesItems {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,9 +17,5 @@ public class TopClothesItems {
     private String siteUrl;
     @Enumerated(EnumType.STRING)
     private ClothesCategory clothesCategory;
-    public TopClothesItems(){
-        this.clothesCategory= ClothesCategory.TOP;
-    }
-
 
 }
