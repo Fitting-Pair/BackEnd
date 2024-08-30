@@ -32,18 +32,18 @@ public class UserClothesService {
         BodyShape.TopClothesItem topClothes = decideTopClothes(userStylingRequestDto.getTopName(), bodyShape.getTopClothesItems());
         BodyShape.BottomClothesItem bottomClothes = decideBottomClothes(userStylingRequestDto.getBottomName(), bodyShape.getBottomClothesItems());
 
-        TopClothesItems topClothesItems = TopClothesItems.builder().name(topClothes.getName()).brand(topClothes.getBrand()).imageUrl(topClothes.getImageUrl()).siteUrl(topClothes.getSiteUrl()).build();
-        BottomClothesItems bottomClothesItem = BottomClothesItems.builder().name(bottomClothes.getName()).brand(bottomClothes.getBrand()).imageUrl(bottomClothes.getImageUrl()).siteUrl(bottomClothes.getSiteUrl()).build();
+        TopClothesItems topClothesItems = TopClothesItems.builder().name(topClothes.getName()).brand(topClothes.getBrand()).imageUrl(topClothes.getImageUrl()).siteUrl(topClothes.getSiteUrl()).clothesCategory(ClothesCategory.TOP).build();
+        BottomClothesItems bottomClothesItem = BottomClothesItems.builder().name(bottomClothes.getName()).brand(bottomClothes.getBrand()).imageUrl(bottomClothes.getImageUrl()).siteUrl(bottomClothes.getSiteUrl()).clothesCategory(ClothesCategory.BOTTOM).build();
 
         UserClothes userClothes = UserClothes.builder().bottomClothesItems(bottomClothesItem).topClothesItems(topClothesItems).build();
         topClothesItemRepository.save(topClothesItems);
         bottomClothesItemRepository.save(bottomClothesItem);
-        //영속성 컨텍스트 - 아직 데베에 저장되지 않는 엔티티를 참조하려고 할 때 발생 주의
+
         userClothesRepository.save(userClothes);
         result.setUserClothes(userClothes);
+        resultRepository.save(result);
 
         return UserStylingResultResponseDto.to(result);
-
     }
 
     private static BodyShape.TopClothesItem decideTopClothes(String topName, List<BodyShape.TopClothesItem> topClothesItems) {
