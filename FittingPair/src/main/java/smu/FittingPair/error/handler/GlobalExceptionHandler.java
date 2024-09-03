@@ -4,13 +4,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import smu.FittingPair.config.response.BaseResponse;
+import smu.FittingPair.util.response.BaseResponse;
 import smu.FittingPair.error.exception.DuplicateKeyException;
 import smu.FittingPair.error.exception.NotFoundException;
 import smu.FittingPair.error.exception.UnauthorizedException;
-import smu.FittingPair.error.ErrorCode;
 import smu.FittingPair.error.exception.*;
-import smu.FittingPair.config.response.BaseResponse;
 
 @Slf4j
 @RestControllerAdvice

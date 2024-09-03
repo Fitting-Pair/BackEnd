@@ -95,7 +95,7 @@ public class UserResultService {
         if(!AuthService.currentUserId().equals(result.getUserImg().getUsers().getId())){ //todo: 맘에 안 드는 코드...
             throw new UnauthorizedException(ErrorCode.UNAUTHORIZED);
         }
-        return UserStylingResultResponseDto.to(result);
+        return UserStylingResultResponseDto.from(result);
     }
     public void deleteResult(Long id){
         resultRepository.delete(resultRepository.findById(id).orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND)));

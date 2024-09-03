@@ -36,7 +36,7 @@ public class MyPageService {
         List <Result> results = Optional.ofNullable(myPage)
                 .map(MyPage::getResults)
                 .orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
-        List<UserStylingResultResponseDto> userResult = results.stream().map(UserStylingResultResponseDto::to).toList();
+        List<UserStylingResultResponseDto> userResult = results.stream().map(UserStylingResultResponseDto::from).toList();
         return MyPageResponseDto.builder().userStylingResultResponseDtos(userResult).build();
 
     }

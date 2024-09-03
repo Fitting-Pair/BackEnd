@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import smu.FittingPair.service.AuthService;
 import smu.FittingPair.service.ReissueTokenService;
 import smu.FittingPair.service.SignUpService;
-import smu.FittingPair.config.response.BaseResponse;
+import smu.FittingPair.util.response.BaseResponse;
 import smu.FittingPair.dto.LoginRequestDto;
 
 
@@ -14,7 +14,6 @@ import smu.FittingPair.dto.LoginRequestDto;
 @RequiredArgsConstructor
 public class AuthController {
     private final AuthService authService;
-    private final SignUpService signUpService;
     private final ReissueTokenService reissueTokenService;
     @PostMapping("/auth/login")
     //todo: 전화번호 하나 뿐인데 굳이 dto로 감싸야 하는지..?

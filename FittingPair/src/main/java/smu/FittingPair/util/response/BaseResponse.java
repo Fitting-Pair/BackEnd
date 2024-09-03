@@ -1,4 +1,4 @@
-package smu.FittingPair.config.response;
+package smu.FittingPair.util.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AccessLevel;

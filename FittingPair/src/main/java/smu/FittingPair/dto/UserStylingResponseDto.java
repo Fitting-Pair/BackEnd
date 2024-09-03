@@ -1,16 +1,22 @@
 package smu.FittingPair.dto;
 
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.experimental.FieldDefaults;
 import smu.FittingPair.model.BottomClothesItems;
 import smu.FittingPair.model.TopClothesItems;
 import smu.FittingPair.model.UserClothes;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @Data
 @AllArgsConstructor
 @Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserStylingResponseDto {
     UserTopClothesDto userTopClothesDto;
     UserBottomClothesDto userBottomClothesItemsDto;

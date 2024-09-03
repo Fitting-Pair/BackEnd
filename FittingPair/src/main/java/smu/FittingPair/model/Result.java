@@ -6,7 +6,7 @@ import lombok.*;
 
 @NoArgsConstructor
 @Entity @Getter
-public class Result {
+public class Result  {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "result_id")
     private Long id;

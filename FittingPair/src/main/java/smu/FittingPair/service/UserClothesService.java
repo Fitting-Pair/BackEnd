@@ -43,7 +43,7 @@ public class UserClothesService {
         result.setUserClothes(userClothes);
         resultRepository.save(result);
 
-        return UserStylingResultResponseDto.to(result);
+        return UserStylingResultResponseDto.from(result);
     }
 
     private static BodyShape.TopClothesItem decideTopClothes(String topName, List<BodyShape.TopClothesItem> topClothesItems) {
