@@ -14,18 +14,14 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserResultResponseDto {
-    //todo: 의류 넣기
+    // 처음에 옷 목록 주르륵 보여주는 응답 dto
     private Long resultId;
     private String objFile;
     private String bodyTypeName;
     private String bodyTypeFeature;
     private String bodyTypeCareful;
     private ClothesDto clothesDto;
-//    public static UserResultResponseDto to(String objFile, String bodyTypeName,
-//                                 String bodyTypeFeature, String bodyTypeCareful,ClothesDto clothesDto) {
-//        return new UserResultResponseDto(objFile,bodyTypeName,bodyTypeFeature,bodyTypeCareful,clothesDto);
-//    }
-    public static UserResultResponseDto to(Result result) {
+    public static UserResultResponseDto from(Result result) {
         return new UserResultResponseDto(result.getId(),result.getUserImg().getObjFileUrl(),
                 result.getUserBodyType().getBodyShape().getName(),
                 result.getUserBodyType().getBodyShape().getFeatures(),
