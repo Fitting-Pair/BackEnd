@@ -15,11 +15,6 @@ public class ResultController {
     private final UserResultService userResultService;
     private final UserClothesService userClothesService;
 
-     //url 형식으로 date (예 http://localhost:8080/result/2024-07-03-07)
-    @GetMapping("/mypage/result/{create}")
-    public BaseResponse<?> getResult(@PathVariable("create") String create) {
-        return BaseResponse.ok(userResultService.getResult(create));
-    }
     //체형 측정 후 바로 조회
     @GetMapping("/result/{imgId}")
     public BaseResponse<?> getNewResult(@PathVariable("imgId") Long imgId){

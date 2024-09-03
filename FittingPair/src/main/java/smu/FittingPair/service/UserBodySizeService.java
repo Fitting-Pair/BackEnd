@@ -52,9 +52,14 @@ public class UserBodySizeService {
     @Transactional
     public UserBodyType putBodySize(UserBodySizeRequestDto userBodySizeRequestDto){
         UserBodySizeRequestDto.UserSize userSize = userBodySizeRequestDto.getUserSize();
-        BodySize bodySize = userBodySizeRequestDto.toEntity(userSize.getChestSize(), userSize.getHipSize(), userSize.getShoulderSize(), userSize.getWaistSize());
-        //userBodySize에 있는 id는 유저 아이디가 아니라 유저 이미지 아이디므로, 유저 이미지에서 조회한 후, 유저의 정보를 이어준다.
         Users users = findUserByUserImgId(userBodySizeRequestDto.getUserId());
+        BodySize bodySize;
+        if(users.getGender().equals("male")){
+            bodySize = userBodySizeRequestDto.toEntity(userSize.getChestSize(), userSize.getHipSize(), userSize.getShoulderSize()+13, userSize.getWaistSize()+7);
+        }
+        else{
+            bodySize = userBodySizeRequestDto.toEntity(userSize.getChestSize(), userSize.getHipSize(), userSize.getShoulderSize(), userSize.getWaistSize());
+        }
         putUserInfo(users,bodySize);
         //BodySize와 bodyType은 1대 1이다. 생성된 body type을 바탕으로 bodyType을 결정해준다.
         //앙방향 설정
