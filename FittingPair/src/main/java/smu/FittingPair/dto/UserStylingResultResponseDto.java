@@ -20,21 +20,19 @@ public class UserStylingResultResponseDto {
     Long resultId;
     String objFile;
     String bodyTypeName;
+    UserBodySizeResponseDto userBodySizeResponseDto;
     String bodyTypeFeature;
     String bodyTypeCareful;
     UserStylingResponseDto userStylingResponseDto;
-    LocalDateTime localDate;
+    String localDate;
 
     public static UserStylingResultResponseDto from(Result result) {
         return new UserStylingResultResponseDto(result.getId(),result.getUserImg().getObjFileUrl(),
                 result.getUserBodyType().getBodyShape().getName(),
+                UserBodySizeResponseDto.from(result.getUserBodyType().getBodySize()),
                 result.getUserBodyType().getBodyShape().getFeatures(),
                 result.getUserBodyType().getBodyShape().getCareful(),
-                UserStylingResponseDto.from(result.getUserClothes().getTopClothesItems(), result.getUserClothes().getBottomClothesItems()),formatter(result.getUserImg().getCreatedAt()));
-    }
-    public static LocalDateTime formatter(String createdAt){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
-        return LocalDateTime.parse(createdAt, formatter);
+                UserStylingResponseDto.from(result.getUserClothes().getTopClothesItems(), result.getUserClothes().getBottomClothesItems()), result.getUserImg().getCreatedAt());
     }
 
 }

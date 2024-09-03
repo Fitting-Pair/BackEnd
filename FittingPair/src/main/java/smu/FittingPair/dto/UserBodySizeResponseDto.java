@@ -2,20 +2,27 @@ package smu.FittingPair.dto;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import smu.FittingPair.model.BodySize;
 
-@Data
-@Getter
-@NoArgsConstructor @FieldDefaults
+@Data @AllArgsConstructor
+@Getter @Builder
+@NoArgsConstructor @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserBodySizeResponseDto {
-    private double chestSize;
-    private double hipSize;
-    private double shoulderSize;
-    private double waistSize;
+    Long height;
+    double chestSize;
+    double hipSize;
+    double shoulderSize;
+    double waistSize;
+    public static UserBodySizeResponseDto from(BodySize bodySize){
+        return UserBodySizeResponseDto.builder()
+                .height(bodySize.getHeightSize())
+                .chestSize(bodySize.getChestSize())
+                .hipSize(bodySize.getHipSize())
+                .shoulderSize(bodySize.getShoulderSize())
+                .waistSize(bodySize.getWaistSize())
+                .build();
+    }
 
 }
