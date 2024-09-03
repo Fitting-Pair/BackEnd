@@ -30,7 +30,7 @@ public class UserStylingResultResponseDto {
                 result.getUserBodyType().getBodyShape().getName(),
                 result.getUserBodyType().getBodyShape().getFeatures(),
                 result.getUserBodyType().getBodyShape().getCareful(),
-                UserStylingResponseDto.from(result.getUserClothes().getTopClothesItems(), result.getUserClothes().getBottomClothesItems()),formatter(result.getUserImg().getImageUrl()));
+                UserStylingResponseDto.from(result.getUserClothes().getTopClothesItems(), result.getUserClothes().getBottomClothesItems()),formatter(result.getUserImg().getCreatedAt()));
     }
     public static LocalDateTime formatter(String createdAt){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");

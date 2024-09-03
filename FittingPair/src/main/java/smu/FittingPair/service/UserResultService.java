@@ -62,7 +62,6 @@ public class UserResultService {
     public UserResultResponseDto getResultByImgId(Long id){
         UserImg userImg = userImgRepository.findById(id).orElseThrow(()-> new NotFoundException(ErrorCode.USER_IMG_NOT_FOUND));
         Result result = resultRepository.findByUserImg(userImg).orElseThrow(()->new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
-        BodyShape bodyShape = result.getUserBodyType().getBodyShape();
         return UserResultResponseDto.to(result);
     }
     private Users getUserOrThrow(UserBodyType userBodyType){
