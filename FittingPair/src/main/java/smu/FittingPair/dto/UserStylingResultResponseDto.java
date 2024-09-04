@@ -27,12 +27,13 @@ public class UserStylingResultResponseDto {
     String localDate;
 
     public static UserStylingResultResponseDto from(Result result) {
-        return new UserStylingResultResponseDto(result.getId(),result.getUserImg().getObjFileUrl(),
-                result.getUserBodyType().getBodyShape().getName(),
-                UserBodySizeResponseDto.from(result.getUserBodyType().getBodySize()),
-                result.getUserBodyType().getBodyShape().getFeatures(),
-                result.getUserBodyType().getBodyShape().getCareful(),
-                UserStylingResponseDto.from(result.getUserClothes().getTopClothesItems(), result.getUserClothes().getBottomClothesItems()), result.getUserImg().getCreatedAt());
+        return new UserStylingResultResponseDto(result.getId(),result.getObjFileUrl(),
+                result.getBodyShapeName(),
+                UserBodySizeResponseDto.from(result.getBodySize()),
+                result.getBodyShapeFeatures(),
+                result.getBodyShapeCareful(),
+                UserStylingResponseDto.from(result.getUserTopClothes(),result.getUserBottomClothes()),
+                result.getUserImgCreatedAt());
     }
 
 }
