@@ -36,4 +36,28 @@ public class Result  {
     public void setUserClothes(UserClothes userClothes){
         this.userClothes = userClothes;
     }
+    public String getObjFileUrl(){
+        return this.userImg.getObjFileUrl();
+    }
+    public String getBodyShapeName(){
+        return this.userBodyType.getBodyShape().getName();
+    }
+    public BodySize getBodySize(){
+        return this.userBodyType.getBodySize();
+    }
+    public String getBodyShapeFeatures(){
+        return this.userBodyType.getBodyShape().getFeatures();
+    }
+    public String getBodyShapeCareful(){
+        return this.userBodyType.getBodyShape().getCareful();
+    }
+    public String getUserImgCreatedAt(){
+        return this.userImg.getCreatedAt();
+    }
+    public TopClothesItems getUserTopClothes(){
+        return this.userClothes.getTopClothesItems();
+    }
+    public BottomClothesItems getUserBottomClothes() {
+        return this.userClothes.getBottomClothesItems();
+    }
 }
