@@ -53,13 +53,7 @@ public class UserBodySizeService {
     public UserBodyType putBodySize(UserBodySizeRequestDto userBodySizeRequestDto){
         UserBodySizeRequestDto.UserSize userSize = userBodySizeRequestDto.getUserSize();
         Users users = findUserByUserImgId(userBodySizeRequestDto.getUserId());
-        BodySize bodySize;
-        if(users.getGender().equals("male")){
-            bodySize = userBodySizeRequestDto.toEntity(userSize.getChestSize(), userSize.getHipSize(), userSize.getShoulderSize()+13, userSize.getWaistSize()+7);
-        }
-        else{
-            bodySize = userBodySizeRequestDto.toEntity(userSize.getChestSize(), userSize.getHipSize(), userSize.getShoulderSize(), userSize.getWaistSize());
-        }
+        BodySize bodySize = setBodySizeByGender(userBodySizeRequestDto, userSize, users);
         putUserInfo(users,bodySize);
         //BodySize와 bodyType은 1대 1이다. 생성된 body type을 바탕으로 bodyType을 결정해준다.
         //앙방향 설정
@@ -72,6 +66,18 @@ public class UserBodySizeService {
         //결과 생성
         return userBodyType;
     }
+
+    private static BodySize setBodySizeByGender(UserBodySizeRequestDto userBodySizeRequestDto, UserBodySizeRequestDto.UserSize userSize, Users users) {
+        BodySize bodySize;
+        if(users.getGender().equals("male")){
+            bodySize = userBodySizeRequestDto.toEntity(userSize.getChestSize(), userSize.getHipSize(), userSize.getShoulderSize()+13, userSize.getWaistSize()+7);
+        }
+        else{
+            bodySize = userBodySizeRequestDto.toEntity(userSize.getChestSize(), userSize.getHipSize(), userSize.getShoulderSize(), userSize.getWaistSize());
+        }
+        return bodySize;
+    }
+
     private UserBodyType decideBodyType(UserBodySizeRequestDto.UserSize userBodySizeRequestDto, Users users) {
         if(users.getGender().equals("male")){
             return userBodyTypeService.decideMaleBodyType(userBodySizeRequestDto,users);

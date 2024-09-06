@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 import smu.FittingPair.model.BottomClothesItems;
+import smu.FittingPair.model.Result;
 import smu.FittingPair.model.TopClothesItems;
 import smu.FittingPair.model.UserClothes;
 
@@ -20,10 +21,10 @@ import java.time.format.DateTimeFormatter;
 public class UserStylingResponseDto {
     UserTopClothesDto userTopClothesDto;
     UserBottomClothesDto userBottomClothesItemsDto;
-    public static UserStylingResponseDto from(TopClothesItems topClothesItems, BottomClothesItems bottomClothesItems){
+    public static UserStylingResponseDto from(Result result){
         return UserStylingResponseDto.builder()
-                .userTopClothesDto(UserTopClothesDto.builder().name(topClothesItems.getName()).brand(topClothesItems.getBrand()).imageUrl(topClothesItems.getImageUrl()).siteUrl(topClothesItems.getSiteUrl()).build())
-                .userBottomClothesItemsDto(UserBottomClothesDto.builder().name(bottomClothesItems.getName()).brand(bottomClothesItems.getBrand()).imageUrl(bottomClothesItems.getImageUrl()).siteUrl(bottomClothesItems.getSiteUrl()).build())
+                .userTopClothesDto(UserTopClothesDto.builder().name(result.getUserTopClothes().getName()).brand(result.getUserTopClothes().getBrand()).imageUrl(result.getUserTopClothes().getImageUrl()).siteUrl(result.getUserTopClothes().getSiteUrl()).build())
+                .userBottomClothesItemsDto(UserBottomClothesDto.builder().name(result.getUserBottomClothes().getName()).brand(result.getUserBottomClothes().getBrand()).imageUrl(result.getUserBottomClothes().getImageUrl()).siteUrl(result.getUserBottomClothes().getSiteUrl()).build())
                 .build();
     }
 

@@ -16,7 +16,6 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserStylingResultResponseDto {
-    //todo: 의류 넣기
     Long resultId;
     String objFile;
     String bodyTypeName;
@@ -32,7 +31,7 @@ public class UserStylingResultResponseDto {
                 UserBodySizeResponseDto.from(result.getBodySize()),
                 result.getBodyShapeFeatures(),
                 result.getBodyShapeCareful(),
-                UserStylingResponseDto.from(result.getUserTopClothes(),result.getUserBottomClothes()),
+                UserStylingResponseDto.from(result),
                 result.getUserImgCreatedAt());
     }
 
