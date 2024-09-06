@@ -16,6 +16,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import smu.FittingPair.jwt.JwtExceptionFilter;
 import smu.FittingPair.service.CustomUserDetailService;
 import smu.FittingPair.jwt.JWTProvider;
 import smu.FittingPair.jwt.JwtAuthenticationFilter;
@@ -26,10 +27,9 @@ import java.util.*;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class WebSecurityConfig {
-    private final CustomUserDetailService userDetailService;
-    private final AuthenticationConfiguration authenticationConfiguration;
     private final JWTProvider jwtProvider;
     private final CorsConfig corsConfig;
+    private final JwtExceptionFilter jwtExceptionFilter;
 
     @Bean
     public WebSecurityCustomizer configure(){  // static 하위 경로 메소드에 대해서 스프링 시큐리티 기능 비활성화
@@ -56,7 +56,8 @@ public class WebSecurityConfig {
                 .sessionManagement((session) -> session //세션을 항상 stateless 상태: 비활성화
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         http
-                .addFilterBefore(new JwtAuthenticationFilter(jwtProvider), UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(new JwtAuthenticationFilter(jwtProvider), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtExceptionFilter, JwtAuthenticationFilter.class);
         return http.build();
 
     }
