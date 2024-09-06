@@ -17,7 +17,7 @@ public class UserBodyTypeService {
     private final AuthService authService;
 
     public UserBodyType decideMaleBodyType(UserBodySizeRequestDto.UserSize bodySizeRequestDto, Users users){
-        double shoulder = bodySizeRequestDto.getShoulderSize();
+        double shoulder = bodySizeRequestDto.getShoulderSize()*2.0;
         double hip = bodySizeRequestDto.getHipSize();
         double waist = bodySizeRequestDto.getWaistSize();
 
@@ -32,18 +32,26 @@ public class UserBodyTypeService {
 
     private BodyShape getMaleBodyShape(double shoulderToWaistRatio, double shoulderToHipRatio, double waistToHipRatio) {
         // 남성 체형 판별
-        if (shoulderToWaistRatio < 0.9 && shoulderToHipRatio < 0.9 && waistToHipRatio > 0.9) {
-            return BodyShape.MALE_TRIANGLE;
-        } else if (shoulderToWaistRatio >= 1.5 && shoulderToWaistRatio <= 2.0 && shoulderToHipRatio >= 1.1 && shoulderToHipRatio <= 1.5) {
-            return BodyShape.MALE_INVERTED_TRIANGLE;
-        } else if (waistToHipRatio >= 1.0 && waistToHipRatio <= 1.2 && shoulderToWaistRatio <= 1.2) {
-            return BodyShape.MALE_OVAL;
-        } else if (shoulderToWaistRatio >= 0.9 && shoulderToWaistRatio <= 1.1 && shoulderToHipRatio >= 0.9 && shoulderToHipRatio <= 1.1) {
-            return BodyShape.MALE_RECTANGLE;
-        } else if (shoulderToWaistRatio > 1.1 && shoulderToHipRatio > 1.0 && waistToHipRatio < 1.0) {
-            return BodyShape.MALE_TRAPEZOID;
+        if (shoulderToWaistRatio <= 1.1 && shoulderToHipRatio <= 0.9 && waistToHipRatio >= 0.7) {
+            return BodyShape.MALE_TRIANGLE; // 삼각형
+        }
+
+        else if (shoulderToWaistRatio >= 1.0 && shoulderToHipRatio >= 0.9 && waistToHipRatio <= 0.9) {
+            return BodyShape.MALE_INVERTED_TRIANGLE; // 역삼각형
+        }
+
+        else if (waistToHipRatio >= 0.8 && waistToHipRatio <= 1.0 && shoulderToWaistRatio <= 1.2 && shoulderToHipRatio <= 1.0) {
+            return BodyShape.MALE_OVAL; // 타원형
+        }
+
+        else if (shoulderToWaistRatio >= 0.9 && shoulderToWaistRatio <= 1.2 &&
+                shoulderToHipRatio >= 0.9 && shoulderToHipRatio <= 1.3 &&
+                waistToHipRatio >= 0.9 && waistToHipRatio <= 1.1) {
+            return BodyShape.MALE_RECTANGLE; // 사각형
+        } else if (shoulderToWaistRatio > 1.2 && shoulderToHipRatio > 1.2 && waistToHipRatio < 0.9) {
+            return BodyShape.MALE_TRAPEZOID; // 사다리꼴형
         } else {
-            // 가장 가까운 체형을 결정
+            // 가장 가까운 체형을 결정 (어떤 조건에도 맞지 않을 경우, 비율에 가장 근접한 체형을 결정)
             return getClosestMaleBodyShape(shoulderToWaistRatio, shoulderToHipRatio, waistToHipRatio);
         }
     }
@@ -81,10 +89,12 @@ public class UserBodyTypeService {
         return closestShape;
     }
 
+    //여쟈
+
     public UserBodyType decideFemaleBodyType(UserBodySizeRequestDto.UserSize bodySizeRequestDto, Users users){
         double waist = bodySizeRequestDto.getWaistSize();
         double hip = bodySizeRequestDto.getHipSize();
-        double shoulder = bodySizeRequestDto.getShoulderSize();
+        double shoulder = bodySizeRequestDto.getShoulderSize()*2.0;
 
         double shoulderToWaistRatio = shoulder / waist;
         double shoulderToHipRatio = shoulder / hip;
@@ -97,17 +107,30 @@ public class UserBodyTypeService {
 
     private BodyShape getFemaleBodyShape(double shoulderToWaistRatio, double shoulderToHipRatio, double waistToHipRatio) {
         // 여성 체형 판별
-        if (shoulderToWaistRatio < 0.7 && shoulderToHipRatio < 0.7 && waistToHipRatio > 0.8) {
+        if (shoulderToWaistRatio <= 1.1 && shoulderToHipRatio <= 0.9 && waistToHipRatio >= 0.7) {
             return BodyShape.FEMALE_TRIANGLE;
-        } else if (shoulderToWaistRatio >= 1.5 && shoulderToHipRatio >= 1.5 && waistToHipRatio < 0.8) {
+        }  //삼각형
+
+        else if (shoulderToWaistRatio >= 1.0 && shoulderToHipRatio >= 0.9 && waistToHipRatio <= 0.9) {
             return BodyShape.FEMALE_INVERTED_TRIANGLE;
-        } else if (waistToHipRatio >= 0.8 && waistToHipRatio <= 1.2 && shoulderToWaistRatio < 0.8) {
-            return BodyShape.FEMALE_OVAL;
-        } else if (shoulderToWaistRatio >= 0.8 && shoulderToWaistRatio <= 1.0 && shoulderToHipRatio >= 0.8 && shoulderToHipRatio <= 1.0) {
-            return BodyShape.FEMALE_RECTANGLE;
-        } else if (shoulderToWaistRatio > 1.0 && shoulderToHipRatio > 1.0 && waistToHipRatio < 1.0) {
+        }
+        //역삼각형
+
+        else if (shoulderToWaistRatio >= 1.0 && shoulderToHipRatio >= 0.8 && waistToHipRatio <= 1.0) {
             return BodyShape.FEMALE_HOURGLASS;
-        } else {
+        } //모래시계
+
+
+        else if (waistToHipRatio >= 0.8 && waistToHipRatio <= 1.0 && shoulderToWaistRatio <= 1.2 && shoulderToHipRatio <= 1.0) {
+            return BodyShape.FEMALE_OVAL;
+        } //원형
+
+        else if (shoulderToWaistRatio >= 0.9 && shoulderToWaistRatio <= 1.2 &&
+                shoulderToHipRatio >= 0.9 && shoulderToHipRatio <= 1.3 &&
+                waistToHipRatio >= 0.9 && waistToHipRatio <= 1.1) {
+            return BodyShape.FEMALE_RECTANGLE;
+        } // 사각
+        else {
             // 가장 가까운 체형을 결정
             return getClosestFemaleBodyShape(shoulderToWaistRatio, shoulderToHipRatio, waistToHipRatio);
         }
