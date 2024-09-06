@@ -2,6 +2,7 @@ package smu.FittingPair.jwt;
 
 
 import io.jsonwebtoken.*;
+import io.jsonwebtoken.security.SecurityException;
 import io.jsonwebtoken.security.SignatureException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -40,7 +41,15 @@ public class JWTProvider {
     }
     //토큰이 만료 되었는지
     public Boolean isExpired(String token){
-        return Jwts.parser().verifyWith(secretKey).build().parseSignedClaims(token).getPayload().getExpiration().before(new Date());
+        try{
+            return Jwts.parser().verifyWith(secretKey).build().parseSignedClaims(token).getPayload().getExpiration().before(new Date());
+        }catch (SecurityException | MalformedJwtException | UnsupportedJwtException e){
+            throw new JwtException(ErrorCode.TOKEN_ERROR.getMessage());
+        }catch(ExpiredJwtException e){
+            throw new JwtException(ErrorCode.TOKEN_EXPIRED_ERROR.getMessage());
+        } catch (IllegalArgumentException e){
+            throw new JwtException(ErrorCode.TOKEN_IS_NULL.getMessage());
+        }
     }
     //토큰이 블랙 리스트에 있는지
     public Boolean isInBlackList(String token){
