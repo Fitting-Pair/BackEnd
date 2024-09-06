@@ -19,26 +19,39 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class MyPageService {
-    private final AuthService authService;
-    private final UserBodyTypeRepository userBodyTypeRepository;
-    private final UserImgRepository userImgRepository;
     private final UsersRepository usersRepository;
     private final MyPageRepository myPageRepository;
-    private final BodySizeRepository bodySizeRepository;
-    //todo: 수정 List<Result>
+    private final ResultRepository resultRepository;
     public MyPageResponseDto getMyPage(){
-        /*1. 현재 요청을 보낸 아이디로 mypage 찾음.
-        2. 그 마이페이지에 있는 result List 를 찾음.
-        3. result List -> UserResultResponseDto로 만듬.
-        4. 그거를 MypageResponseDto에 넣어서 보냄. */
         Users users = usersRepository.findById(AuthService.currentUserId()).orElseThrow(()-> new NotFoundException(ErrorCode.USER_NOT_FOUND));
         MyPage myPage = myPageRepository.findByUsers(users).orElseThrow(()-> new NotFoundException(ErrorCode.MYPAGE_NOT_FOUND));
-        List <Result> results = Optional.ofNullable(myPage)
-                .map(MyPage::getResults)
-                .orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
-        List<UserStylingResultResponseDto> userResult = results.stream().map(UserStylingResultResponseDto::from).toList();
+        //스타일링 완료된 것
+        List<Result> completedResults = filterStylingResult(myPage);
+        List<Result> imCompleteResults = filterNotStylingResult(myPage);
+        checkImCompleteResult(imCompleteResults);
+        List<UserStylingResultResponseDto> userResult = completedResults.stream().map(UserStylingResultResponseDto::from).toList();
         return MyPageResponseDto.builder().userStylingResultResponseDtos(userResult).build();
+    }
+    private static List<Result> filterStylingResult(MyPage myPage) {
+        return Optional.ofNullable(myPage.getResults())
+                .orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND))
+                .stream()
+                .filter(Result::isStylingCompleted) //true인것만 필터링
+                .toList();
+    }
 
+    private static List<Result> filterNotStylingResult(MyPage myPage) {
+        return  Optional.ofNullable(myPage.getResults())
+                .orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND))
+                .stream()
+                .filter(result -> !result.isStylingCompleted())
+                .toList();
+    }
+    @Transactional
+    public void checkImCompleteResult(List<Result> imCompleteResults) {
+        if(imCompleteResults.isEmpty()){
+            resultRepository.deleteAll(imCompleteResults);
+        }
     }
     //회원정보
     public UserInfoResponseDto getUserInfo(Long id){

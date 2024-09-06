@@ -30,8 +30,9 @@ public class ResultController {
     }
     //todo: 마이페이지 삭제 로직 마이페이지에 사용자 결과 하나 삭제하기
     @DeleteMapping("/result/{resultId}")
-    public BaseResponse<?> deleteMypage(@PathVariable("resultId") Long resultId){
+    public BaseResponse<?> deleteMyPage(@PathVariable("resultId") Long resultId) {
         userResultService.deleteResult(resultId);
         return BaseResponse.ok();
     }
+
 }

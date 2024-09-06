@@ -3,6 +3,7 @@ package smu.FittingPair.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import smu.FittingPair.dto.UserStylingResponseDto;
 import smu.FittingPair.dto.UserStylingRequestDto;
 import smu.FittingPair.dto.UserStylingResultResponseDto;
@@ -19,15 +20,16 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class UserClothesService {
     private final UserClothesRepository userClothesRepository;
     private final ResultRepository resultRepository;
     private final BottomClothesItemRepository bottomClothesItemRepository;
     private final TopClothesItemRepository topClothesItemRepository;
-
+    @Transactional
     public UserStylingResultResponseDto makeUserStyling(Long resultId, UserStylingRequestDto userStylingRequestDto){
         Result result = resultRepository.findById(resultId).orElseThrow(()-> new NotFoundException(ErrorCode.RESULT_NOT_FOUND));
-        BodyShape bodyShape = result.getUserBodyType().getBodyShape();
+        BodyShape bodyShape = result.getBodyShape();
 
         BodyShape.TopClothesItem topClothes = decideTopClothes(userStylingRequestDto.getTopName(), bodyShape.getTopClothesItems());
         BodyShape.BottomClothesItem bottomClothes = decideBottomClothes(userStylingRequestDto.getBottomName(), bodyShape.getBottomClothesItems());
@@ -41,6 +43,7 @@ public class UserClothesService {
 
         userClothesRepository.save(userClothes);
         result.setUserClothes(userClothes);
+        result.completeStyling();
         resultRepository.save(result);
 
         return UserStylingResultResponseDto.from(result);

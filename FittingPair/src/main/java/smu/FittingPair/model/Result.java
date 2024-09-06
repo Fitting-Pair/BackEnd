@@ -10,6 +10,8 @@ public class Result  {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "result_id")
     private Long id;
+    @Column(name = "styling_flag")
+    private boolean stylingCompleted;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_body_type_id")
@@ -25,10 +27,14 @@ public class Result  {
     @JoinColumn(name = "userClothes_id")
     private UserClothes userClothes;
     @Builder
-    public Result(UserBodyType userBodyType, MyPage myPage,UserImg userImg) {
+    public Result(UserBodyType userBodyType, MyPage myPage,UserImg userImg,boolean stylingCompleted) {
         this.userBodyType = userBodyType;
         this.myPage = myPage;
         this.userImg = userImg;
+        this.stylingCompleted = stylingCompleted;
+    }
+    public void completeStyling() { //styling 완료시,
+        this.stylingCompleted = true;
     }
     public void setMyPage(MyPage myPage){
         this.myPage = myPage;
@@ -45,6 +51,7 @@ public class Result  {
     public BodySize getBodySize(){
         return this.userBodyType.getBodySize();
     }
+    public BodyShape getBodyShape(){ return this.userBodyType.getBodyShape();}
     public String getBodyShapeFeatures(){
         return this.userBodyType.getBodyShape().getFeatures();
     }
@@ -55,9 +62,12 @@ public class Result  {
         return this.userImg.getCreatedAt();
     }
     public TopClothesItems getUserTopClothes(){
-        return this.userClothes.getTopClothesItems();
+        return this.userClothes!= null ? this.userClothes.getTopClothesItems() : null;
     }
     public BottomClothesItems getUserBottomClothes() {
-        return this.userClothes.getBottomClothesItems();
+        return this.userClothes!= null ? this.userClothes.getBottomClothesItems() : null;
+    }
+    public Long getUserId(){
+        return this.userImg.getUsers().getId();
     }
 }
