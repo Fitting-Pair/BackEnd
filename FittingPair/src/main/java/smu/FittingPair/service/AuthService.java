@@ -42,7 +42,7 @@ public class AuthService {
 
         usersRepository.save(users);
 
-        return LoginResponseDto.to(users,accessToken,refreshToken,expiredIn);
+        return LoginResponseDto.from(users,accessToken,refreshToken,expiredIn);
     }
     private Users getUser(LoginRequestDto loginRequestDto) {
         return usersRepository.findByPhoneNumber(loginRequestDto.getPhoneNumber())

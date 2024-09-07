@@ -16,7 +16,6 @@ public class AuthController {
     private final AuthService authService;
     private final ReissueTokenService reissueTokenService;
     @PostMapping("/auth/login")
-    //todo: 전화번호 하나 뿐인데 굳이 dto로 감싸야 하는지..?
     public BaseResponse<?> login(@RequestBody LoginRequestDto loginRequestDto, HttpServletResponse response){
         return BaseResponse.ok(authService.login(loginRequestDto,response));
     }
