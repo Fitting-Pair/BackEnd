@@ -55,8 +55,7 @@ public class UserBodySizeService {
         Users users = findUserByUserImgId(userBodySizeRequestDto.getUserId());
         BodySize bodySize = setBodySizeByGender(userBodySizeRequestDto, userSize, users);
         putUserInfo(users,bodySize);
-        //BodySize와 bodyType은 1대 1이다. 생성된 body type을 바탕으로 bodyType을 결정해준다.
-        //앙방향 설정
+
         UserBodyType userBodyType = decideBodyType(bodySize, users);
         userBodyType.setBodySize(bodySize);
         bodySize.setUserBodyType(userBodyType);
@@ -79,6 +78,10 @@ public class UserBodySizeService {
     }
 
     private UserBodyType decideBodyType(BodySize bodySize, Users users) {
+        System.out.println("Chest Size: " + bodySize.getChestSize());
+        System.out.println("Hip Size: " + bodySize.getHipSize());
+        System.out.println("Shoulder Size: " + bodySize.getShoulderSize()); // +13 적용된 값이 나오는지 확인
+        System.out.println("Waist Size: " + bodySize.getWaistSize());
         if(users.getGender().equals("male")){
             return userBodyTypeService.decideMaleBodyType(bodySize.getChestSize(),bodySize.getHipSize(),bodySize.getShoulderSize(),bodySize.getWaistSize(),users);
         }else{
