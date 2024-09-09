@@ -12,14 +12,11 @@ import smu.FittingPair.repository.UserImgRepository;
 @Service
 @RequiredArgsConstructor
 public class UserBodyTypeService {
-    private final UserBodyTypeRepository userBodyTypeRepository;
-    private final UserImgRepository userImgRepository;
-    private final AuthService authService;
 
-    public UserBodyType decideMaleBodyType(UserBodySizeRequestDto.UserSize bodySizeRequestDto, Users users){
-        double shoulder = bodySizeRequestDto.getShoulderSize()*2.0;
-        double hip = bodySizeRequestDto.getHipSize();
-        double waist = bodySizeRequestDto.getWaistSize();
+    public UserBodyType decideMaleBodyType(double chestSize,double hipSize,double shoulderSize,double waistSize, Users users){
+        double shoulder = shoulderSize*2.0;
+        double hip = hipSize;
+        double waist = waistSize;
 
         //테스트 출력
         System.out.println("Shoulder size (after *2): " + shoulder);
@@ -28,10 +25,10 @@ public class UserBodyTypeService {
         double shoulderToWaistRatio = shoulder / waist;
         double shoulderToHipRatio = shoulder / hip;
         double waistToHipRatio = waist / hip;
+      
         System.out.println("Shoulder to Waist Ratio: " + shoulderToWaistRatio);
         System.out.println("Shoulder to Hip Ratio: " + shoulderToHipRatio);
         System.out.println("Waist to Hip Ratio: " + waistToHipRatio);
-        
         
         BodyShape bodyShape = getMaleBodyShape(shoulderToWaistRatio, shoulderToHipRatio, waistToHipRatio);
         return UserBodyType.builder()
@@ -56,8 +53,6 @@ public class UserBodyTypeService {
                 shoulderToHipRatio >= 0.9 && shoulderToHipRatio <= 1.3 &&
                 waistToHipRatio >= 0.9 && waistToHipRatio <= 1.1) {
             return BodyShape.MALE_RECTANGLE; // 사각형
-        } else if (shoulderToWaistRatio > 1.2 && shoulderToHipRatio > 1.2 && waistToHipRatio < 0.9) {
-            return BodyShape.MALE_TRAPEZOID; // 사다리꼴형
         } else {
             // 가장 가까운 체형을 결정 (어떤 조건에도 맞지 않을 경우, 비율에 가장 근접한 체형을 결정)
             return getClosestMaleBodyShape(shoulderToWaistRatio, shoulderToHipRatio, waistToHipRatio);
@@ -99,10 +94,10 @@ public class UserBodyTypeService {
 
     //여쟈
 
-    public UserBodyType decideFemaleBodyType(UserBodySizeRequestDto.UserSize bodySizeRequestDto, Users users){
-        double waist = bodySizeRequestDto.getWaistSize();
-        double hip = bodySizeRequestDto.getHipSize();
-        double shoulder = bodySizeRequestDto.getShoulderSize()*2.0;
+    public UserBodyType decideFemaleBodyType(double chestSize,double hipSize,double shoulderSize,double waistSize, Users users){
+        double waist = waistSize;
+        double hip = hipSize;
+        double shoulder = shoulderSize*2.0;
 
         double shoulderToWaistRatio = shoulder / waist;
         double shoulderToHipRatio = shoulder / hip;
