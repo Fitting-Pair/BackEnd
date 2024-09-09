@@ -57,7 +57,7 @@ public class UserBodySizeService {
         putUserInfo(users,bodySize);
         //BodySize와 bodyType은 1대 1이다. 생성된 body type을 바탕으로 bodyType을 결정해준다.
         //앙방향 설정
-        UserBodyType userBodyType = decideBodyType(userSize, users);
+        UserBodyType userBodyType = decideBodyType(bodySize, users);
         userBodyType.setBodySize(bodySize);
         bodySize.setUserBodyType(userBodyType);
         //저장
@@ -78,11 +78,11 @@ public class UserBodySizeService {
         return bodySize;
     }
 
-    private UserBodyType decideBodyType(UserBodySizeRequestDto.UserSize userBodySizeRequestDto, Users users) {
+    private UserBodyType decideBodyType(BodySize bodySize, Users users) {
         if(users.getGender().equals("male")){
-            return userBodyTypeService.decideMaleBodyType(userBodySizeRequestDto,users);
+            return userBodyTypeService.decideMaleBodyType(bodySize.getChestSize(),bodySize.getHipSize(),bodySize.getShoulderSize(),bodySize.getWaistSize(),users);
         }else{
-            return userBodyTypeService.decideFemaleBodyType(userBodySizeRequestDto,users);
+            return userBodyTypeService.decideFemaleBodyType(bodySize.getChestSize(),bodySize.getHipSize(),bodySize.getShoulderSize(),bodySize.getWaistSize(),users);
         }
     }
     public Users findUserByUserImgId(Long id){
