@@ -21,10 +21,18 @@ public class UserBodyTypeService {
         double hip = bodySizeRequestDto.getHipSize();
         double waist = bodySizeRequestDto.getWaistSize();
 
+        //테스트 출력
+        System.out.println("Shoulder size (after *2): " + shoulder);
+        System.out.println("Hip size: " + hip);
+        System.out.println("Waist size: " + waist);
         double shoulderToWaistRatio = shoulder / waist;
         double shoulderToHipRatio = shoulder / hip;
         double waistToHipRatio = waist / hip;
-
+        System.out.println("Shoulder to Waist Ratio: " + shoulderToWaistRatio);
+        System.out.println("Shoulder to Hip Ratio: " + shoulderToHipRatio);
+        System.out.println("Waist to Hip Ratio: " + waistToHipRatio);
+        
+        
         BodyShape bodyShape = getMaleBodyShape(shoulderToWaistRatio, shoulderToHipRatio, waistToHipRatio);
         return UserBodyType.builder()
                 .bodyShape(bodyShape).users(users).build();
