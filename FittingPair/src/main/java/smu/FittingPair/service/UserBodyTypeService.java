@@ -37,7 +37,7 @@ public class UserBodyTypeService {
 
     private BodyShape getMaleBodyShape(double shoulderToWaistRatio, double shoulderToHipRatio, double waistToHipRatio) {
         // 남성 체형 판별
-        if (shoulderToWaistRatio <= 1.1 && shoulderToHipRatio <= 0.9 && waistToHipRatio >= 0.7) {
+        if (shoulderToWaistRatio <= 1.1 && shoulderToHipRatio <= 0.9 && waistToHipRatio >= 0.6) {
             return BodyShape.MALE_TRIANGLE; // 삼각형
         }
 
@@ -110,7 +110,7 @@ public class UserBodyTypeService {
 
     private BodyShape getFemaleBodyShape(double shoulderToWaistRatio, double shoulderToHipRatio, double waistToHipRatio) {
         // 여성 체형 판별
-        if (shoulderToWaistRatio <= 1.1 && shoulderToHipRatio <= 0.9 && waistToHipRatio >= 0.7) {
+        if (shoulderToWaistRatio <= 1.1 && shoulderToHipRatio <= 0.9 && waistToHipRatio >= 0.6) {
             return BodyShape.FEMALE_TRIANGLE;
         }  //삼각형
 
