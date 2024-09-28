@@ -36,8 +36,8 @@ public class UserDataSendService {
     private final UserBodyTypeService userBodyTypeService;
     private final RestTemplate restTemplate;
     private final UserBodyTypeRepository userBodyTypeRepository;
-    //private final String SERVER_ADDRESS = "http://localhost:8000";
-    private final String SERVER_ADDRESS = "http://175.45.194.59:8000";
+    //private final String SERVER_ADDRESS = "http://175.45.194.59:8000";
+    private final String SERVER_ADDRESS = "http://35.194.210.139:8000";
 
     //obj+userId to python server
     @Async
