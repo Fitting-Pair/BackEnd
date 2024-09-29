@@ -30,15 +30,11 @@ import java.util.Objects;
 @RequiredArgsConstructor
 @Service
 public class UserDataSendService {
-    private final UsersRepository usersRepository;
-    private final BodySizeRepository bodySizeRepository;
-    private final UserImgRepository userImgRepository;
-    private final UserBodyTypeService userBodyTypeService;
     private final RestTemplate restTemplate;
-    private final UserBodyTypeRepository userBodyTypeRepository;
     private final String SERVER_ADDRESS = "http://35.194.210.139:8000";
 
     //obj+userId to python server
+    @Async
     public void sendImg(Long imgId, byte [] fileBytes,String name){
         //헤더 설정
         HttpHeaders headers = new HttpHeaders();
