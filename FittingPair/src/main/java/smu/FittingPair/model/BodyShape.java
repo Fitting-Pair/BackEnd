@@ -873,7 +873,7 @@ public enum BodyShape {
 
         public static List<TopClothesItem> createClothesItems(String[]name,String [] brand, String []imageUrl, String []siteUrl){
             List<TopClothesItem> clothesItems = new ArrayList<>();
-            for(int i = 0; i<clothesItems.size(); i++){
+            for(int i = 0; i<10; i++){
                 clothesItems.add(TopClothesItem.builder().name(name[i]).brand(brand[i]).imageUrl(imageUrl[i]).siteUrl(siteUrl[i]).clothesCategory(ClothesCategory.TOP).build());
             }
             return clothesItems;
@@ -892,7 +892,7 @@ public enum BodyShape {
 
         public static List<BottomClothesItem> createBottomClothesItems(String[]name,String [] brand, String []imageUrl, String []siteUrl){
             List<BottomClothesItem> clothesItems = new ArrayList<>();
-            for(int i = 0; i<clothesItems.size(); i++){
+            for(int i = 0; i<10; i++){
                 clothesItems.add(BottomClothesItem.builder().name(name[i]).brand(brand[i]).imageUrl(imageUrl[i]).siteUrl(siteUrl[i]).clothesCategory(ClothesCategory.BOTTOM).build());
             }
             return clothesItems;
