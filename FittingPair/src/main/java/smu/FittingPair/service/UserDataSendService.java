@@ -39,7 +39,6 @@ public class UserDataSendService {
     private final String SERVER_ADDRESS = "http://35.194.210.139:8000";
 
     //obj+userId to python server
-    @Async
     public void sendImg(Long imgId, byte [] fileBytes,String name){
         //헤더 설정
         HttpHeaders headers = new HttpHeaders();

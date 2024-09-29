@@ -24,7 +24,7 @@ public class UserImgController {
         byte[] fileBytes = imageFile.getBytes();
         String name = imageFile.getOriginalFilename();
         Long imgId = userImgService.imgFileUpload(imageFile);
-        userDataSendService.sendImg(imgId,fileBytes,name); //비동기적 처리
+        userDataSendService.sendImg(imgId,fileBytes,name);
         return BaseResponse.ok(UserImgResponseDto.to(imgId));
     }
 }
