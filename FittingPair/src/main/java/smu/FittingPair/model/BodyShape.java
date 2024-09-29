@@ -870,6 +870,7 @@ public enum BodyShape {
         private String imageUrl;
         private String siteUrl;
         private ClothesCategory clothesCategory;
+        //수정
 
         public static List<TopClothesItem> createClothesItems(String[]name,String [] brand, String []imageUrl, String []siteUrl){
             List<TopClothesItem> clothesItems = new ArrayList<>();
