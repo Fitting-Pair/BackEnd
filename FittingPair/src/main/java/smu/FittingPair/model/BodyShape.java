@@ -47,15 +47,16 @@ public enum BodyShape {
                     new String[]{
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240808/4310909/4310909_17236111421303_big.jpg?w=1200",
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240919/4444159/4444159_17268040442866_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240315/3959012/3959012_17104923047166_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240315/3959012/3959012_17104923047166_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20220729/4278833/4278833_17245230937781_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20220201/2320294/2320294_16792540939781_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240420/3499264/3499264_1727875248038_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20220914/23202409/23202409_1652339383_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20220427/4375977/4375977_1724915269524_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20220422/4071968/4071968_17143514232924_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240821/4335382/4335382_17251724508408_big.jpg?w=1200"
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240315/3959215/3959215_17104920854007_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240315/3959012/3959012_17104923074169_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240729/4278833/4278833_17229254903977_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/prd_img/20220124/2322094/detail_2322094_5_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20230824/3492996/3492996_17047857248803_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20210902/2106349/2106349_17240622353983_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240827/4375977/4375977_17249156295254_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240422/4071968/4071968_17143514923924_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240821/4353582/4353582_17255172548048_big.jpg?w=1200"
+
                     },
                     new String[]{
                             "https://www.musinsa.com/products/4310909",
@@ -98,15 +99,17 @@ public enum BodyShape {
                     },
                     new String[]{
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240424/4081512/4081512_17174947418202_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240905/4409069/4409069_172017542301_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240822/4358030/4358030_17265980737218_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20231105/3714100/3714100_17104307322550_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240529/4165129/4165129_17169481542307_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240529/4165022/4165022_17186781859819_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20231215/3757512/3757512_17174324423793_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240402/4090593/4090593_1723698090538_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240426/4089373/4089373_17101217775509_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240906/4413974/4413974_1720597469437_big.jpg?w=1200"
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240905/4409069/4409069_17262017542301_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240822/4358030/4358030_17246590877812_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240822/4358030/4358030_17246590877812_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240529/4165129/4165129_17169814512307_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240529/4165022/4165022_17169781589918_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20231215/3757158/3757158_17128244327393_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240426/4089377/4089377_17171128770877_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/prd_img/20240802/4292900/detail_4292900_17236988205938_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240426/4089373/4089373_17171121147755_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240906/4413974/4413974_17261075496437_big.jpg?w=1200"
+
                     },
                     new String[]{
                             "https://www.musinsa.com/products/4081512",
@@ -155,14 +158,14 @@ public enum BodyShape {
                     new String[]{
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240819/4344555/4344555_17254594052985_big.jpg?w=1200",
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240807/4305674/4305674_17236134330113_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240805/4296049/4296049_17234731020467_big.jpg?w=1200",
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240903/4396634/4396634_17260344590585_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240903/4396660/4396660_17260344266716_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240903/4396624/4396624_17260344266176_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240420/4404292/4404292_172555001426386_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240802/4293019/4293019_17258152754602_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240903/4396608/4396608_17260344266716_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240904/4404292/4404292_17255001426386_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240802/4293019/4293019_17225815275640_big.jpg?w=1200",
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240919/4446254/4446254_17267425832525_big.jpg?w=1200",
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240827/4375926/4375926_17249160533408_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240821/4355520/4355520_17248800231327_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240821/4355520/4355520_17248080231327_big.jpg?w=1200",
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240820/4348636/4348636_17242432871440_big.jpg?w=1200"
                     },
                     new String[]{
@@ -210,14 +213,15 @@ public enum BodyShape {
                     new String[]{
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240820/4347792/4347792_17243959436604_big.jpg?w=1200",
                             "https://image.msscdn.net/thumbnails/images/goods_img/20240829/4382924/4382924_17252774589367_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20231027/3663415/3663415_1714370362057_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20230301/3056168/3056168_17138662122274_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240718/4258917/4258917_17247522977299_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20230806/4301871/4301871_17243704923658_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240606/4107797/4107797_17152660902020_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/snap/images/20240911/b75856af3eb74c8dabf76dd3b58e9ec7.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240606/4180711/4180711_1717658302946_big.jpg?w=1200",
-                            "https://image.msscdn.net/thumbnails/images/goods_img/20240827/3839625/3839625_17169597190651_big.jpg?w=1200"
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20231027/3663415/3663415_17143702163057_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20230201/3051668/3051668_17138662122274_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240718/4258918/4258918_17247529127229_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240806/4301871/4301871_17243740492638_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240506/4107797/4107797_17152660902020_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20231116/3715721/3715721_17260328655978_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/snap/images/2024/09/11/b75856af3eb74c8dabf76dd3b58e9ec7.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240606/4180711/4180711_17176358302946_big.jpg?w=1200",
+                            "https://image.msscdn.net/thumbnails/images/goods_img/20240201/3839625/3839625_17169597190651_big.jpg?w=1200"
                     },
                     new String[]{
                             "https://www.musinsa.com/products/4347792",
@@ -232,7 +236,7 @@ public enum BodyShape {
                             "https://www.musinsa.com/products/3839625"
                     }
             )),
-            MALE_OVAL("원형", "원형 체형의 남자는 복부 주위에 볼륨이 있어 전체적으로 원형에 가까운 체형을 가지고 있습니다. 이 체형은 상체 중심으로 무게감이 느껴지며, 비교적 짧은 목과 넓은 허리라인이 특징입니다. 이러한 체형의 남성에게는 실루엣을 길고 슬림하게 보이도록 하는 스타일링이 필요합니다. 세로 줄무늬 패턴의 셔츠나 니트를 선택하여 시각적으로 높이를 더해주고, V넥이나 열린 카라 디자인의 상의를 통해 목선을 길어 보이게 하는 것이 좋습니다. 또한, 상의는 몸에 약간 여유 있는 핏을 선택하여 복부를 자연스럽게 커버할 수 있습니다.\n" +
+            MALE_OVAL("타원형", "원형 체형의 남자는 복부 주위에 볼륨이 있어 전체적으로 원형에 가까운 체형을 가지고 있습니다. 이 체형은 상체 중심으로 무게감이 느껴지며, 비교적 짧은 목과 넓은 허리라인이 특징입니다. 이러한 체형의 남성에게는 실루엣을 길고 슬림하게 보이도록 하는 스타일링이 필요합니다. 세로 줄무늬 패턴의 셔츠나 니트를 선택하여 시각적으로 높이를 더해주고, V넥이나 열린 카라 디자인의 상의를 통해 목선을 길어 보이게 하는 것이 좋습니다. 또한, 상의는 몸에 약간 여유 있는 핏을 선택하여 복부를 자연스럽게 커버할 수 있습니다.\n" +
                             "\n" +
                             "하의는 스트레이트 핏이나 약간의 테이퍼드 핏을 선택하여 다리 라인을 깔끔하게 보이도록 하며, 상의와 비슷한 색상의 벨트를 사용하여 허리 라인을 정의하는 것이 좋습니다. 하의 색상은 상의보다 약간 어두운 톤을 선택하여 전체적인 비율을 조화롭게 만드는 것이 효과적입니다. 자켓이나 코트를 입을 때는 허리선이 드러나는 디자인보다는 스트레이트하게 떨어지는 스타일을 선택하는 것이 좋습니다.", "사각형 체형의 남성이 옷을 선택할 때 주의해야 할 점은 너무 박시하거나 너무 타이트한 옷은 피하는 것이 좋습니다. 박시한 옷은 체형의 단점을 강조할 수 있으며, 너무 타이트한 옷은 불편함을 줄 수 있습니다. 또한 너무 복잡한 패턴이나 큰 로고는 피하고, 심플하고 깔끔한 디자인을 선택하는 것이 전체적인 스타일링을 깔끔하게 만들어 줍니다. 체형의 단점을 커버하고 장점을 강조할 수 있는 스타일링을 추구하는 것이 중요합니다.",
                     TopClothesItem.createClothesItems(
@@ -267,13 +271,14 @@ public enum BodyShape {
                                     "https://image.msscdn.net/thumbnails/images/goods_img/20210823/2081571/2081571_16878489357266_big.jpg?w=1200",
                                     "https://image.msscdn.net/thumbnails/images/goods_img/20240124/3819474/3819474_17072880575633_big.jpg?w=1200",
                                     "https://image.msscdn.net/thumbnails/images/goods_img/20240806/4301097/4301097_17252412308350_big.jpg?w=1200",
-                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240809/3477735/3477735_16927827620325_big.jpg?w=1200",
-                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240729/4280331/detail_4280331_17235212336963_big.jpg?w=1200",
+                                    "https://image.msscdn.net/thumbnails/images/goods_img/20230819/3477735/3477735_16927827620325_big.jpg?w=1200",
+                                    "https://image.msscdn.net/thumbnails/images/prd_img/20240729/4280331/detail_4280331_17235212336963_big.jpg?w=1200",
                                     "https://image.msscdn.net/thumbnails/images/goods_img/20240125/3823537/3823537_17078187266567_big.jpg?w=1200",
                                     "https://image.msscdn.net/thumbnails/images/goods_img/20220927/2821852/2821852_1_big.jpg?w=1200",
                                     "https://image.msscdn.net/thumbnails/images/goods_img/20240912/4433896/4433896_17260672994173_big.jpg?w=1200",
                                     "https://image.msscdn.net/thumbnails/images/goods_img/20240731/4284658/4284658_17241334958200_big.jpg?w=1200",
                                     "https://image.msscdn.net/thumbnails/images/goods_img/20240808/4310574/4310574_17231058025309_big.jpg?w=1200"
+
                             },
                             new String[]{
                                     "https://www.musinsa.com/products/4306299",
@@ -317,16 +322,17 @@ public enum BodyShape {
                                     "오더아카이브"
                             },
                             new String[]{
-                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240911/4433871/4433871_17267924742148_big.jpg?w=1200",
-                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240826/4372478/4372478_1725378380983_big.jpg?w=1200",
-                                    "https://image.msscdn.net/thumbnails/images/goods_img/20230424/3256864/3256864_16823281281428_big.jpg?w=1200",
-                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240909/4422885/4422885_17258808520181_big.jpg?w=1200",
-                                    "https://image.msscdn.net/thumbnails/images/goods_img/20231105/3714100/detail_3714100_17200758005572_big.jpg?w=1200",
-                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240826/4372470/4372470_17253784882153_big.jpg?w=1200",
-                                    "https://image.msscdn.net/thumbnails/images/goods_img/20230920/3576618/3576618_1715954547587_big.jpg?w=1200",
-                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240828/4380125/detail_4380125_17272490599770_big.jpg?w=1200",
+                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240911/4433871/4433871_17267924744214_big.jpg?w=1200",
+                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240826/4372478/4372478_17253783780983_big.jpg?w=1200",
+                                    "https://image.msscdn.net/thumbnails/images/goods_img/20230424/3256864/3256864_16823281228142_big.jpg?w=1200",
+                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240909/4422885/4422885_17258801852011_big.jpg?w=1200",
+                                    "https://image.msscdn.net/thumbnails/images/prd_img/20231115/3714100/detail_3714100_17200758805572_big.jpg?w=1200",
+                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240826/4372470/4372470_17253784882513_big.jpg?w=1200",
+                                    "https://image.msscdn.net/thumbnails/images/goods_img/20230920/3576618/3576618_17115954547587_big.jpg?w=1200",
+                                    "https://image.msscdn.net/thumbnails/images/goods_img/20230731/3434944/3434944_16919981277003_big.jpg?w=1200",
+                                    "https://image.msscdn.net/thumbnails/images/prd_img/20240828/4380125/detail_4380125_17249105997707_big.jpg?w=1200",
                                     "https://image.msscdn.net/thumbnails/images/goods_img/20240808/4308187/4308187_17240877729234_big.jpg?w=1200",
-                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240517/2564089/2564089_17209102493181_big.jpg?w=1200"
+                                    "https://image.msscdn.net/thumbnails/images/goods_img/20220517/2564089/2564089_17091024931181_big.jpg?w=1200"
                             },
                             new String[]{
                                     "https://www.musinsa.com/products/4433871",
@@ -377,14 +383,14 @@ public enum BodyShape {
                                             "https://image.msscdn.net/thumbnails/images/goods_img/20240820/4348671/4348671_17242431203549_big.jpg?w=1200",
                                             "https://image.msscdn.net/thumbnails/images/goods_img/20240816/4339076/4339076_17261039304732_big.jpg?w=1200",
                                             "https://image.msscdn.net/thumbnails/images/goods_img/20230808/3451265/3451265_17237901730960_big.jpg?w=1200",
-                                            "https://image.msscdn.net/thumbnails/images/goods_img/20230127/3043045/3043045_16758476474406_big.jpg?w=1200",
+                                            "https://image.msscdn.net/thumbnails/images/goods_img/20230127/3043045/3043045_16758467474405_big.jpg?w=1200",
                                             "https://image.msscdn.net/thumbnails/images/goods_img/20240911/4430638/4430638_17260335899766_big.jpg?w=1200",
-                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240123/3818459/detail_3818459_17070659425251_3_big.jpg?w=1200",
-                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240226/3900403/3900403_17090297422383_big.jpg?w=1200",
+                                            "https://image.msscdn.net/thumbnails/images/prd_img/20240123/3814859/detail_3814859_17065942952513_big.jpg?w=1200",
+                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240226/3900403/3900403_17090297142233_big.jpg?w=1200",
                                             "https://image.msscdn.net/thumbnails/images/goods_img/20240820/4347055/4347055_17249829793442_big.jpg?w=1200",
                                             "https://image.msscdn.net/thumbnails/images/goods_img/20221226/2996536/2996536_17152499753602_big.jpg?w=1200",
                                             "https://image.msscdn.net/thumbnails/images/goods_img/20220118/2313388/2313388_16765930300318_big.jpg?w=1200",
-                                            "https://image.msscdn.net/thumbnails/images/goods_img/20230811/3461171/3461171_1691727518980_big.jpg?w=1200"
+                                            "https://image.msscdn.net/thumbnails/images/goods_img/20230811/3461171/3461171_16917272518980_big.jpg?w=1200"
                                     },
                                     new String[]{
                                             "https://www.musinsa.com/products/4348671",
@@ -428,14 +434,15 @@ public enum BodyShape {
                                     new String[]{
                                             "https://image.msscdn.net/thumbnails/images/goods_img/20240826/4372463/4372463_17253792400182_big.jpg?w=1200",
                                             "https://image.msscdn.net/thumbnails/images/goods_img/20221014/2861239/2861239_1_big.jpg?w=1200",
-                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240731/4284713/4284713_1724835696040_big.jpg?w=1200",
-                                            "https://image.msscdn.net/thumbnails/images/goods_img/20230403/3920059/3920059_17243936789613_big.jpg?w=1200",
-                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240129/3830284/3830284_17048495191253_big.jpg?w=1200",
+                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240731/4284713/4284713_17248356596040_big.jpg?w=1200",
+                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240304/3920059/3920059_17243946789613_big.jpg?w=1200",
+                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240129/3830284/3830284_17170454343439_big.jpg?w=1200",
+                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240129/3830268/3830268_17084991591235_big.jpg?w=1200",
                                             "https://image.msscdn.net/thumbnails/images/goods_img/20240306/3928873/3928873_17097220347158_big.jpg?w=1200",
-                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240816/4339093/4339093_17253550798986_big.jpg?w=1200",
+                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240816/4339032/4339032_17253550789896_big.jpg?w=1200",
+                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240821/4355710/4355710_17253545256981_big.jpg?w=1200",
                                             "https://image.msscdn.net/thumbnails/images/goods_img/20240822/4358823/4358823_17246592654166_big.jpg?w=1200",
-                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240820/4347053/4347053_17242454039233_big.jpg?w=1200",
-                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240820/4347178/4347178_17249829619447_big.jpg?w=1200"
+                                            "https://image.msscdn.net/thumbnails/images/goods_img/20240820/4347053/4347053_17242454039323_big.jpg?w=1200"
                                     },
                                     new String[]{
                                             "https://www.musinsa.com/products/4372463",
@@ -482,17 +489,17 @@ public enum BodyShape {
                                                     "세터"
                                             },
                                             new String[]{
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20210902/2106723/2106723_1724060139182_big.jpg?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240812/4318436/4318436_1724305890836_big.jpg?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240830/4390314/4390314_17252781970069_big.jpg?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240911/4430536/4430536_17260286083116_big.jpg?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240731/4287406/4287406_1722906613849_big.jpg?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240729/4278870/4278870_1722955158761_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20210902/2106723/2106723_17240601319182_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240812/4318436/4318436_17243058900836_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240830/4390314/4390314_17252781790069_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240911/4430536/4430536_17260286083115_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240731/4287406/4287406_17229066613849_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240729/4278870/4278870_17229255158761_big.jpg?w=1200",
                                                     "https://image.msscdn.net/thumbnails/images/goods_img/20210823/2081109/2081109_1_big.jpg?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240820/4347178/4347178_17249829793442_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240820/4347178/4347178_17249826194447_big.jpg?w=1200",
                                                     "https://image.msscdn.net/thumbnails/images/goods_img/20220214/2359413/2359413_17080536785645_big.jpg?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240730/4283564/4283564_17222373161754_big.jpg?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20230922/3589170/3589170_1698160589836_big.jpg?w=1200"
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240730/4283564/4283564_17223271361754_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20230922/3589170/3589170_16981560589836_big.jpg?w=1200"
                                             },
                                             new String[]{
                                                     "https://www.musinsa.com/products/2106723",
@@ -537,12 +544,13 @@ public enum BodyShape {
                                             },
                                             new String[]{
                                                     "https://image.msscdn.net/thumbnails/images/goods_img/20220124/2322096/2322096_1_big.jpg?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240729/4278826/4278826_1722953277553_big.jpg?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240805/4296406/4296406_1724993055281_big.jpg?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20230130/3046840/3046840_1676506320675_big.png?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240802/3859522/3859522_17171273009328_big.jpg?w=1200",
-                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240808/4308206/4308206_17240889475437_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240729/4278826/4278826_17229253277553_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240805/4296406/4296406_17249399365281_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20230130/3046840/3046840_16765306230675_big.png?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240208/3859522/3859522_17171273009328_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20240808/4308206/4308206_17240889445737_big.jpg?w=1200",
                                                     "https://image.msscdn.net/thumbnails/images/goods_img/20220328/2447796/2447796_1_big.jpg?w=1200",
+                                                    "https://image.msscdn.net/thumbnails/images/goods_img/20231118/3721769/3721769_17002849882563_big.jpg?w=1200",
                                                     "https://image.msscdn.net/thumbnails/images/goods_img/20200206/1294464/1294464_1_big.jpg?w=1200",
                                                     "https://image.msscdn.net/thumbnails/images/goods_img/20240116/3797063/3797063_17243932348228_big.jpg?w=1200",
                                                     "https://image.msscdn.net/thumbnails/images/goods_img/20240119/3807869/3807869_17061910804370_big.jpg?w=1200"
